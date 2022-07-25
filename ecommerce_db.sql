@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : LOCAL
+ Source Server         : Local Mysql
  Source Server Type    : MySQL
  Source Server Version : 50738
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50738
  File Encoding         : 65001
 
- Date: 19/07/2022 14:53:13
+ Date: 25/07/2022 11:12:03
 */
 
 SET NAMES utf8mb4;
@@ -32,7 +32,7 @@ CREATE TABLE `admin_menu`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_menu
@@ -51,6 +51,8 @@ INSERT INTO `admin_menu` VALUES (11, 0, 0, 'Акции', 'fa-dollar', '/promotio
 INSERT INTO `admin_menu` VALUES (12, 0, 0, 'Сервисы', 'fa-user', '/services', NULL, '2022-06-30 04:39:40', '2022-06-30 04:39:40');
 INSERT INTO `admin_menu` VALUES (13, 0, 0, 'Баннеры', 'fa-image', '/banners', NULL, '2022-07-04 09:47:21', '2022-07-04 10:33:04');
 INSERT INTO `admin_menu` VALUES (14, 0, 0, 'Публикации', 'fa-newspaper-o', 'posts', NULL, '2022-07-04 10:51:41', '2022-07-04 10:51:41');
+INSERT INTO `admin_menu` VALUES (15, 0, 0, 'Заказы', 'fa-truck', '/orders', NULL, '2022-07-20 10:13:47', '2022-07-20 10:13:47');
+INSERT INTO `admin_menu` VALUES (16, 0, 0, 'Настройки', 'fa-cog', '/settings', NULL, '2022-07-21 10:40:46', '2022-07-21 10:40:46');
 
 -- ----------------------------
 -- Table structure for admin_operation_log
@@ -67,7 +69,7 @@ CREATE TABLE `admin_operation_log`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `admin_operation_log_user_id_index`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1342 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2225 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_operation_log
@@ -1413,6 +1415,889 @@ INSERT INTO `admin_operation_log` VALUES (1338, 1, 'admin/posts', 'GET', '127.0.
 INSERT INTO `admin_operation_log` VALUES (1339, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-06 11:17:53', '2022-07-06 11:17:53');
 INSERT INTO `admin_operation_log` VALUES (1340, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_sort\":{\"column\":\"id\",\"type\":\"desc\"}}', '2022-07-06 11:17:58', '2022-07-06 11:17:58');
 INSERT INTO `admin_operation_log` VALUES (1341, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_sort\":{\"column\":\"id\",\"type\":\"asc\"}}', '2022-07-06 11:18:00', '2022-07-06 11:18:00');
+INSERT INTO `admin_operation_log` VALUES (1342, 1, 'admin/auth/login', 'GET', '127.0.0.1', '[]', '2022-07-20 10:07:47', '2022-07-20 10:07:47');
+INSERT INTO `admin_operation_log` VALUES (1343, 1, 'admin', 'GET', '127.0.0.1', '[]', '2022-07-20 10:07:48', '2022-07-20 10:07:48');
+INSERT INTO `admin_operation_log` VALUES (1344, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:07:54', '2022-07-20 10:07:54');
+INSERT INTO `admin_operation_log` VALUES (1345, 1, 'admin/promotions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:07:58', '2022-07-20 10:07:58');
+INSERT INTO `admin_operation_log` VALUES (1346, 1, 'admin', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:07:59', '2022-07-20 10:07:59');
+INSERT INTO `admin_operation_log` VALUES (1347, 1, 'admin/brands', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:08:03', '2022-07-20 10:08:03');
+INSERT INTO `admin_operation_log` VALUES (1348, 1, 'admin/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:08:03', '2022-07-20 10:08:03');
+INSERT INTO `admin_operation_log` VALUES (1349, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:08:04', '2022-07-20 10:08:04');
+INSERT INTO `admin_operation_log` VALUES (1350, 1, 'admin/promotions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:08:05', '2022-07-20 10:08:05');
+INSERT INTO `admin_operation_log` VALUES (1351, 1, 'admin/banners', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:08:05', '2022-07-20 10:08:05');
+INSERT INTO `admin_operation_log` VALUES (1352, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:08:06', '2022-07-20 10:08:06');
+INSERT INTO `admin_operation_log` VALUES (1353, 1, 'admin/services', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:08:10', '2022-07-20 10:08:10');
+INSERT INTO `admin_operation_log` VALUES (1354, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:08:12', '2022-07-20 10:08:12');
+INSERT INTO `admin_operation_log` VALUES (1355, 1, 'admin/banners', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:08:13', '2022-07-20 10:08:13');
+INSERT INTO `admin_operation_log` VALUES (1356, 1, 'admin/brands', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:08:15', '2022-07-20 10:08:15');
+INSERT INTO `admin_operation_log` VALUES (1357, 1, 'admin/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:08:16', '2022-07-20 10:08:16');
+INSERT INTO `admin_operation_log` VALUES (1358, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:08:18', '2022-07-20 10:08:18');
+INSERT INTO `admin_operation_log` VALUES (1359, 1, 'admin/promotions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:08:19', '2022-07-20 10:08:19');
+INSERT INTO `admin_operation_log` VALUES (1360, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:12:06', '2022-07-20 10:12:06');
+INSERT INTO `admin_operation_log` VALUES (1361, 1, 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"\\u0417\\u0430\\u043a\\u0430\\u0437\\u044b\",\"icon\":\"fa-truck\",\"uri\":\"\\/orders\",\"roles\":[null],\"permission\":null,\"_token\":\"i8kUmQn6DOC96J2i6BeA4mDMl0jgwvoTvGDrrQYY\"}', '2022-07-20 10:13:47', '2022-07-20 10:13:47');
+INSERT INTO `admin_operation_log` VALUES (1362, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2022-07-20 10:13:47', '2022-07-20 10:13:47');
+INSERT INTO `admin_operation_log` VALUES (1363, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2022-07-20 10:13:48', '2022-07-20 10:13:48');
+INSERT INTO `admin_operation_log` VALUES (1364, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:14:30', '2022-07-20 10:14:30');
+INSERT INTO `admin_operation_log` VALUES (1365, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:16:02', '2022-07-20 10:16:02');
+INSERT INTO `admin_operation_log` VALUES (1366, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:18:38', '2022-07-20 10:18:38');
+INSERT INTO `admin_operation_log` VALUES (1367, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:19:02', '2022-07-20 10:19:02');
+INSERT INTO `admin_operation_log` VALUES (1368, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:19:11', '2022-07-20 10:19:11');
+INSERT INTO `admin_operation_log` VALUES (1369, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:19:49', '2022-07-20 10:19:49');
+INSERT INTO `admin_operation_log` VALUES (1370, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:19:57', '2022-07-20 10:19:57');
+INSERT INTO `admin_operation_log` VALUES (1371, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:20:33', '2022-07-20 10:20:33');
+INSERT INTO `admin_operation_log` VALUES (1372, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:21:57', '2022-07-20 10:21:57');
+INSERT INTO `admin_operation_log` VALUES (1373, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:22:09', '2022-07-20 10:22:09');
+INSERT INTO `admin_operation_log` VALUES (1374, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:23:10', '2022-07-20 10:23:10');
+INSERT INTO `admin_operation_log` VALUES (1375, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:23:58', '2022-07-20 10:23:58');
+INSERT INTO `admin_operation_log` VALUES (1376, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:24:43', '2022-07-20 10:24:43');
+INSERT INTO `admin_operation_log` VALUES (1377, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:25:22', '2022-07-20 10:25:22');
+INSERT INTO `admin_operation_log` VALUES (1378, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:26:50', '2022-07-20 10:26:50');
+INSERT INTO `admin_operation_log` VALUES (1379, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:27:07', '2022-07-20 10:27:07');
+INSERT INTO `admin_operation_log` VALUES (1380, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:30:30', '2022-07-20 10:30:30');
+INSERT INTO `admin_operation_log` VALUES (1381, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:30:34', '2022-07-20 10:30:34');
+INSERT INTO `admin_operation_log` VALUES (1382, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:30:40', '2022-07-20 10:30:40');
+INSERT INTO `admin_operation_log` VALUES (1383, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:31:17', '2022-07-20 10:31:17');
+INSERT INTO `admin_operation_log` VALUES (1384, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:31:25', '2022-07-20 10:31:25');
+INSERT INTO `admin_operation_log` VALUES (1385, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:32:02', '2022-07-20 10:32:02');
+INSERT INTO `admin_operation_log` VALUES (1386, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"payment_type\":null,\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:32:19', '2022-07-20 10:32:19');
+INSERT INTO `admin_operation_log` VALUES (1387, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:32:21', '2022-07-20 10:32:21');
+INSERT INTO `admin_operation_log` VALUES (1388, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 10:33:05', '2022-07-20 10:33:05');
+INSERT INTO `admin_operation_log` VALUES (1389, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"status\":[\"1\"],\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:33:10', '2022-07-20 10:33:10');
+INSERT INTO `admin_operation_log` VALUES (1390, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"status\":[\"2\"],\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:33:14', '2022-07-20 10:33:14');
+INSERT INTO `admin_operation_log` VALUES (1391, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"status\":[\"2\"]}', '2022-07-20 10:34:35', '2022-07-20 10:34:35');
+INSERT INTO `admin_operation_log` VALUES (1392, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"status\":[\"2\"]}', '2022-07-20 10:35:35', '2022-07-20 10:35:35');
+INSERT INTO `admin_operation_log` VALUES (1393, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"status\":[\"2\"],\"_sort\":{\"column\":\"status\",\"type\":\"desc\"},\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:35:42', '2022-07-20 10:35:42');
+INSERT INTO `admin_operation_log` VALUES (1394, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"status\":[\"2\"],\"_sort\":{\"column\":\"status\",\"type\":\"asc\"},\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:35:42', '2022-07-20 10:35:42');
+INSERT INTO `admin_operation_log` VALUES (1395, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"},\"status\":[\"2\"],\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:35:45', '2022-07-20 10:35:45');
+INSERT INTO `admin_operation_log` VALUES (1396, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"},\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:35:46', '2022-07-20 10:35:46');
+INSERT INTO `admin_operation_log` VALUES (1397, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:36:02', '2022-07-20 10:36:02');
+INSERT INTO `admin_operation_log` VALUES (1398, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:36:27', '2022-07-20 10:36:27');
+INSERT INTO `admin_operation_log` VALUES (1399, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:42:45', '2022-07-20 10:42:45');
+INSERT INTO `admin_operation_log` VALUES (1400, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:42:59', '2022-07-20 10:42:59');
+INSERT INTO `admin_operation_log` VALUES (1401, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:43:19', '2022-07-20 10:43:19');
+INSERT INTO `admin_operation_log` VALUES (1402, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:43:25', '2022-07-20 10:43:25');
+INSERT INTO `admin_operation_log` VALUES (1403, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:43:26', '2022-07-20 10:43:26');
+INSERT INTO `admin_operation_log` VALUES (1404, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:43:31', '2022-07-20 10:43:31');
+INSERT INTO `admin_operation_log` VALUES (1405, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:44:09', '2022-07-20 10:44:09');
+INSERT INTO `admin_operation_log` VALUES (1406, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:44:15', '2022-07-20 10:44:15');
+INSERT INTO `admin_operation_log` VALUES (1407, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:44:24', '2022-07-20 10:44:24');
+INSERT INTO `admin_operation_log` VALUES (1408, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:45:55', '2022-07-20 10:45:55');
+INSERT INTO `admin_operation_log` VALUES (1409, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:46:59', '2022-07-20 10:46:59');
+INSERT INTO `admin_operation_log` VALUES (1410, 1, 'admin/_handle_selectable_', 'GET', '127.0.0.1', '{\"selectable\":\"App_Admin_Selectable_Product\",\"args\":[\"1\"]}', '2022-07-20 10:47:02', '2022-07-20 10:47:02');
+INSERT INTO `admin_operation_log` VALUES (1411, 1, 'admin/_handle_selectable_', 'GET', '127.0.0.1', '{\"selectable\":\"App_Admin_Selectable_Product\",\"args\":[\"1\"]}', '2022-07-20 10:48:00', '2022-07-20 10:48:00');
+INSERT INTO `admin_operation_log` VALUES (1412, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:48:20', '2022-07-20 10:48:20');
+INSERT INTO `admin_operation_log` VALUES (1413, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:48:38', '2022-07-20 10:48:38');
+INSERT INTO `admin_operation_log` VALUES (1414, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-20 10:48:44', '2022-07-20 10:48:44');
+INSERT INTO `admin_operation_log` VALUES (1415, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 10:48:46', '2022-07-20 10:48:46');
+INSERT INTO `admin_operation_log` VALUES (1416, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:50:14', '2022-07-20 10:50:14');
+INSERT INTO `admin_operation_log` VALUES (1417, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:50:20', '2022-07-20 10:50:20');
+INSERT INTO `admin_operation_log` VALUES (1418, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:50:33', '2022-07-20 10:50:33');
+INSERT INTO `admin_operation_log` VALUES (1419, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:50:46', '2022-07-20 10:50:46');
+INSERT INTO `admin_operation_log` VALUES (1420, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:51:18', '2022-07-20 10:51:18');
+INSERT INTO `admin_operation_log` VALUES (1421, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:51:25', '2022-07-20 10:51:25');
+INSERT INTO `admin_operation_log` VALUES (1422, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:51:30', '2022-07-20 10:51:30');
+INSERT INTO `admin_operation_log` VALUES (1423, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:52:50', '2022-07-20 10:52:50');
+INSERT INTO `admin_operation_log` VALUES (1424, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:52:55', '2022-07-20 10:52:55');
+INSERT INTO `admin_operation_log` VALUES (1425, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:53:09', '2022-07-20 10:53:09');
+INSERT INTO `admin_operation_log` VALUES (1426, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:53:17', '2022-07-20 10:53:17');
+INSERT INTO `admin_operation_log` VALUES (1427, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:55:59', '2022-07-20 10:55:59');
+INSERT INTO `admin_operation_log` VALUES (1428, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:56:44', '2022-07-20 10:56:44');
+INSERT INTO `admin_operation_log` VALUES (1429, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:56:47', '2022-07-20 10:56:47');
+INSERT INTO `admin_operation_log` VALUES (1430, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:57:06', '2022-07-20 10:57:06');
+INSERT INTO `admin_operation_log` VALUES (1431, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:57:08', '2022-07-20 10:57:08');
+INSERT INTO `admin_operation_log` VALUES (1432, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:57:29', '2022-07-20 10:57:29');
+INSERT INTO `admin_operation_log` VALUES (1433, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:57:30', '2022-07-20 10:57:30');
+INSERT INTO `admin_operation_log` VALUES (1434, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:57:40', '2022-07-20 10:57:40');
+INSERT INTO `admin_operation_log` VALUES (1435, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:57:52', '2022-07-20 10:57:52');
+INSERT INTO `admin_operation_log` VALUES (1436, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:57:55', '2022-07-20 10:57:55');
+INSERT INTO `admin_operation_log` VALUES (1437, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:58:15', '2022-07-20 10:58:15');
+INSERT INTO `admin_operation_log` VALUES (1438, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:59:12', '2022-07-20 10:59:12');
+INSERT INTO `admin_operation_log` VALUES (1439, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:59:17', '2022-07-20 10:59:17');
+INSERT INTO `admin_operation_log` VALUES (1440, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:59:54', '2022-07-20 10:59:54');
+INSERT INTO `admin_operation_log` VALUES (1441, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 10:59:58', '2022-07-20 10:59:58');
+INSERT INTO `admin_operation_log` VALUES (1442, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:00:09', '2022-07-20 11:00:09');
+INSERT INTO `admin_operation_log` VALUES (1443, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:00:09', '2022-07-20 11:00:09');
+INSERT INTO `admin_operation_log` VALUES (1444, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:00:10', '2022-07-20 11:00:10');
+INSERT INTO `admin_operation_log` VALUES (1445, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:00:10', '2022-07-20 11:00:10');
+INSERT INTO `admin_operation_log` VALUES (1446, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:00:10', '2022-07-20 11:00:10');
+INSERT INTO `admin_operation_log` VALUES (1447, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:00:10', '2022-07-20 11:00:10');
+INSERT INTO `admin_operation_log` VALUES (1448, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:00:15', '2022-07-20 11:00:15');
+INSERT INTO `admin_operation_log` VALUES (1449, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:00:16', '2022-07-20 11:00:16');
+INSERT INTO `admin_operation_log` VALUES (1450, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:00:17', '2022-07-20 11:00:17');
+INSERT INTO `admin_operation_log` VALUES (1451, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:00:17', '2022-07-20 11:00:17');
+INSERT INTO `admin_operation_log` VALUES (1452, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:00:18', '2022-07-20 11:00:18');
+INSERT INTO `admin_operation_log` VALUES (1453, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:21:48', '2022-07-20 11:21:48');
+INSERT INTO `admin_operation_log` VALUES (1454, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:22:11', '2022-07-20 11:22:11');
+INSERT INTO `admin_operation_log` VALUES (1455, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:22:17', '2022-07-20 11:22:17');
+INSERT INTO `admin_operation_log` VALUES (1456, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:23:07', '2022-07-20 11:23:07');
+INSERT INTO `admin_operation_log` VALUES (1457, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:23:42', '2022-07-20 11:23:42');
+INSERT INTO `admin_operation_log` VALUES (1458, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:24:33', '2022-07-20 11:24:33');
+INSERT INTO `admin_operation_log` VALUES (1459, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:25:01', '2022-07-20 11:25:01');
+INSERT INTO `admin_operation_log` VALUES (1460, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:26:01', '2022-07-20 11:26:01');
+INSERT INTO `admin_operation_log` VALUES (1461, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:26:09', '2022-07-20 11:26:09');
+INSERT INTO `admin_operation_log` VALUES (1462, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:26:25', '2022-07-20 11:26:25');
+INSERT INTO `admin_operation_log` VALUES (1463, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 11:27:24', '2022-07-20 11:27:24');
+INSERT INTO `admin_operation_log` VALUES (1464, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 11:31:31', '2022-07-20 11:31:31');
+INSERT INTO `admin_operation_log` VALUES (1465, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 11:32:27', '2022-07-20 11:32:27');
+INSERT INTO `admin_operation_log` VALUES (1466, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 11:32:30', '2022-07-20 11:32:30');
+INSERT INTO `admin_operation_log` VALUES (1467, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:33:49', '2022-07-20 11:33:49');
+INSERT INTO `admin_operation_log` VALUES (1468, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:33:54', '2022-07-20 11:33:54');
+INSERT INTO `admin_operation_log` VALUES (1469, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:33:57', '2022-07-20 11:33:57');
+INSERT INTO `admin_operation_log` VALUES (1470, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:34:03', '2022-07-20 11:34:03');
+INSERT INTO `admin_operation_log` VALUES (1471, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:34:08', '2022-07-20 11:34:08');
+INSERT INTO `admin_operation_log` VALUES (1472, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:34:16', '2022-07-20 11:34:16');
+INSERT INTO `admin_operation_log` VALUES (1473, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:34:26', '2022-07-20 11:34:26');
+INSERT INTO `admin_operation_log` VALUES (1474, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:34:34', '2022-07-20 11:34:34');
+INSERT INTO `admin_operation_log` VALUES (1475, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:34:37', '2022-07-20 11:34:37');
+INSERT INTO `admin_operation_log` VALUES (1476, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:34:40', '2022-07-20 11:34:40');
+INSERT INTO `admin_operation_log` VALUES (1477, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:35:49', '2022-07-20 11:35:49');
+INSERT INTO `admin_operation_log` VALUES (1478, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:36:17', '2022-07-20 11:36:17');
+INSERT INTO `admin_operation_log` VALUES (1479, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:36:22', '2022-07-20 11:36:22');
+INSERT INTO `admin_operation_log` VALUES (1480, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:36:45', '2022-07-20 11:36:45');
+INSERT INTO `admin_operation_log` VALUES (1481, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:36:46', '2022-07-20 11:36:46');
+INSERT INTO `admin_operation_log` VALUES (1482, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:36:51', '2022-07-20 11:36:51');
+INSERT INTO `admin_operation_log` VALUES (1483, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:37:07', '2022-07-20 11:37:07');
+INSERT INTO `admin_operation_log` VALUES (1484, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:37:15', '2022-07-20 11:37:15');
+INSERT INTO `admin_operation_log` VALUES (1485, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:37:25', '2022-07-20 11:37:25');
+INSERT INTO `admin_operation_log` VALUES (1486, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:37:32', '2022-07-20 11:37:32');
+INSERT INTO `admin_operation_log` VALUES (1487, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:37:35', '2022-07-20 11:37:35');
+INSERT INTO `admin_operation_log` VALUES (1488, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:37:48', '2022-07-20 11:37:48');
+INSERT INTO `admin_operation_log` VALUES (1489, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:37:56', '2022-07-20 11:37:56');
+INSERT INTO `admin_operation_log` VALUES (1490, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:38:14', '2022-07-20 11:38:14');
+INSERT INTO `admin_operation_log` VALUES (1491, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:38:38', '2022-07-20 11:38:38');
+INSERT INTO `admin_operation_log` VALUES (1492, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:39:09', '2022-07-20 11:39:09');
+INSERT INTO `admin_operation_log` VALUES (1493, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:39:14', '2022-07-20 11:39:14');
+INSERT INTO `admin_operation_log` VALUES (1494, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:39:21', '2022-07-20 11:39:21');
+INSERT INTO `admin_operation_log` VALUES (1495, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:39:27', '2022-07-20 11:39:27');
+INSERT INTO `admin_operation_log` VALUES (1496, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:41:39', '2022-07-20 11:41:39');
+INSERT INTO `admin_operation_log` VALUES (1497, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:42:25', '2022-07-20 11:42:25');
+INSERT INTO `admin_operation_log` VALUES (1498, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:42:35', '2022-07-20 11:42:35');
+INSERT INTO `admin_operation_log` VALUES (1499, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:44:51', '2022-07-20 11:44:51');
+INSERT INTO `admin_operation_log` VALUES (1500, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:45:01', '2022-07-20 11:45:01');
+INSERT INTO `admin_operation_log` VALUES (1501, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:45:13', '2022-07-20 11:45:13');
+INSERT INTO `admin_operation_log` VALUES (1502, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:45:24', '2022-07-20 11:45:24');
+INSERT INTO `admin_operation_log` VALUES (1503, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:45:29', '2022-07-20 11:45:29');
+INSERT INTO `admin_operation_log` VALUES (1504, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:47:12', '2022-07-20 11:47:12');
+INSERT INTO `admin_operation_log` VALUES (1505, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:47:18', '2022-07-20 11:47:18');
+INSERT INTO `admin_operation_log` VALUES (1506, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:47:21', '2022-07-20 11:47:21');
+INSERT INTO `admin_operation_log` VALUES (1507, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:52:59', '2022-07-20 11:52:59');
+INSERT INTO `admin_operation_log` VALUES (1508, 1, 'admin/products/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 11:53:02', '2022-07-20 11:53:02');
+INSERT INTO `admin_operation_log` VALUES (1509, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 11:53:04', '2022-07-20 11:53:04');
+INSERT INTO `admin_operation_log` VALUES (1510, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:53:48', '2022-07-20 11:53:48');
+INSERT INTO `admin_operation_log` VALUES (1511, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:53:56', '2022-07-20 11:53:56');
+INSERT INTO `admin_operation_log` VALUES (1512, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:54:00', '2022-07-20 11:54:00');
+INSERT INTO `admin_operation_log` VALUES (1513, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:54:04', '2022-07-20 11:54:04');
+INSERT INTO `admin_operation_log` VALUES (1514, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:54:14', '2022-07-20 11:54:14');
+INSERT INTO `admin_operation_log` VALUES (1515, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:54:20', '2022-07-20 11:54:20');
+INSERT INTO `admin_operation_log` VALUES (1516, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:54:32', '2022-07-20 11:54:32');
+INSERT INTO `admin_operation_log` VALUES (1517, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:54:34', '2022-07-20 11:54:34');
+INSERT INTO `admin_operation_log` VALUES (1518, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:54:47', '2022-07-20 11:54:47');
+INSERT INTO `admin_operation_log` VALUES (1519, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:54:52', '2022-07-20 11:54:52');
+INSERT INTO `admin_operation_log` VALUES (1520, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:55:21', '2022-07-20 11:55:21');
+INSERT INTO `admin_operation_log` VALUES (1521, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:55:30', '2022-07-20 11:55:30');
+INSERT INTO `admin_operation_log` VALUES (1522, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:55:38', '2022-07-20 11:55:38');
+INSERT INTO `admin_operation_log` VALUES (1523, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:55:42', '2022-07-20 11:55:42');
+INSERT INTO `admin_operation_log` VALUES (1524, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:55:46', '2022-07-20 11:55:46');
+INSERT INTO `admin_operation_log` VALUES (1525, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:55:59', '2022-07-20 11:55:59');
+INSERT INTO `admin_operation_log` VALUES (1526, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:56:35', '2022-07-20 11:56:35');
+INSERT INTO `admin_operation_log` VALUES (1527, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:56:44', '2022-07-20 11:56:44');
+INSERT INTO `admin_operation_log` VALUES (1528, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:56:52', '2022-07-20 11:56:52');
+INSERT INTO `admin_operation_log` VALUES (1529, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:56:55', '2022-07-20 11:56:55');
+INSERT INTO `admin_operation_log` VALUES (1530, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:57:12', '2022-07-20 11:57:12');
+INSERT INTO `admin_operation_log` VALUES (1531, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:57:32', '2022-07-20 11:57:32');
+INSERT INTO `admin_operation_log` VALUES (1532, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:58:52', '2022-07-20 11:58:52');
+INSERT INTO `admin_operation_log` VALUES (1533, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:59:13', '2022-07-20 11:59:13');
+INSERT INTO `admin_operation_log` VALUES (1534, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:59:22', '2022-07-20 11:59:22');
+INSERT INTO `admin_operation_log` VALUES (1535, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:59:28', '2022-07-20 11:59:28');
+INSERT INTO `admin_operation_log` VALUES (1536, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 11:59:32', '2022-07-20 11:59:32');
+INSERT INTO `admin_operation_log` VALUES (1537, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:00:45', '2022-07-20 12:00:45');
+INSERT INTO `admin_operation_log` VALUES (1538, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:00:54', '2022-07-20 12:00:54');
+INSERT INTO `admin_operation_log` VALUES (1539, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:01:00', '2022-07-20 12:01:00');
+INSERT INTO `admin_operation_log` VALUES (1540, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:01:04', '2022-07-20 12:01:04');
+INSERT INTO `admin_operation_log` VALUES (1541, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:01:48', '2022-07-20 12:01:48');
+INSERT INTO `admin_operation_log` VALUES (1542, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 12:02:11', '2022-07-20 12:02:11');
+INSERT INTO `admin_operation_log` VALUES (1543, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 12:05:39', '2022-07-20 12:05:39');
+INSERT INTO `admin_operation_log` VALUES (1544, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"},\"_pjax\":\"#pjax-container\"}', '2022-07-20 12:05:41', '2022-07-20 12:05:41');
+INSERT INTO `admin_operation_log` VALUES (1545, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 12:05:45', '2022-07-20 12:05:45');
+INSERT INTO `admin_operation_log` VALUES (1546, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:06:04', '2022-07-20 12:06:04');
+INSERT INTO `admin_operation_log` VALUES (1547, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:06:43', '2022-07-20 12:06:43');
+INSERT INTO `admin_operation_log` VALUES (1548, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:07:02', '2022-07-20 12:07:02');
+INSERT INTO `admin_operation_log` VALUES (1549, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:07:09', '2022-07-20 12:07:09');
+INSERT INTO `admin_operation_log` VALUES (1550, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:07:11', '2022-07-20 12:07:11');
+INSERT INTO `admin_operation_log` VALUES (1551, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:07:19', '2022-07-20 12:07:19');
+INSERT INTO `admin_operation_log` VALUES (1552, 1, 'admin/services', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 12:07:30', '2022-07-20 12:07:30');
+INSERT INTO `admin_operation_log` VALUES (1553, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 12:07:31', '2022-07-20 12:07:31');
+INSERT INTO `admin_operation_log` VALUES (1554, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 12:21:42', '2022-07-20 12:21:42');
+INSERT INTO `admin_operation_log` VALUES (1555, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 12:22:33', '2022-07-20 12:22:33');
+INSERT INTO `admin_operation_log` VALUES (1556, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 12:22:43', '2022-07-20 12:22:43');
+INSERT INTO `admin_operation_log` VALUES (1557, 1, 'admin/orders/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 12:22:45', '2022-07-20 12:22:45');
+INSERT INTO `admin_operation_log` VALUES (1558, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 12:32:47', '2022-07-20 12:32:47');
+INSERT INTO `admin_operation_log` VALUES (1559, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 12:37:06', '2022-07-20 12:37:06');
+INSERT INTO `admin_operation_log` VALUES (1560, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-20 12:37:10', '2022-07-20 12:37:10');
+INSERT INTO `admin_operation_log` VALUES (1561, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-20 12:37:16', '2022-07-20 12:37:16');
+INSERT INTO `admin_operation_log` VALUES (1562, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:44:32', '2022-07-20 12:44:32');
+INSERT INTO `admin_operation_log` VALUES (1563, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:45:08', '2022-07-20 12:45:08');
+INSERT INTO `admin_operation_log` VALUES (1564, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:48:31', '2022-07-20 12:48:31');
+INSERT INTO `admin_operation_log` VALUES (1565, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:49:30', '2022-07-20 12:49:30');
+INSERT INTO `admin_operation_log` VALUES (1566, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:49:40', '2022-07-20 12:49:40');
+INSERT INTO `admin_operation_log` VALUES (1567, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:50:41', '2022-07-20 12:50:41');
+INSERT INTO `admin_operation_log` VALUES (1568, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:50:57', '2022-07-20 12:50:57');
+INSERT INTO `admin_operation_log` VALUES (1569, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:51:05', '2022-07-20 12:51:05');
+INSERT INTO `admin_operation_log` VALUES (1570, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:51:10', '2022-07-20 12:51:10');
+INSERT INTO `admin_operation_log` VALUES (1571, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:51:22', '2022-07-20 12:51:22');
+INSERT INTO `admin_operation_log` VALUES (1572, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:54:50', '2022-07-20 12:54:50');
+INSERT INTO `admin_operation_log` VALUES (1573, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:55:02', '2022-07-20 12:55:02');
+INSERT INTO `admin_operation_log` VALUES (1574, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:55:08', '2022-07-20 12:55:08');
+INSERT INTO `admin_operation_log` VALUES (1575, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:55:11', '2022-07-20 12:55:11');
+INSERT INTO `admin_operation_log` VALUES (1576, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:55:17', '2022-07-20 12:55:17');
+INSERT INTO `admin_operation_log` VALUES (1577, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 12:55:19', '2022-07-20 12:55:19');
+INSERT INTO `admin_operation_log` VALUES (1578, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:06:08', '2022-07-20 13:06:08');
+INSERT INTO `admin_operation_log` VALUES (1579, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:06:15', '2022-07-20 13:06:15');
+INSERT INTO `admin_operation_log` VALUES (1580, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:06:24', '2022-07-20 13:06:24');
+INSERT INTO `admin_operation_log` VALUES (1581, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:06:26', '2022-07-20 13:06:26');
+INSERT INTO `admin_operation_log` VALUES (1582, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:06:31', '2022-07-20 13:06:31');
+INSERT INTO `admin_operation_log` VALUES (1583, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:06:46', '2022-07-20 13:06:46');
+INSERT INTO `admin_operation_log` VALUES (1584, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:06:55', '2022-07-20 13:06:55');
+INSERT INTO `admin_operation_log` VALUES (1585, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:07:01', '2022-07-20 13:07:01');
+INSERT INTO `admin_operation_log` VALUES (1586, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:07:02', '2022-07-20 13:07:02');
+INSERT INTO `admin_operation_log` VALUES (1587, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:07:06', '2022-07-20 13:07:06');
+INSERT INTO `admin_operation_log` VALUES (1588, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:07:10', '2022-07-20 13:07:10');
+INSERT INTO `admin_operation_log` VALUES (1589, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:07:18', '2022-07-20 13:07:18');
+INSERT INTO `admin_operation_log` VALUES (1590, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:07:25', '2022-07-20 13:07:25');
+INSERT INTO `admin_operation_log` VALUES (1591, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:07:35', '2022-07-20 13:07:35');
+INSERT INTO `admin_operation_log` VALUES (1592, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:07:44', '2022-07-20 13:07:44');
+INSERT INTO `admin_operation_log` VALUES (1593, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:07:52', '2022-07-20 13:07:52');
+INSERT INTO `admin_operation_log` VALUES (1594, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:07:56', '2022-07-20 13:07:56');
+INSERT INTO `admin_operation_log` VALUES (1595, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:08:00', '2022-07-20 13:08:00');
+INSERT INTO `admin_operation_log` VALUES (1596, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:11:58', '2022-07-20 13:11:58');
+INSERT INTO `admin_operation_log` VALUES (1597, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:12:09', '2022-07-20 13:12:09');
+INSERT INTO `admin_operation_log` VALUES (1598, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:12:13', '2022-07-20 13:12:13');
+INSERT INTO `admin_operation_log` VALUES (1599, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:12:35', '2022-07-20 13:12:35');
+INSERT INTO `admin_operation_log` VALUES (1600, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:12:43', '2022-07-20 13:12:43');
+INSERT INTO `admin_operation_log` VALUES (1601, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:12:55', '2022-07-20 13:12:55');
+INSERT INTO `admin_operation_log` VALUES (1602, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-20 13:12:59', '2022-07-20 13:12:59');
+INSERT INTO `admin_operation_log` VALUES (1603, 1, 'admin', 'GET', '127.0.0.1', '[]', '2022-07-21 05:06:31', '2022-07-21 05:06:31');
+INSERT INTO `admin_operation_log` VALUES (1604, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 05:06:36', '2022-07-21 05:06:36');
+INSERT INTO `admin_operation_log` VALUES (1605, 1, 'admin/orders/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 05:06:40', '2022-07-21 05:06:40');
+INSERT INTO `admin_operation_log` VALUES (1606, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 05:06:42', '2022-07-21 05:06:42');
+INSERT INTO `admin_operation_log` VALUES (1607, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 05:06:43', '2022-07-21 05:06:43');
+INSERT INTO `admin_operation_log` VALUES (1608, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:06:44', '2022-07-21 05:06:44');
+INSERT INTO `admin_operation_log` VALUES (1609, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:07:16', '2022-07-21 05:07:16');
+INSERT INTO `admin_operation_log` VALUES (1610, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:07:22', '2022-07-21 05:07:22');
+INSERT INTO `admin_operation_log` VALUES (1611, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:07:45', '2022-07-21 05:07:45');
+INSERT INTO `admin_operation_log` VALUES (1612, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:08:06', '2022-07-21 05:08:06');
+INSERT INTO `admin_operation_log` VALUES (1613, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:08:23', '2022-07-21 05:08:23');
+INSERT INTO `admin_operation_log` VALUES (1614, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:09:02', '2022-07-21 05:09:02');
+INSERT INTO `admin_operation_log` VALUES (1615, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:09:10', '2022-07-21 05:09:10');
+INSERT INTO `admin_operation_log` VALUES (1616, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:13:47', '2022-07-21 05:13:47');
+INSERT INTO `admin_operation_log` VALUES (1617, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:14:50', '2022-07-21 05:14:50');
+INSERT INTO `admin_operation_log` VALUES (1618, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:15:00', '2022-07-21 05:15:00');
+INSERT INTO `admin_operation_log` VALUES (1619, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:15:13', '2022-07-21 05:15:13');
+INSERT INTO `admin_operation_log` VALUES (1620, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:15:23', '2022-07-21 05:15:23');
+INSERT INTO `admin_operation_log` VALUES (1621, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:15:29', '2022-07-21 05:15:29');
+INSERT INTO `admin_operation_log` VALUES (1622, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:15:41', '2022-07-21 05:15:41');
+INSERT INTO `admin_operation_log` VALUES (1623, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:15:47', '2022-07-21 05:15:47');
+INSERT INTO `admin_operation_log` VALUES (1624, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:17:11', '2022-07-21 05:17:11');
+INSERT INTO `admin_operation_log` VALUES (1625, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:17:21', '2022-07-21 05:17:21');
+INSERT INTO `admin_operation_log` VALUES (1626, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:17:30', '2022-07-21 05:17:30');
+INSERT INTO `admin_operation_log` VALUES (1627, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:24:41', '2022-07-21 05:24:41');
+INSERT INTO `admin_operation_log` VALUES (1628, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:25:20', '2022-07-21 05:25:20');
+INSERT INTO `admin_operation_log` VALUES (1629, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:27:37', '2022-07-21 05:27:37');
+INSERT INTO `admin_operation_log` VALUES (1630, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:30:49', '2022-07-21 05:30:49');
+INSERT INTO `admin_operation_log` VALUES (1631, 1, 'admin/orders/%7B%22order_id%22:1,%22product_id%22:3,%22quantity%22:1,%22total%22:1,%22product_price%22:213,%22product_image%22:%22default.png%22%7D-%3Eproduct_image', 'GET', '127.0.0.1', '[]', '2022-07-21 05:30:50', '2022-07-21 05:30:50');
+INSERT INTO `admin_operation_log` VALUES (1632, 1, 'admin/orders/%7B%22order_id%22:1,%22product_id%22:4,%22quantity%22:4,%22total%22:123,%22product_price%22:123,%22product_image%22:%22default.png%22%7D-%3Eproduct_image', 'GET', '127.0.0.1', '[]', '2022-07-21 05:30:50', '2022-07-21 05:30:50');
+INSERT INTO `admin_operation_log` VALUES (1633, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:30:56', '2022-07-21 05:30:56');
+INSERT INTO `admin_operation_log` VALUES (1634, 1, 'admin/orders/%7B%22order_id%22:1,%22product_id%22:3,%22quantity%22:1,%22total%22:1,%22product_price%22:213,%22product_image%22:%22default.png%22%7D-%3Eproduct_image', 'GET', '127.0.0.1', '[]', '2022-07-21 05:30:56', '2022-07-21 05:30:56');
+INSERT INTO `admin_operation_log` VALUES (1635, 1, 'admin/orders/%7B%22order_id%22:1,%22product_id%22:4,%22quantity%22:4,%22total%22:123,%22product_price%22:123,%22product_image%22:%22default.png%22%7D-%3Eproduct_image', 'GET', '127.0.0.1', '[]', '2022-07-21 05:30:56', '2022-07-21 05:30:56');
+INSERT INTO `admin_operation_log` VALUES (1636, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:31:30', '2022-07-21 05:31:30');
+INSERT INTO `admin_operation_log` VALUES (1637, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:31:45', '2022-07-21 05:31:45');
+INSERT INTO `admin_operation_log` VALUES (1638, 1, 'admin/orders/default.png', 'GET', '127.0.0.1', '[]', '2022-07-21 05:31:46', '2022-07-21 05:31:46');
+INSERT INTO `admin_operation_log` VALUES (1639, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:32:01', '2022-07-21 05:32:01');
+INSERT INTO `admin_operation_log` VALUES (1640, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:32:19', '2022-07-21 05:32:19');
+INSERT INTO `admin_operation_log` VALUES (1641, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:32:26', '2022-07-21 05:32:26');
+INSERT INTO `admin_operation_log` VALUES (1642, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:32:40', '2022-07-21 05:32:40');
+INSERT INTO `admin_operation_log` VALUES (1643, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:35:00', '2022-07-21 05:35:00');
+INSERT INTO `admin_operation_log` VALUES (1644, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:35:04', '2022-07-21 05:35:04');
+INSERT INTO `admin_operation_log` VALUES (1645, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:35:14', '2022-07-21 05:35:14');
+INSERT INTO `admin_operation_log` VALUES (1646, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:36:40', '2022-07-21 05:36:40');
+INSERT INTO `admin_operation_log` VALUES (1647, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:36:54', '2022-07-21 05:36:54');
+INSERT INTO `admin_operation_log` VALUES (1648, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:37:05', '2022-07-21 05:37:05');
+INSERT INTO `admin_operation_log` VALUES (1649, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:37:21', '2022-07-21 05:37:21');
+INSERT INTO `admin_operation_log` VALUES (1650, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:37:36', '2022-07-21 05:37:36');
+INSERT INTO `admin_operation_log` VALUES (1651, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:37:54', '2022-07-21 05:37:54');
+INSERT INTO `admin_operation_log` VALUES (1652, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:37:58', '2022-07-21 05:37:58');
+INSERT INTO `admin_operation_log` VALUES (1653, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:39:47', '2022-07-21 05:39:47');
+INSERT INTO `admin_operation_log` VALUES (1654, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:40:20', '2022-07-21 05:40:20');
+INSERT INTO `admin_operation_log` VALUES (1655, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:40:24', '2022-07-21 05:40:24');
+INSERT INTO `admin_operation_log` VALUES (1656, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:40:53', '2022-07-21 05:40:53');
+INSERT INTO `admin_operation_log` VALUES (1657, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:41:07', '2022-07-21 05:41:07');
+INSERT INTO `admin_operation_log` VALUES (1658, 1, 'admin/orders/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 05:41:13', '2022-07-21 05:41:13');
+INSERT INTO `admin_operation_log` VALUES (1659, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 05:41:17', '2022-07-21 05:41:17');
+INSERT INTO `admin_operation_log` VALUES (1660, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 05:41:18', '2022-07-21 05:41:18');
+INSERT INTO `admin_operation_log` VALUES (1661, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 05:41:19', '2022-07-21 05:41:19');
+INSERT INTO `admin_operation_log` VALUES (1662, 1, 'admin/orders/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 05:41:23', '2022-07-21 05:41:23');
+INSERT INTO `admin_operation_log` VALUES (1663, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 05:41:28', '2022-07-21 05:41:28');
+INSERT INTO `admin_operation_log` VALUES (1664, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:43:12', '2022-07-21 05:43:12');
+INSERT INTO `admin_operation_log` VALUES (1665, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:43:15', '2022-07-21 05:43:15');
+INSERT INTO `admin_operation_log` VALUES (1666, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:43:23', '2022-07-21 05:43:23');
+INSERT INTO `admin_operation_log` VALUES (1667, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:43:35', '2022-07-21 05:43:35');
+INSERT INTO `admin_operation_log` VALUES (1668, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:44:00', '2022-07-21 05:44:00');
+INSERT INTO `admin_operation_log` VALUES (1669, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:44:25', '2022-07-21 05:44:25');
+INSERT INTO `admin_operation_log` VALUES (1670, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:44:28', '2022-07-21 05:44:28');
+INSERT INTO `admin_operation_log` VALUES (1671, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:45:01', '2022-07-21 05:45:01');
+INSERT INTO `admin_operation_log` VALUES (1672, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:45:03', '2022-07-21 05:45:03');
+INSERT INTO `admin_operation_log` VALUES (1673, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:45:07', '2022-07-21 05:45:07');
+INSERT INTO `admin_operation_log` VALUES (1674, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:45:16', '2022-07-21 05:45:16');
+INSERT INTO `admin_operation_log` VALUES (1675, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:45:50', '2022-07-21 05:45:50');
+INSERT INTO `admin_operation_log` VALUES (1676, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:46:25', '2022-07-21 05:46:25');
+INSERT INTO `admin_operation_log` VALUES (1677, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:46:33', '2022-07-21 05:46:33');
+INSERT INTO `admin_operation_log` VALUES (1678, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:47:42', '2022-07-21 05:47:42');
+INSERT INTO `admin_operation_log` VALUES (1679, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:50:12', '2022-07-21 05:50:12');
+INSERT INTO `admin_operation_log` VALUES (1680, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:50:14', '2022-07-21 05:50:14');
+INSERT INTO `admin_operation_log` VALUES (1681, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:50:17', '2022-07-21 05:50:17');
+INSERT INTO `admin_operation_log` VALUES (1682, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:51:06', '2022-07-21 05:51:06');
+INSERT INTO `admin_operation_log` VALUES (1683, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:51:12', '2022-07-21 05:51:12');
+INSERT INTO `admin_operation_log` VALUES (1684, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:51:17', '2022-07-21 05:51:17');
+INSERT INTO `admin_operation_log` VALUES (1685, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:51:29', '2022-07-21 05:51:29');
+INSERT INTO `admin_operation_log` VALUES (1686, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:51:41', '2022-07-21 05:51:41');
+INSERT INTO `admin_operation_log` VALUES (1687, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:52:40', '2022-07-21 05:52:40');
+INSERT INTO `admin_operation_log` VALUES (1688, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:54:16', '2022-07-21 05:54:16');
+INSERT INTO `admin_operation_log` VALUES (1689, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:54:35', '2022-07-21 05:54:35');
+INSERT INTO `admin_operation_log` VALUES (1690, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:55:19', '2022-07-21 05:55:19');
+INSERT INTO `admin_operation_log` VALUES (1691, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 05:55:25', '2022-07-21 05:55:25');
+INSERT INTO `admin_operation_log` VALUES (1692, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 06:02:28', '2022-07-21 06:02:28');
+INSERT INTO `admin_operation_log` VALUES (1693, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 06:02:48', '2022-07-21 06:02:48');
+INSERT INTO `admin_operation_log` VALUES (1694, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 06:02:54', '2022-07-21 06:02:54');
+INSERT INTO `admin_operation_log` VALUES (1695, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-21 06:03:27', '2022-07-21 06:03:27');
+INSERT INTO `admin_operation_log` VALUES (1696, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:03:52', '2022-07-21 06:03:52');
+INSERT INTO `admin_operation_log` VALUES (1697, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:04:08', '2022-07-21 06:04:08');
+INSERT INTO `admin_operation_log` VALUES (1698, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:15:53', '2022-07-21 06:15:53');
+INSERT INTO `admin_operation_log` VALUES (1699, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:16:16', '2022-07-21 06:16:16');
+INSERT INTO `admin_operation_log` VALUES (1700, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:16:49', '2022-07-21 06:16:49');
+INSERT INTO `admin_operation_log` VALUES (1701, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:16:53', '2022-07-21 06:16:53');
+INSERT INTO `admin_operation_log` VALUES (1702, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:16:54', '2022-07-21 06:16:54');
+INSERT INTO `admin_operation_log` VALUES (1703, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-21 06:17:15', '2022-07-21 06:17:15');
+INSERT INTO `admin_operation_log` VALUES (1704, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-21 06:18:00', '2022-07-21 06:18:00');
+INSERT INTO `admin_operation_log` VALUES (1705, 1, 'admin/orders/1', 'PUT', '127.0.0.1', '{\"hot\":\"1\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:02', '2022-07-21 06:18:02');
+INSERT INTO `admin_operation_log` VALUES (1706, 1, 'admin/orders/1', 'PUT', '127.0.0.1', '{\"new\":\"1\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:03', '2022-07-21 06:18:03');
+INSERT INTO `admin_operation_log` VALUES (1707, 1, 'admin/orders/1', 'PUT', '127.0.0.1', '{\"recommend\":\"1\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:03', '2022-07-21 06:18:03');
+INSERT INTO `admin_operation_log` VALUES (1708, 1, 'admin/orders/2', 'PUT', '127.0.0.1', '{\"hot\":\"1\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:05', '2022-07-21 06:18:05');
+INSERT INTO `admin_operation_log` VALUES (1709, 1, 'admin/orders/2', 'PUT', '127.0.0.1', '{\"new\":\"1\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:05', '2022-07-21 06:18:05');
+INSERT INTO `admin_operation_log` VALUES (1710, 1, 'admin/orders/2', 'PUT', '127.0.0.1', '{\"recommend\":\"1\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:05', '2022-07-21 06:18:05');
+INSERT INTO `admin_operation_log` VALUES (1711, 1, 'admin/orders/3', 'PUT', '127.0.0.1', '{\"new\":\"1\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:06', '2022-07-21 06:18:06');
+INSERT INTO `admin_operation_log` VALUES (1712, 1, 'admin/orders/3', 'PUT', '127.0.0.1', '{\"hot\":\"1\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:06', '2022-07-21 06:18:06');
+INSERT INTO `admin_operation_log` VALUES (1713, 1, 'admin/orders/3', 'PUT', '127.0.0.1', '{\"recommend\":\"1\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:07', '2022-07-21 06:18:07');
+INSERT INTO `admin_operation_log` VALUES (1714, 1, 'admin/orders/1', 'PUT', '127.0.0.1', '{\"hot\":\"0\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:09', '2022-07-21 06:18:09');
+INSERT INTO `admin_operation_log` VALUES (1715, 1, 'admin/orders/1', 'PUT', '127.0.0.1', '{\"new\":\"0\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:10', '2022-07-21 06:18:10');
+INSERT INTO `admin_operation_log` VALUES (1716, 1, 'admin/orders/1', 'PUT', '127.0.0.1', '{\"recommend\":\"0\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:10', '2022-07-21 06:18:10');
+INSERT INTO `admin_operation_log` VALUES (1717, 1, 'admin/orders/2', 'PUT', '127.0.0.1', '{\"hot\":\"0\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:11', '2022-07-21 06:18:11');
+INSERT INTO `admin_operation_log` VALUES (1718, 1, 'admin/orders/2', 'PUT', '127.0.0.1', '{\"new\":\"0\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:11', '2022-07-21 06:18:11');
+INSERT INTO `admin_operation_log` VALUES (1719, 1, 'admin/orders/2', 'PUT', '127.0.0.1', '{\"recommend\":\"0\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:11', '2022-07-21 06:18:11');
+INSERT INTO `admin_operation_log` VALUES (1720, 1, 'admin/orders/3', 'PUT', '127.0.0.1', '{\"new\":\"0\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:12', '2022-07-21 06:18:12');
+INSERT INTO `admin_operation_log` VALUES (1721, 1, 'admin/orders/3', 'PUT', '127.0.0.1', '{\"recommend\":\"0\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:13', '2022-07-21 06:18:13');
+INSERT INTO `admin_operation_log` VALUES (1722, 1, 'admin/orders/3', 'PUT', '127.0.0.1', '{\"hot\":\"0\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\"}', '2022-07-21 06:18:13', '2022-07-21 06:18:13');
+INSERT INTO `admin_operation_log` VALUES (1723, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-21 06:19:40', '2022-07-21 06:19:40');
+INSERT INTO `admin_operation_log` VALUES (1724, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-21 06:19:59', '2022-07-21 06:19:59');
+INSERT INTO `admin_operation_log` VALUES (1725, 1, 'admin/orders/1', 'PUT', '127.0.0.1', '{\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\",\"_edit_inline\":\"true\",\"status\":\"1\"}', '2022-07-21 06:20:04', '2022-07-21 06:20:04');
+INSERT INTO `admin_operation_log` VALUES (1726, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-21 06:20:06', '2022-07-21 06:20:06');
+INSERT INTO `admin_operation_log` VALUES (1727, 1, 'admin/orders/1', 'PUT', '127.0.0.1', '{\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\",\"_edit_inline\":\"true\",\"status\":\"1\"}', '2022-07-21 06:20:08', '2022-07-21 06:20:08');
+INSERT INTO `admin_operation_log` VALUES (1728, 1, 'admin/orders/2', 'PUT', '127.0.0.1', '{\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\",\"_edit_inline\":\"true\",\"status\":\"2\"}', '2022-07-21 06:20:20', '2022-07-21 06:20:20');
+INSERT INTO `admin_operation_log` VALUES (1729, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"asc\"}}', '2022-07-21 06:20:26', '2022-07-21 06:20:26');
+INSERT INTO `admin_operation_log` VALUES (1730, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:20:27', '2022-07-21 06:20:27');
+INSERT INTO `admin_operation_log` VALUES (1731, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:20:35', '2022-07-21 06:20:35');
+INSERT INTO `admin_operation_log` VALUES (1732, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:24:21', '2022-07-21 06:24:21');
+INSERT INTO `admin_operation_log` VALUES (1733, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:24:25', '2022-07-21 06:24:25');
+INSERT INTO `admin_operation_log` VALUES (1734, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:24:36', '2022-07-21 06:24:36');
+INSERT INTO `admin_operation_log` VALUES (1735, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:24:49', '2022-07-21 06:24:49');
+INSERT INTO `admin_operation_log` VALUES (1736, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:25:08', '2022-07-21 06:25:08');
+INSERT INTO `admin_operation_log` VALUES (1737, 1, 'admin/orders/3/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:25:10', '2022-07-21 06:25:10');
+INSERT INTO `admin_operation_log` VALUES (1738, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:25:11', '2022-07-21 06:25:11');
+INSERT INTO `admin_operation_log` VALUES (1739, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:25:12', '2022-07-21 06:25:12');
+INSERT INTO `admin_operation_log` VALUES (1740, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:25:27', '2022-07-21 06:25:27');
+INSERT INTO `admin_operation_log` VALUES (1741, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:25:45', '2022-07-21 06:25:45');
+INSERT INTO `admin_operation_log` VALUES (1742, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:25:48', '2022-07-21 06:25:48');
+INSERT INTO `admin_operation_log` VALUES (1743, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:25:53', '2022-07-21 06:25:53');
+INSERT INTO `admin_operation_log` VALUES (1744, 1, 'admin/orders/3/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:26:00', '2022-07-21 06:26:00');
+INSERT INTO `admin_operation_log` VALUES (1745, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:26:01', '2022-07-21 06:26:01');
+INSERT INTO `admin_operation_log` VALUES (1746, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:26:08', '2022-07-21 06:26:08');
+INSERT INTO `admin_operation_log` VALUES (1747, 1, 'admin/orders/3', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:26:10', '2022-07-21 06:26:10');
+INSERT INTO `admin_operation_log` VALUES (1748, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:26:11', '2022-07-21 06:26:11');
+INSERT INTO `admin_operation_log` VALUES (1749, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:26:42', '2022-07-21 06:26:42');
+INSERT INTO `admin_operation_log` VALUES (1750, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:26:42', '2022-07-21 06:26:42');
+INSERT INTO `admin_operation_log` VALUES (1751, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:26:43', '2022-07-21 06:26:43');
+INSERT INTO `admin_operation_log` VALUES (1752, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:26:52', '2022-07-21 06:26:52');
+INSERT INTO `admin_operation_log` VALUES (1753, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:26:54', '2022-07-21 06:26:54');
+INSERT INTO `admin_operation_log` VALUES (1754, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:27:06', '2022-07-21 06:27:06');
+INSERT INTO `admin_operation_log` VALUES (1755, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"status\",\"type\":\"desc\"}}', '2022-07-21 06:27:07', '2022-07-21 06:27:07');
+INSERT INTO `admin_operation_log` VALUES (1756, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:27:08', '2022-07-21 06:27:08');
+INSERT INTO `admin_operation_log` VALUES (1757, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:27:11', '2022-07-21 06:27:11');
+INSERT INTO `admin_operation_log` VALUES (1758, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:30:15', '2022-07-21 06:30:15');
+INSERT INTO `admin_operation_log` VALUES (1759, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:30:18', '2022-07-21 06:30:18');
+INSERT INTO `admin_operation_log` VALUES (1760, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:30:27', '2022-07-21 06:30:27');
+INSERT INTO `admin_operation_log` VALUES (1761, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:30:36', '2022-07-21 06:30:36');
+INSERT INTO `admin_operation_log` VALUES (1762, 1, 'admin/orders/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:30:39', '2022-07-21 06:30:39');
+INSERT INTO `admin_operation_log` VALUES (1763, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:30:40', '2022-07-21 06:30:40');
+INSERT INTO `admin_operation_log` VALUES (1764, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:31:07', '2022-07-21 06:31:07');
+INSERT INTO `admin_operation_log` VALUES (1765, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:31:36', '2022-07-21 06:31:36');
+INSERT INTO `admin_operation_log` VALUES (1766, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:34:35', '2022-07-21 06:34:35');
+INSERT INTO `admin_operation_log` VALUES (1767, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:35:51', '2022-07-21 06:35:51');
+INSERT INTO `admin_operation_log` VALUES (1768, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:37:43', '2022-07-21 06:37:43');
+INSERT INTO `admin_operation_log` VALUES (1769, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:38:03', '2022-07-21 06:38:03');
+INSERT INTO `admin_operation_log` VALUES (1770, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:38:10', '2022-07-21 06:38:10');
+INSERT INTO `admin_operation_log` VALUES (1771, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:40:15', '2022-07-21 06:40:15');
+INSERT INTO `admin_operation_log` VALUES (1772, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:40:18', '2022-07-21 06:40:18');
+INSERT INTO `admin_operation_log` VALUES (1773, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:40:45', '2022-07-21 06:40:45');
+INSERT INTO `admin_operation_log` VALUES (1774, 1, 'admin/_handle_action_', 'POST', '127.0.0.1', '{\"_key\":\"1\",\"_model\":\"App_Models_Order\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_action\":\"App_Admin_Actions_Post_Replicate\"}', '2022-07-21 06:40:46', '2022-07-21 06:40:46');
+INSERT INTO `admin_operation_log` VALUES (1775, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:42:09', '2022-07-21 06:42:09');
+INSERT INTO `admin_operation_log` VALUES (1776, 1, 'admin/_handle_action_', 'POST', '127.0.0.1', '{\"_key\":\"1\",\"_model\":\"App_Models_Order\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_action\":\"App_Admin_Actions_Post_Replicate\",\"_input\":\"true\"}', '2022-07-21 06:42:15', '2022-07-21 06:42:15');
+INSERT INTO `admin_operation_log` VALUES (1777, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:42:25', '2022-07-21 06:42:25');
+INSERT INTO `admin_operation_log` VALUES (1778, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:42:30', '2022-07-21 06:42:30');
+INSERT INTO `admin_operation_log` VALUES (1779, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:44:23', '2022-07-21 06:44:23');
+INSERT INTO `admin_operation_log` VALUES (1780, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:48:22', '2022-07-21 06:48:22');
+INSERT INTO `admin_operation_log` VALUES (1781, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:48:27', '2022-07-21 06:48:27');
+INSERT INTO `admin_operation_log` VALUES (1782, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:48:36', '2022-07-21 06:48:36');
+INSERT INTO `admin_operation_log` VALUES (1783, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:48:42', '2022-07-21 06:48:42');
+INSERT INTO `admin_operation_log` VALUES (1784, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:48:55', '2022-07-21 06:48:55');
+INSERT INTO `admin_operation_log` VALUES (1785, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:49:19', '2022-07-21 06:49:19');
+INSERT INTO `admin_operation_log` VALUES (1786, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:49:38', '2022-07-21 06:49:38');
+INSERT INTO `admin_operation_log` VALUES (1787, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:49:57', '2022-07-21 06:49:57');
+INSERT INTO `admin_operation_log` VALUES (1788, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:50:28', '2022-07-21 06:50:28');
+INSERT INTO `admin_operation_log` VALUES (1789, 1, 'admin/_handle_action_', 'POST', '127.0.0.1', '{\"status\":\"2\",\"_key\":\"1\",\"_model\":\"App_Models_Order\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_action\":\"App_Admin_Actions_Post_Replicate\"}', '2022-07-21 06:50:31', '2022-07-21 06:50:31');
+INSERT INTO `admin_operation_log` VALUES (1790, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:50:45', '2022-07-21 06:50:45');
+INSERT INTO `admin_operation_log` VALUES (1791, 1, 'admin/_handle_action_', 'POST', '127.0.0.1', '{\"status\":\"2\",\"_key\":\"1\",\"_model\":\"App_Models_Order\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_action\":\"App_Admin_Actions_Post_Replicate\"}', '2022-07-21 06:50:49', '2022-07-21 06:50:49');
+INSERT INTO `admin_operation_log` VALUES (1792, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:51:02', '2022-07-21 06:51:02');
+INSERT INTO `admin_operation_log` VALUES (1793, 1, 'admin/_handle_action_', 'POST', '127.0.0.1', '{\"status\":\"2\",\"_key\":\"1\",\"_model\":\"App_Models_Order\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_action\":\"App_Admin_Actions_Post_Replicate\"}', '2022-07-21 06:51:07', '2022-07-21 06:51:07');
+INSERT INTO `admin_operation_log` VALUES (1794, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:51:15', '2022-07-21 06:51:15');
+INSERT INTO `admin_operation_log` VALUES (1795, 1, 'admin/_handle_action_', 'POST', '127.0.0.1', '{\"status\":\"2\",\"_key\":\"1\",\"_model\":\"App_Models_Order\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_action\":\"App_Admin_Actions_Post_Replicate\"}', '2022-07-21 06:51:18', '2022-07-21 06:51:18');
+INSERT INTO `admin_operation_log` VALUES (1796, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:51:18', '2022-07-21 06:51:18');
+INSERT INTO `admin_operation_log` VALUES (1797, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:52:20', '2022-07-21 06:52:20');
+INSERT INTO `admin_operation_log` VALUES (1798, 1, 'admin/_handle_action_', 'POST', '127.0.0.1', '{\"status\":\"3\",\"_key\":\"1\",\"_model\":\"App_Models_Order\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_action\":\"App_Admin_Actions_Post_Replicate\"}', '2022-07-21 06:52:24', '2022-07-21 06:52:24');
+INSERT INTO `admin_operation_log` VALUES (1799, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:52:24', '2022-07-21 06:52:24');
+INSERT INTO `admin_operation_log` VALUES (1800, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:53:27', '2022-07-21 06:53:27');
+INSERT INTO `admin_operation_log` VALUES (1801, 1, 'admin/_handle_action_', 'POST', '127.0.0.1', '{\"status\":\"4\",\"_key\":\"1\",\"_model\":\"App_Models_Order\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_action\":\"App_Admin_Actions_Post_Replicate\"}', '2022-07-21 06:53:31', '2022-07-21 06:53:31');
+INSERT INTO `admin_operation_log` VALUES (1802, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:53:31', '2022-07-21 06:53:31');
+INSERT INTO `admin_operation_log` VALUES (1803, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 06:53:51', '2022-07-21 06:53:51');
+INSERT INTO `admin_operation_log` VALUES (1804, 1, 'admin/_handle_action_', 'POST', '127.0.0.1', '{\"status\":\"5\",\"_key\":\"1\",\"_model\":\"App_Models_Order\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_action\":\"App_Admin_Actions_Post_Replicate\"}', '2022-07-21 06:55:05', '2022-07-21 06:55:05');
+INSERT INTO `admin_operation_log` VALUES (1805, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:55:05', '2022-07-21 06:55:05');
+INSERT INTO `admin_operation_log` VALUES (1806, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:55:37', '2022-07-21 06:55:37');
+INSERT INTO `admin_operation_log` VALUES (1807, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:55:39', '2022-07-21 06:55:39');
+INSERT INTO `admin_operation_log` VALUES (1808, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:55:39', '2022-07-21 06:55:39');
+INSERT INTO `admin_operation_log` VALUES (1809, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:55:42', '2022-07-21 06:55:42');
+INSERT INTO `admin_operation_log` VALUES (1810, 1, 'admin', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:55:46', '2022-07-21 06:55:46');
+INSERT INTO `admin_operation_log` VALUES (1811, 1, 'admin/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:55:47', '2022-07-21 06:55:47');
+INSERT INTO `admin_operation_log` VALUES (1812, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:55:48', '2022-07-21 06:55:48');
+INSERT INTO `admin_operation_log` VALUES (1813, 1, 'admin/promotions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:55:48', '2022-07-21 06:55:48');
+INSERT INTO `admin_operation_log` VALUES (1814, 1, 'admin/services', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:55:49', '2022-07-21 06:55:49');
+INSERT INTO `admin_operation_log` VALUES (1815, 1, 'admin/promotions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:55:49', '2022-07-21 06:55:49');
+INSERT INTO `admin_operation_log` VALUES (1816, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:55:58', '2022-07-21 06:55:58');
+INSERT INTO `admin_operation_log` VALUES (1817, 1, 'admin/products/3', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-21 06:56:02', '2022-07-21 06:56:02');
+INSERT INTO `admin_operation_log` VALUES (1818, 1, 'admin/products/3', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-21 06:56:03', '2022-07-21 06:56:03');
+INSERT INTO `admin_operation_log` VALUES (1819, 1, 'admin/products/3', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-21 06:56:04', '2022-07-21 06:56:04');
+INSERT INTO `admin_operation_log` VALUES (1820, 1, 'admin/products/3', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-21 06:56:05', '2022-07-21 06:56:05');
+INSERT INTO `admin_operation_log` VALUES (1821, 1, 'admin/promotions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:56:38', '2022-07-21 06:56:38');
+INSERT INTO `admin_operation_log` VALUES (1822, 1, 'admin/brands', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:56:38', '2022-07-21 06:56:38');
+INSERT INTO `admin_operation_log` VALUES (1823, 1, 'admin/brands', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:56:41', '2022-07-21 06:56:41');
+INSERT INTO `admin_operation_log` VALUES (1824, 1, 'admin/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:56:41', '2022-07-21 06:56:41');
+INSERT INTO `admin_operation_log` VALUES (1825, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:57:18', '2022-07-21 06:57:18');
+INSERT INTO `admin_operation_log` VALUES (1826, 1, 'admin/promotions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:57:19', '2022-07-21 06:57:19');
+INSERT INTO `admin_operation_log` VALUES (1827, 1, 'admin/services', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:57:20', '2022-07-21 06:57:20');
+INSERT INTO `admin_operation_log` VALUES (1828, 1, 'admin/banners', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:57:21', '2022-07-21 06:57:21');
+INSERT INTO `admin_operation_log` VALUES (1829, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:57:23', '2022-07-21 06:57:23');
+INSERT INTO `admin_operation_log` VALUES (1830, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:57:24', '2022-07-21 06:57:24');
+INSERT INTO `admin_operation_log` VALUES (1831, 1, 'admin', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 06:57:25', '2022-07-21 06:57:25');
+INSERT INTO `admin_operation_log` VALUES (1832, 1, 'admin', 'GET', '127.0.0.1', '[]', '2022-07-21 07:00:13', '2022-07-21 07:00:13');
+INSERT INTO `admin_operation_log` VALUES (1833, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 07:00:15', '2022-07-21 07:00:15');
+INSERT INTO `admin_operation_log` VALUES (1834, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 07:00:17', '2022-07-21 07:00:17');
+INSERT INTO `admin_operation_log` VALUES (1835, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 07:00:18', '2022-07-21 07:00:18');
+INSERT INTO `admin_operation_log` VALUES (1836, 1, 'admin/_handle_action_', 'POST', '127.0.0.1', '{\"status\":\"2\",\"_key\":\"1\",\"_model\":\"App_Models_Order\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_action\":\"App_Admin_Actions_Post_Replicate\"}', '2022-07-21 07:00:23', '2022-07-21 07:00:23');
+INSERT INTO `admin_operation_log` VALUES (1837, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 07:00:23', '2022-07-21 07:00:23');
+INSERT INTO `admin_operation_log` VALUES (1838, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 07:01:12', '2022-07-21 07:01:12');
+INSERT INTO `admin_operation_log` VALUES (1839, 1, 'admin/_handle_action_', 'POST', '127.0.0.1', '{\"status\":\"1\",\"_key\":\"1\",\"_model\":\"App_Models_Order\",\"_token\":\"cx5ThmlmYA6j6rt8cLaPYQMDeC4NXxx3JTa29E3R\",\"_action\":\"App_Admin_Actions_Post_Replicate\"}', '2022-07-21 07:01:15', '2022-07-21 07:01:15');
+INSERT INTO `admin_operation_log` VALUES (1840, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 07:01:15', '2022-07-21 07:01:15');
+INSERT INTO `admin_operation_log` VALUES (1841, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 09:48:49', '2022-07-21 09:48:49');
+INSERT INTO `admin_operation_log` VALUES (1842, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 09:49:57', '2022-07-21 09:49:57');
+INSERT INTO `admin_operation_log` VALUES (1843, 1, 'admin/_handle_action_', 'POST', '127.0.0.1', '{\"status\":\"2\",\"_key\":\"1\",\"_model\":\"App_Models_Order\",\"_token\":\"qXF5g0M8vZcD7MjO8nHOScqSfhT28oqshhgyIQvA\",\"_action\":\"App_Admin_Actions_Post_Replicate\"}', '2022-07-21 09:50:17', '2022-07-21 09:50:17');
+INSERT INTO `admin_operation_log` VALUES (1844, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 09:50:18', '2022-07-21 09:50:18');
+INSERT INTO `admin_operation_log` VALUES (1845, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 09:53:43', '2022-07-21 09:53:43');
+INSERT INTO `admin_operation_log` VALUES (1846, 1, 'admin', 'GET', '127.0.0.1', '[]', '2022-07-21 10:40:00', '2022-07-21 10:40:00');
+INSERT INTO `admin_operation_log` VALUES (1847, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 10:40:03', '2022-07-21 10:40:03');
+INSERT INTO `admin_operation_log` VALUES (1848, 1, 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"\\u041d\\u0430\\u0441\\u0442\\u0440\\u043e\\u0439\\u043a\\u0438\",\"icon\":\"fa-cog\",\"uri\":\"\\/settings\",\"roles\":[null],\"permission\":null,\"_token\":\"qXF5g0M8vZcD7MjO8nHOScqSfhT28oqshhgyIQvA\"}', '2022-07-21 10:40:46', '2022-07-21 10:40:46');
+INSERT INTO `admin_operation_log` VALUES (1849, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2022-07-21 10:40:46', '2022-07-21 10:40:46');
+INSERT INTO `admin_operation_log` VALUES (1850, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2022-07-21 10:40:48', '2022-07-21 10:40:48');
+INSERT INTO `admin_operation_log` VALUES (1851, 1, 'admin/settings', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 10:40:50', '2022-07-21 10:40:50');
+INSERT INTO `admin_operation_log` VALUES (1852, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2022-07-21 10:41:09', '2022-07-21 10:41:09');
+INSERT INTO `admin_operation_log` VALUES (1853, 1, 'admin/settings/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 10:41:12', '2022-07-21 10:41:12');
+INSERT INTO `admin_operation_log` VALUES (1854, 1, 'admin/settings/create', 'GET', '127.0.0.1', '[]', '2022-07-21 10:41:31', '2022-07-21 10:41:31');
+INSERT INTO `admin_operation_log` VALUES (1855, 1, 'admin/settings/create', 'GET', '127.0.0.1', '[]', '2022-07-21 10:41:48', '2022-07-21 10:41:48');
+INSERT INTO `admin_operation_log` VALUES (1856, 1, 'admin/settings', 'POST', '127.0.0.1', '{\"phone_number\":null,\"website_name\":null,\"regular_delivery_cost\":\"25000\",\"fast_delivery_cost\":\"50000\",\"_token\":\"qXF5g0M8vZcD7MjO8nHOScqSfhT28oqshhgyIQvA\",\"after-save\":\"1\"}', '2022-07-21 10:42:06', '2022-07-21 10:42:06');
+INSERT INTO `admin_operation_log` VALUES (1857, 1, 'admin/settings/create', 'GET', '127.0.0.1', '[]', '2022-07-21 10:42:06', '2022-07-21 10:42:06');
+INSERT INTO `admin_operation_log` VALUES (1858, 1, 'admin/settings', 'POST', '127.0.0.1', '{\"phone_number\":\"998330000000\",\"website_name\":\"itechno.uz\",\"regular_delivery_cost\":\"25000\",\"fast_delivery_cost\":\"50000\",\"_token\":\"qXF5g0M8vZcD7MjO8nHOScqSfhT28oqshhgyIQvA\"}', '2022-07-21 10:42:18', '2022-07-21 10:42:18');
+INSERT INTO `admin_operation_log` VALUES (1859, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2022-07-21 10:42:18', '2022-07-21 10:42:18');
+INSERT INTO `admin_operation_log` VALUES (1860, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2022-07-21 11:07:22', '2022-07-21 11:07:22');
+INSERT INTO `admin_operation_log` VALUES (1861, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:07:26', '2022-07-21 11:07:26');
+INSERT INTO `admin_operation_log` VALUES (1862, 1, 'admin/settings/1', 'PUT', '127.0.0.1', '{\"phone_number\":\"998330000000\",\"website_name\":\"itechno.uz\",\"regular_delivery_cost\":\"25000\",\"fast_delivery_cost\":\"50000\",\"_token\":\"qXF5g0M8vZcD7MjO8nHOScqSfhT28oqshhgyIQvA\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/ecommerce.loc\\/admin\\/settings\"}', '2022-07-21 11:08:15', '2022-07-21 11:08:15');
+INSERT INTO `admin_operation_log` VALUES (1863, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2022-07-21 11:08:15', '2022-07-21 11:08:15');
+INSERT INTO `admin_operation_log` VALUES (1864, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:10:51', '2022-07-21 11:10:51');
+INSERT INTO `admin_operation_log` VALUES (1865, 1, 'admin/settings/1', 'PUT', '127.0.0.1', '{\"phone_number\":\"998330000000\",\"website_name\":\"itechno.uz\",\"regular_delivery_cost\":\"25000\",\"fast_delivery_cost\":\"50000\",\"_token\":\"qXF5g0M8vZcD7MjO8nHOScqSfhT28oqshhgyIQvA\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/ecommerce.loc\\/admin\\/settings\"}', '2022-07-21 11:10:55', '2022-07-21 11:10:55');
+INSERT INTO `admin_operation_log` VALUES (1866, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2022-07-21 11:10:56', '2022-07-21 11:10:56');
+INSERT INTO `admin_operation_log` VALUES (1867, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2022-07-21 11:14:16', '2022-07-21 11:14:16');
+INSERT INTO `admin_operation_log` VALUES (1868, 1, 'admin/settings/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:14:17', '2022-07-21 11:14:17');
+INSERT INTO `admin_operation_log` VALUES (1869, 1, 'admin/settings', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:14:19', '2022-07-21 11:14:19');
+INSERT INTO `admin_operation_log` VALUES (1870, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2022-07-21 11:14:36', '2022-07-21 11:14:36');
+INSERT INTO `admin_operation_log` VALUES (1871, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2022-07-21 11:14:48', '2022-07-21 11:14:48');
+INSERT INTO `admin_operation_log` VALUES (1872, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2022-07-21 11:14:53', '2022-07-21 11:14:53');
+INSERT INTO `admin_operation_log` VALUES (1873, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2022-07-21 11:15:14', '2022-07-21 11:15:14');
+INSERT INTO `admin_operation_log` VALUES (1874, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2022-07-21 11:15:32', '2022-07-21 11:15:32');
+INSERT INTO `admin_operation_log` VALUES (1875, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:16:31', '2022-07-21 11:16:31');
+INSERT INTO `admin_operation_log` VALUES (1876, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '[]', '2022-07-21 11:16:45', '2022-07-21 11:16:45');
+INSERT INTO `admin_operation_log` VALUES (1877, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '[]', '2022-07-21 11:16:47', '2022-07-21 11:16:47');
+INSERT INTO `admin_operation_log` VALUES (1878, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '[]', '2022-07-21 11:16:52', '2022-07-21 11:16:52');
+INSERT INTO `admin_operation_log` VALUES (1879, 1, 'admin/settings', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:16:54', '2022-07-21 11:16:54');
+INSERT INTO `admin_operation_log` VALUES (1880, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:16:56', '2022-07-21 11:16:56');
+INSERT INTO `admin_operation_log` VALUES (1881, 1, 'admin/settings/1', 'PUT', '127.0.0.1', '{\"slogan\":\"\\u0421\\u043e\\u0432\\u0440\\u0435\\u043c\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0438\\u043d\\u0442\\u0435\\u0440\\u043d\\u0435\\u0442 \\u043c\\u0430\\u0433\\u0430\\u0437\\u0438\\u043d \\u043a\\u043e\\u043c\\u043f\\u044c\\u044e\\u0442\\u0435\\u0440\\u043d\\u043e\\u0439 \\u0442\\u0435\\u0445\\u043d\\u0438\\u043a\\u0438\",\"phone_number\":\"998330000000\",\"website_name\":\"itechno.uz\",\"regular_delivery_cost\":\"25000\",\"fast_delivery_cost\":\"50000\",\"_token\":\"qXF5g0M8vZcD7MjO8nHOScqSfhT28oqshhgyIQvA\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/ecommerce.loc\\/admin\\/settings\"}', '2022-07-21 11:17:34', '2022-07-21 11:17:34');
+INSERT INTO `admin_operation_log` VALUES (1882, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2022-07-21 11:17:35', '2022-07-21 11:17:35');
+INSERT INTO `admin_operation_log` VALUES (1883, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:17:38', '2022-07-21 11:17:38');
+INSERT INTO `admin_operation_log` VALUES (1884, 1, 'admin/settings/1', 'PUT', '127.0.0.1', '{\"slogan\":\"\\u0421\\u043e\\u0432\\u0440\\u0435\\u043c\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0438\\u043d\\u0442\\u0435\\u0440\\u043d\\u0435\\u0442 \\u043c\\u0430\\u0433\\u0430\\u0437\\u0438\\u043d \\u043a\\u043e\\u043c\\u043f\\u044c\\u044e\\u0442\\u0435\\u0440\\u043d\\u043e\\u0439 \\u0442\\u0435\\u0445\\u043d\\u0438\\u043a\\u0438\",\"phone_number\":\"998330000000\",\"website_name\":\"itechno.uz\",\"regular_delivery_cost\":\"25000\",\"fast_delivery_cost\":\"50000\",\"_token\":\"qXF5g0M8vZcD7MjO8nHOScqSfhT28oqshhgyIQvA\",\"after-save\":\"2\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/ecommerce.loc\\/admin\\/settings\"}', '2022-07-21 11:17:40', '2022-07-21 11:17:40');
+INSERT INTO `admin_operation_log` VALUES (1885, 1, 'admin/settings/create', 'GET', '127.0.0.1', '[]', '2022-07-21 11:17:40', '2022-07-21 11:17:40');
+INSERT INTO `admin_operation_log` VALUES (1886, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:17:42', '2022-07-21 11:17:42');
+INSERT INTO `admin_operation_log` VALUES (1887, 1, 'admin/settings', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:17:45', '2022-07-21 11:17:45');
+INSERT INTO `admin_operation_log` VALUES (1888, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:17:48', '2022-07-21 11:17:48');
+INSERT INTO `admin_operation_log` VALUES (1889, 1, 'admin/settings', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:17:51', '2022-07-21 11:17:51');
+INSERT INTO `admin_operation_log` VALUES (1890, 1, 'admin/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:18:57', '2022-07-21 11:18:57');
+INSERT INTO `admin_operation_log` VALUES (1891, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:18:58', '2022-07-21 11:18:58');
+INSERT INTO `admin_operation_log` VALUES (1892, 1, 'admin/promotions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:18:59', '2022-07-21 11:18:59');
+INSERT INTO `admin_operation_log` VALUES (1893, 1, 'admin/services', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:18:59', '2022-07-21 11:18:59');
+INSERT INTO `admin_operation_log` VALUES (1894, 1, 'admin/banners', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:19:00', '2022-07-21 11:19:00');
+INSERT INTO `admin_operation_log` VALUES (1895, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:19:00', '2022-07-21 11:19:00');
+INSERT INTO `admin_operation_log` VALUES (1896, 1, 'admin/settings', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:19:01', '2022-07-21 11:19:01');
+INSERT INTO `admin_operation_log` VALUES (1897, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:19:02', '2022-07-21 11:19:02');
+INSERT INTO `admin_operation_log` VALUES (1898, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 11:25:28', '2022-07-21 11:25:28');
+INSERT INTO `admin_operation_log` VALUES (1899, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:25:31', '2022-07-21 11:25:31');
+INSERT INTO `admin_operation_log` VALUES (1900, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:25:31', '2022-07-21 11:25:31');
+INSERT INTO `admin_operation_log` VALUES (1901, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:25:38', '2022-07-21 11:25:38');
+INSERT INTO `admin_operation_log` VALUES (1902, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:25:39', '2022-07-21 11:25:39');
+INSERT INTO `admin_operation_log` VALUES (1903, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:25:48', '2022-07-21 11:25:48');
+INSERT INTO `admin_operation_log` VALUES (1904, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:25:49', '2022-07-21 11:25:49');
+INSERT INTO `admin_operation_log` VALUES (1905, 1, 'admin/brands', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:25:52', '2022-07-21 11:25:52');
+INSERT INTO `admin_operation_log` VALUES (1906, 1, 'admin/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:25:52', '2022-07-21 11:25:52');
+INSERT INTO `admin_operation_log` VALUES (1907, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:25:53', '2022-07-21 11:25:53');
+INSERT INTO `admin_operation_log` VALUES (1908, 1, 'admin/banners', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:25:53', '2022-07-21 11:25:53');
+INSERT INTO `admin_operation_log` VALUES (1909, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:25:53', '2022-07-21 11:25:53');
+INSERT INTO `admin_operation_log` VALUES (1910, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:25:54', '2022-07-21 11:25:54');
+INSERT INTO `admin_operation_log` VALUES (1911, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 11:26:30', '2022-07-21 11:26:30');
+INSERT INTO `admin_operation_log` VALUES (1912, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:26:34', '2022-07-21 11:26:34');
+INSERT INTO `admin_operation_log` VALUES (1913, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"2\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:26:34', '2022-07-21 11:26:34');
+INSERT INTO `admin_operation_log` VALUES (1914, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"3\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:26:35', '2022-07-21 11:26:35');
+INSERT INTO `admin_operation_log` VALUES (1915, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"4\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:26:36', '2022-07-21 11:26:36');
+INSERT INTO `admin_operation_log` VALUES (1916, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"5\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:26:37', '2022-07-21 11:26:37');
+INSERT INTO `admin_operation_log` VALUES (1917, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"2\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:26:38', '2022-07-21 11:26:38');
+INSERT INTO `admin_operation_log` VALUES (1918, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:26:39', '2022-07-21 11:26:39');
+INSERT INTO `admin_operation_log` VALUES (1919, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"2\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:26:41', '2022-07-21 11:26:41');
+INSERT INTO `admin_operation_log` VALUES (1920, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"},\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:26:42', '2022-07-21 11:26:42');
+INSERT INTO `admin_operation_log` VALUES (1921, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:26:43', '2022-07-21 11:26:43');
+INSERT INTO `admin_operation_log` VALUES (1922, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_selector\":{\"status\":\"2\"}}', '2022-07-21 11:28:54', '2022-07-21 11:28:54');
+INSERT INTO `admin_operation_log` VALUES (1923, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_selector\":{\"status\":\"2,1\"}}', '2022-07-21 11:28:56', '2022-07-21 11:28:56');
+INSERT INTO `admin_operation_log` VALUES (1924, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_selector\":{\"status\":\"2,1,3\"}}', '2022-07-21 11:28:57', '2022-07-21 11:28:57');
+INSERT INTO `admin_operation_log` VALUES (1925, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_selector\":{\"status\":\"2,1,3,4\"}}', '2022-07-21 11:28:58', '2022-07-21 11:28:58');
+INSERT INTO `admin_operation_log` VALUES (1926, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 11:29:00', '2022-07-21 11:29:00');
+INSERT INTO `admin_operation_log` VALUES (1927, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:29:01', '2022-07-21 11:29:01');
+INSERT INTO `admin_operation_log` VALUES (1928, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:30:10', '2022-07-21 11:30:10');
+INSERT INTO `admin_operation_log` VALUES (1929, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:31:46', '2022-07-21 11:31:46');
+INSERT INTO `admin_operation_log` VALUES (1930, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:32:03', '2022-07-21 11:32:03');
+INSERT INTO `admin_operation_log` VALUES (1931, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:32:17', '2022-07-21 11:32:17');
+INSERT INTO `admin_operation_log` VALUES (1932, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:32:54', '2022-07-21 11:32:54');
+INSERT INTO `admin_operation_log` VALUES (1933, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:33:12', '2022-07-21 11:33:12');
+INSERT INTO `admin_operation_log` VALUES (1934, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:33:34', '2022-07-21 11:33:34');
+INSERT INTO `admin_operation_log` VALUES (1935, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:34:29', '2022-07-21 11:34:29');
+INSERT INTO `admin_operation_log` VALUES (1936, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:34:43', '2022-07-21 11:34:43');
+INSERT INTO `admin_operation_log` VALUES (1937, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:34:52', '2022-07-21 11:34:52');
+INSERT INTO `admin_operation_log` VALUES (1938, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:34:58', '2022-07-21 11:34:58');
+INSERT INTO `admin_operation_log` VALUES (1939, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:35:07', '2022-07-21 11:35:07');
+INSERT INTO `admin_operation_log` VALUES (1940, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:35:10', '2022-07-21 11:35:10');
+INSERT INTO `admin_operation_log` VALUES (1941, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:35:29', '2022-07-21 11:35:29');
+INSERT INTO `admin_operation_log` VALUES (1942, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:35:52', '2022-07-21 11:35:52');
+INSERT INTO `admin_operation_log` VALUES (1943, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:36:41', '2022-07-21 11:36:41');
+INSERT INTO `admin_operation_log` VALUES (1944, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:37:37', '2022-07-21 11:37:37');
+INSERT INTO `admin_operation_log` VALUES (1945, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:38:41', '2022-07-21 11:38:41');
+INSERT INTO `admin_operation_log` VALUES (1946, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:39:15', '2022-07-21 11:39:15');
+INSERT INTO `admin_operation_log` VALUES (1947, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:39:40', '2022-07-21 11:39:40');
+INSERT INTO `admin_operation_log` VALUES (1948, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:39:53', '2022-07-21 11:39:53');
+INSERT INTO `admin_operation_log` VALUES (1949, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:40:49', '2022-07-21 11:40:49');
+INSERT INTO `admin_operation_log` VALUES (1950, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:43:35', '2022-07-21 11:43:35');
+INSERT INTO `admin_operation_log` VALUES (1951, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:43:50', '2022-07-21 11:43:50');
+INSERT INTO `admin_operation_log` VALUES (1952, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:44:18', '2022-07-21 11:44:18');
+INSERT INTO `admin_operation_log` VALUES (1953, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:45:03', '2022-07-21 11:45:03');
+INSERT INTO `admin_operation_log` VALUES (1954, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:45:11', '2022-07-21 11:45:11');
+INSERT INTO `admin_operation_log` VALUES (1955, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:45:34', '2022-07-21 11:45:34');
+INSERT INTO `admin_operation_log` VALUES (1956, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 11:46:04', '2022-07-21 11:46:04');
+INSERT INTO `admin_operation_log` VALUES (1957, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 12:05:13', '2022-07-21 12:05:13');
+INSERT INTO `admin_operation_log` VALUES (1958, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 12:05:53', '2022-07-21 12:05:53');
+INSERT INTO `admin_operation_log` VALUES (1959, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 12:05:56', '2022-07-21 12:05:56');
+INSERT INTO `admin_operation_log` VALUES (1960, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_selector\":{\"status\":\"1\"}}', '2022-07-21 12:07:11', '2022-07-21 12:07:11');
+INSERT INTO `admin_operation_log` VALUES (1961, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:07:28', '2022-07-21 12:07:28');
+INSERT INTO `admin_operation_log` VALUES (1962, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-21 12:07:32', '2022-07-21 12:07:32');
+INSERT INTO `admin_operation_log` VALUES (1963, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:07:39', '2022-07-21 12:07:39');
+INSERT INTO `admin_operation_log` VALUES (1964, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:07:59', '2022-07-21 12:07:59');
+INSERT INTO `admin_operation_log` VALUES (1965, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:08:22', '2022-07-21 12:08:22');
+INSERT INTO `admin_operation_log` VALUES (1966, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:08:39', '2022-07-21 12:08:39');
+INSERT INTO `admin_operation_log` VALUES (1967, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:09:03', '2022-07-21 12:09:03');
+INSERT INTO `admin_operation_log` VALUES (1968, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:09:39', '2022-07-21 12:09:39');
+INSERT INTO `admin_operation_log` VALUES (1969, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:10:01', '2022-07-21 12:10:01');
+INSERT INTO `admin_operation_log` VALUES (1970, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:10:10', '2022-07-21 12:10:10');
+INSERT INTO `admin_operation_log` VALUES (1971, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:10:36', '2022-07-21 12:10:36');
+INSERT INTO `admin_operation_log` VALUES (1972, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:11:18', '2022-07-21 12:11:18');
+INSERT INTO `admin_operation_log` VALUES (1973, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:12:53', '2022-07-21 12:12:53');
+INSERT INTO `admin_operation_log` VALUES (1974, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:13:06', '2022-07-21 12:13:06');
+INSERT INTO `admin_operation_log` VALUES (1975, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:13:13', '2022-07-21 12:13:13');
+INSERT INTO `admin_operation_log` VALUES (1976, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:13:39', '2022-07-21 12:13:39');
+INSERT INTO `admin_operation_log` VALUES (1977, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:13:46', '2022-07-21 12:13:46');
+INSERT INTO `admin_operation_log` VALUES (1978, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:14:04', '2022-07-21 12:14:04');
+INSERT INTO `admin_operation_log` VALUES (1979, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:14:15', '2022-07-21 12:14:15');
+INSERT INTO `admin_operation_log` VALUES (1980, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:14:34', '2022-07-21 12:14:34');
+INSERT INTO `admin_operation_log` VALUES (1981, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:14:55', '2022-07-21 12:14:55');
+INSERT INTO `admin_operation_log` VALUES (1982, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:15:01', '2022-07-21 12:15:01');
+INSERT INTO `admin_operation_log` VALUES (1983, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:15:06', '2022-07-21 12:15:06');
+INSERT INTO `admin_operation_log` VALUES (1984, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:15:16', '2022-07-21 12:15:16');
+INSERT INTO `admin_operation_log` VALUES (1985, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:15:20', '2022-07-21 12:15:20');
+INSERT INTO `admin_operation_log` VALUES (1986, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:15:55', '2022-07-21 12:15:55');
+INSERT INTO `admin_operation_log` VALUES (1987, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:16:00', '2022-07-21 12:16:00');
+INSERT INTO `admin_operation_log` VALUES (1988, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:16:05', '2022-07-21 12:16:05');
+INSERT INTO `admin_operation_log` VALUES (1989, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:16:09', '2022-07-21 12:16:09');
+INSERT INTO `admin_operation_log` VALUES (1990, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:16:32', '2022-07-21 12:16:32');
+INSERT INTO `admin_operation_log` VALUES (1991, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:16:41', '2022-07-21 12:16:41');
+INSERT INTO `admin_operation_log` VALUES (1992, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:17:45', '2022-07-21 12:17:45');
+INSERT INTO `admin_operation_log` VALUES (1993, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:17:48', '2022-07-21 12:17:48');
+INSERT INTO `admin_operation_log` VALUES (1994, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:17:59', '2022-07-21 12:17:59');
+INSERT INTO `admin_operation_log` VALUES (1995, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:18:40', '2022-07-21 12:18:40');
+INSERT INTO `admin_operation_log` VALUES (1996, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:18:46', '2022-07-21 12:18:46');
+INSERT INTO `admin_operation_log` VALUES (1997, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:18:52', '2022-07-21 12:18:52');
+INSERT INTO `admin_operation_log` VALUES (1998, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:19:02', '2022-07-21 12:19:02');
+INSERT INTO `admin_operation_log` VALUES (1999, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:20:08', '2022-07-21 12:20:08');
+INSERT INTO `admin_operation_log` VALUES (2000, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:24:25', '2022-07-21 12:24:25');
+INSERT INTO `admin_operation_log` VALUES (2001, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:24:33', '2022-07-21 12:24:33');
+INSERT INTO `admin_operation_log` VALUES (2002, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:24:41', '2022-07-21 12:24:41');
+INSERT INTO `admin_operation_log` VALUES (2003, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:24:48', '2022-07-21 12:24:48');
+INSERT INTO `admin_operation_log` VALUES (2004, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:25:01', '2022-07-21 12:25:01');
+INSERT INTO `admin_operation_log` VALUES (2005, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:25:09', '2022-07-21 12:25:09');
+INSERT INTO `admin_operation_log` VALUES (2006, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:25:14', '2022-07-21 12:25:14');
+INSERT INTO `admin_operation_log` VALUES (2007, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:25:22', '2022-07-21 12:25:22');
+INSERT INTO `admin_operation_log` VALUES (2008, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:26:34', '2022-07-21 12:26:34');
+INSERT INTO `admin_operation_log` VALUES (2009, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:26:39', '2022-07-21 12:26:39');
+INSERT INTO `admin_operation_log` VALUES (2010, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:26:44', '2022-07-21 12:26:44');
+INSERT INTO `admin_operation_log` VALUES (2011, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:28:42', '2022-07-21 12:28:42');
+INSERT INTO `admin_operation_log` VALUES (2012, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:28:46', '2022-07-21 12:28:46');
+INSERT INTO `admin_operation_log` VALUES (2013, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:29:06', '2022-07-21 12:29:06');
+INSERT INTO `admin_operation_log` VALUES (2014, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:29:26', '2022-07-21 12:29:26');
+INSERT INTO `admin_operation_log` VALUES (2015, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:29:34', '2022-07-21 12:29:34');
+INSERT INTO `admin_operation_log` VALUES (2016, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:29:54', '2022-07-21 12:29:54');
+INSERT INTO `admin_operation_log` VALUES (2017, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:30:03', '2022-07-21 12:30:03');
+INSERT INTO `admin_operation_log` VALUES (2018, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:30:59', '2022-07-21 12:30:59');
+INSERT INTO `admin_operation_log` VALUES (2019, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:31:08', '2022-07-21 12:31:08');
+INSERT INTO `admin_operation_log` VALUES (2020, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:31:24', '2022-07-21 12:31:24');
+INSERT INTO `admin_operation_log` VALUES (2021, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:31:47', '2022-07-21 12:31:47');
+INSERT INTO `admin_operation_log` VALUES (2022, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:32:27', '2022-07-21 12:32:27');
+INSERT INTO `admin_operation_log` VALUES (2023, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:32:52', '2022-07-21 12:32:52');
+INSERT INTO `admin_operation_log` VALUES (2024, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:34:22', '2022-07-21 12:34:22');
+INSERT INTO `admin_operation_log` VALUES (2025, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:34:33', '2022-07-21 12:34:33');
+INSERT INTO `admin_operation_log` VALUES (2026, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:35:00', '2022-07-21 12:35:00');
+INSERT INTO `admin_operation_log` VALUES (2027, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:35:11', '2022-07-21 12:35:11');
+INSERT INTO `admin_operation_log` VALUES (2028, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:40:44', '2022-07-21 12:40:44');
+INSERT INTO `admin_operation_log` VALUES (2029, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:41:05', '2022-07-21 12:41:05');
+INSERT INTO `admin_operation_log` VALUES (2030, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:41:20', '2022-07-21 12:41:20');
+INSERT INTO `admin_operation_log` VALUES (2031, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:43:14', '2022-07-21 12:43:14');
+INSERT INTO `admin_operation_log` VALUES (2032, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:43:19', '2022-07-21 12:43:19');
+INSERT INTO `admin_operation_log` VALUES (2033, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:43:20', '2022-07-21 12:43:20');
+INSERT INTO `admin_operation_log` VALUES (2034, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:46:39', '2022-07-21 12:46:39');
+INSERT INTO `admin_operation_log` VALUES (2035, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:46:54', '2022-07-21 12:46:54');
+INSERT INTO `admin_operation_log` VALUES (2036, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:47:41', '2022-07-21 12:47:41');
+INSERT INTO `admin_operation_log` VALUES (2037, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:48:39', '2022-07-21 12:48:39');
+INSERT INTO `admin_operation_log` VALUES (2038, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:48:44', '2022-07-21 12:48:44');
+INSERT INTO `admin_operation_log` VALUES (2039, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:48:45', '2022-07-21 12:48:45');
+INSERT INTO `admin_operation_log` VALUES (2040, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:48:46', '2022-07-21 12:48:46');
+INSERT INTO `admin_operation_log` VALUES (2041, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:54:40', '2022-07-21 12:54:40');
+INSERT INTO `admin_operation_log` VALUES (2042, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:55:14', '2022-07-21 12:55:14');
+INSERT INTO `admin_operation_log` VALUES (2043, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:55:22', '2022-07-21 12:55:22');
+INSERT INTO `admin_operation_log` VALUES (2044, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:55:36', '2022-07-21 12:55:36');
+INSERT INTO `admin_operation_log` VALUES (2045, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:55:45', '2022-07-21 12:55:45');
+INSERT INTO `admin_operation_log` VALUES (2046, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:55:55', '2022-07-21 12:55:55');
+INSERT INTO `admin_operation_log` VALUES (2047, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:56:02', '2022-07-21 12:56:02');
+INSERT INTO `admin_operation_log` VALUES (2048, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:56:41', '2022-07-21 12:56:41');
+INSERT INTO `admin_operation_log` VALUES (2049, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 12:57:03', '2022-07-21 12:57:03');
+INSERT INTO `admin_operation_log` VALUES (2050, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-21 13:11:46', '2022-07-21 13:11:46');
+INSERT INTO `admin_operation_log` VALUES (2051, 1, 'admin', 'GET', '127.0.0.1', '[]', '2022-07-22 09:27:02', '2022-07-22 09:27:02');
+INSERT INTO `admin_operation_log` VALUES (2052, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 09:27:05', '2022-07-22 09:27:05');
+INSERT INTO `admin_operation_log` VALUES (2053, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-22 09:31:41', '2022-07-22 09:31:41');
+INSERT INTO `admin_operation_log` VALUES (2054, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-22 09:31:46', '2022-07-22 09:31:46');
+INSERT INTO `admin_operation_log` VALUES (2055, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-22 09:32:14', '2022-07-22 09:32:14');
+INSERT INTO `admin_operation_log` VALUES (2056, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-22 09:32:22', '2022-07-22 09:32:22');
+INSERT INTO `admin_operation_log` VALUES (2057, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-22 09:32:27', '2022-07-22 09:32:27');
+INSERT INTO `admin_operation_log` VALUES (2058, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-22 09:37:20', '2022-07-22 09:37:20');
+INSERT INTO `admin_operation_log` VALUES (2059, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-22 10:43:01', '2022-07-22 10:43:01');
+INSERT INTO `admin_operation_log` VALUES (2060, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-22 10:47:56', '2022-07-22 10:47:56');
+INSERT INTO `admin_operation_log` VALUES (2061, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-22 10:49:52', '2022-07-22 10:49:52');
+INSERT INTO `admin_operation_log` VALUES (2062, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-22 10:50:06', '2022-07-22 10:50:06');
+INSERT INTO `admin_operation_log` VALUES (2063, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-22 10:52:16', '2022-07-22 10:52:16');
+INSERT INTO `admin_operation_log` VALUES (2064, 1, 'admin/orders', 'GET', '127.0.0.1', '[]', '2022-07-22 10:52:52', '2022-07-22 10:52:52');
+INSERT INTO `admin_operation_log` VALUES (2065, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"created_at\",\"type\":\"desc\"},\"_pjax\":\"#pjax-container\"}', '2022-07-22 10:53:16', '2022-07-22 10:53:16');
+INSERT INTO `admin_operation_log` VALUES (2066, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"created_at\",\"type\":\"asc\"},\"_pjax\":\"#pjax-container\"}', '2022-07-22 10:53:19', '2022-07-22 10:53:19');
+INSERT INTO `admin_operation_log` VALUES (2067, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 10:56:27', '2022-07-22 10:56:27');
+INSERT INTO `admin_operation_log` VALUES (2068, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"created_at\",\"type\":\"asc\"},\"_pjax\":\"#pjax-container\"}', '2022-07-22 10:56:38', '2022-07-22 10:56:38');
+INSERT INTO `admin_operation_log` VALUES (2069, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"created_at\",\"type\":\"asc\"}}', '2022-07-22 10:58:41', '2022-07-22 10:58:41');
+INSERT INTO `admin_operation_log` VALUES (2070, 1, 'admin/orders/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 10:59:13', '2022-07-22 10:59:13');
+INSERT INTO `admin_operation_log` VALUES (2071, 1, 'admin/orders/1', 'GET', '127.0.0.1', '[]', '2022-07-22 11:00:59', '2022-07-22 11:00:59');
+INSERT INTO `admin_operation_log` VALUES (2072, 1, 'admin/banners', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:01:00', '2022-07-22 11:01:00');
+INSERT INTO `admin_operation_log` VALUES (2073, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:01:00', '2022-07-22 11:01:00');
+INSERT INTO `admin_operation_log` VALUES (2074, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_sort\":{\"column\":\"created_at\",\"type\":\"desc\"}}', '2022-07-22 11:01:06', '2022-07-22 11:01:06');
+INSERT INTO `admin_operation_log` VALUES (2075, 1, 'admin/orders/9', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:01:09', '2022-07-22 11:01:09');
+INSERT INTO `admin_operation_log` VALUES (2076, 1, 'admin/products', 'GET', '127.0.0.1', '[]', '2022-07-22 11:02:57', '2022-07-22 11:02:57');
+INSERT INTO `admin_operation_log` VALUES (2077, 1, 'admin/products/11', 'PUT', '127.0.0.1', '{\"name\":\"name\",\"value\":\"Motherboard 5 TI0\",\"pk\":\"11\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_editable\":\"1\",\"_method\":\"PUT\"}', '2022-07-22 11:03:10', '2022-07-22 11:03:10');
+INSERT INTO `admin_operation_log` VALUES (2078, 1, 'admin/orders/9', 'GET', '127.0.0.1', '[]', '2022-07-22 11:03:32', '2022-07-22 11:03:32');
+INSERT INTO `admin_operation_log` VALUES (2079, 1, 'admin/orders/10', 'GET', '127.0.0.1', '[]', '2022-07-22 11:03:34', '2022-07-22 11:03:34');
+INSERT INTO `admin_operation_log` VALUES (2080, 1, 'admin/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:07:27', '2022-07-22 11:07:27');
+INSERT INTO `admin_operation_log` VALUES (2081, 1, 'admin/categories/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:07:32', '2022-07-22 11:07:32');
+INSERT INTO `admin_operation_log` VALUES (2082, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:07:33', '2022-07-22 11:07:33');
+INSERT INTO `admin_operation_log` VALUES (2083, 1, 'admin/promotions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:07:34', '2022-07-22 11:07:34');
+INSERT INTO `admin_operation_log` VALUES (2084, 1, 'admin/services', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:07:35', '2022-07-22 11:07:35');
+INSERT INTO `admin_operation_log` VALUES (2085, 1, 'admin/banners', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:07:36', '2022-07-22 11:07:36');
+INSERT INTO `admin_operation_log` VALUES (2086, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:07:36', '2022-07-22 11:07:36');
+INSERT INTO `admin_operation_log` VALUES (2087, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:07:36', '2022-07-22 11:07:36');
+INSERT INTO `admin_operation_log` VALUES (2088, 1, 'admin/banners', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:07:37', '2022-07-22 11:07:37');
+INSERT INTO `admin_operation_log` VALUES (2089, 1, 'admin/banners/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:07:40', '2022-07-22 11:07:40');
+INSERT INTO `admin_operation_log` VALUES (2090, 1, 'admin/banners', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:07:41', '2022-07-22 11:07:41');
+INSERT INTO `admin_operation_log` VALUES (2091, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:07:45', '2022-07-22 11:07:45');
+INSERT INTO `admin_operation_log` VALUES (2092, 1, 'admin/brands', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:14:04', '2022-07-22 11:14:04');
+INSERT INTO `admin_operation_log` VALUES (2093, 1, 'admin/brands', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:23:44', '2022-07-22 11:23:44');
+INSERT INTO `admin_operation_log` VALUES (2094, 1, 'admin/brands', 'GET', '127.0.0.1', '[]', '2022-07-22 11:23:54', '2022-07-22 11:23:54');
+INSERT INTO `admin_operation_log` VALUES (2095, 1, 'admin/brands/2', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:23:55', '2022-07-22 11:23:55');
+INSERT INTO `admin_operation_log` VALUES (2096, 1, 'admin/brands/2', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:23:56', '2022-07-22 11:23:56');
+INSERT INTO `admin_operation_log` VALUES (2097, 1, 'admin/brands/2', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:24:04', '2022-07-22 11:24:04');
+INSERT INTO `admin_operation_log` VALUES (2098, 1, 'admin/brands/2', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:24:40', '2022-07-22 11:24:40');
+INSERT INTO `admin_operation_log` VALUES (2099, 1, 'admin/brands/2', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:25:09', '2022-07-22 11:25:09');
+INSERT INTO `admin_operation_log` VALUES (2100, 1, 'admin/brands/2', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:25:13', '2022-07-22 11:25:13');
+INSERT INTO `admin_operation_log` VALUES (2101, 1, 'admin/brands/2', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:25:15', '2022-07-22 11:25:15');
+INSERT INTO `admin_operation_log` VALUES (2102, 1, 'admin/brands/2', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:25:42', '2022-07-22 11:25:42');
+INSERT INTO `admin_operation_log` VALUES (2103, 1, 'admin/brands/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:25:44', '2022-07-22 11:25:44');
+INSERT INTO `admin_operation_log` VALUES (2104, 1, 'admin/brands/create', 'GET', '127.0.0.1', '[]', '2022-07-22 11:26:17', '2022-07-22 11:26:17');
+INSERT INTO `admin_operation_log` VALUES (2105, 1, 'admin/brands', 'POST', '127.0.0.1', '{\"status\":\"off\",\"name\":\"123\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_previous_\":\"http:\\/\\/ecommerce.loc\\/admin\\/brands\"}', '2022-07-22 11:26:23', '2022-07-22 11:26:23');
+INSERT INTO `admin_operation_log` VALUES (2106, 1, 'admin/brands', 'GET', '127.0.0.1', '[]', '2022-07-22 11:26:23', '2022-07-22 11:26:23');
+INSERT INTO `admin_operation_log` VALUES (2107, 1, 'admin/brands', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:26:33', '2022-07-22 11:26:33');
+INSERT INTO `admin_operation_log` VALUES (2108, 1, 'admin/brands/9', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:26:36', '2022-07-22 11:26:36');
+INSERT INTO `admin_operation_log` VALUES (2109, 1, 'admin/brands/8', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:26:39', '2022-07-22 11:26:39');
+INSERT INTO `admin_operation_log` VALUES (2110, 1, 'admin/brands/3', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:26:42', '2022-07-22 11:26:42');
+INSERT INTO `admin_operation_log` VALUES (2111, 1, 'admin/brands/2', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:26:45', '2022-07-22 11:26:45');
+INSERT INTO `admin_operation_log` VALUES (2112, 1, 'admin/brands/4', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:26:47', '2022-07-22 11:26:47');
+INSERT INTO `admin_operation_log` VALUES (2113, 1, 'admin/brands', 'GET', '127.0.0.1', '{\"status\":[\"0\"],\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:27:16', '2022-07-22 11:27:16');
+INSERT INTO `admin_operation_log` VALUES (2114, 1, 'admin/brands', 'GET', '127.0.0.1', '{\"status\":[\"0\",\"1\"],\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:27:19', '2022-07-22 11:27:19');
+INSERT INTO `admin_operation_log` VALUES (2115, 1, 'admin/brands', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:27:21', '2022-07-22 11:27:21');
+INSERT INTO `admin_operation_log` VALUES (2116, 1, 'admin/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:27:27', '2022-07-22 11:27:27');
+INSERT INTO `admin_operation_log` VALUES (2117, 1, 'admin/categories', 'GET', '127.0.0.1', '[]', '2022-07-22 11:27:47', '2022-07-22 11:27:47');
+INSERT INTO `admin_operation_log` VALUES (2118, 1, 'admin/categories', 'GET', '127.0.0.1', '[]', '2022-07-22 11:27:50', '2022-07-22 11:27:50');
+INSERT INTO `admin_operation_log` VALUES (2119, 1, 'admin/categories', 'GET', '127.0.0.1', '[]', '2022-07-22 11:28:04', '2022-07-22 11:28:04');
+INSERT INTO `admin_operation_log` VALUES (2120, 1, 'admin/categories', 'GET', '127.0.0.1', '[]', '2022-07-22 11:28:06', '2022-07-22 11:28:06');
+INSERT INTO `admin_operation_log` VALUES (2121, 1, 'admin/categories', 'GET', '127.0.0.1', '[]', '2022-07-22 11:28:13', '2022-07-22 11:28:13');
+INSERT INTO `admin_operation_log` VALUES (2122, 1, 'admin/categories', 'GET', '127.0.0.1', '[]', '2022-07-22 11:28:25', '2022-07-22 11:28:25');
+INSERT INTO `admin_operation_log` VALUES (2123, 1, 'admin/categories/1', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:28:32', '2022-07-22 11:28:32');
+INSERT INTO `admin_operation_log` VALUES (2124, 1, 'admin/categories/1', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:28:32', '2022-07-22 11:28:32');
+INSERT INTO `admin_operation_log` VALUES (2125, 1, 'admin/categories/1', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:28:34', '2022-07-22 11:28:34');
+INSERT INTO `admin_operation_log` VALUES (2126, 1, 'admin/categories/2', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:28:36', '2022-07-22 11:28:36');
+INSERT INTO `admin_operation_log` VALUES (2127, 1, 'admin/categories/5', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:28:40', '2022-07-22 11:28:40');
+INSERT INTO `admin_operation_log` VALUES (2128, 1, 'admin/categories/5', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:28:40', '2022-07-22 11:28:40');
+INSERT INTO `admin_operation_log` VALUES (2129, 1, 'admin/categories/4', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:28:41', '2022-07-22 11:28:41');
+INSERT INTO `admin_operation_log` VALUES (2130, 1, 'admin/categories/4', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:28:41', '2022-07-22 11:28:41');
+INSERT INTO `admin_operation_log` VALUES (2131, 1, 'admin/categories/3', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:28:41', '2022-07-22 11:28:41');
+INSERT INTO `admin_operation_log` VALUES (2132, 1, 'admin/categories/3', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:28:42', '2022-07-22 11:28:42');
+INSERT INTO `admin_operation_log` VALUES (2133, 1, 'admin/categories', 'GET', '127.0.0.1', '[]', '2022-07-22 11:28:48', '2022-07-22 11:28:48');
+INSERT INTO `admin_operation_log` VALUES (2134, 1, 'admin/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:29:14', '2022-07-22 11:29:14');
+INSERT INTO `admin_operation_log` VALUES (2135, 1, 'admin/categories/1', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:29:16', '2022-07-22 11:29:16');
+INSERT INTO `admin_operation_log` VALUES (2136, 1, 'admin/categories/1', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:29:17', '2022-07-22 11:29:17');
+INSERT INTO `admin_operation_log` VALUES (2137, 1, 'admin/categories/2', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:29:18', '2022-07-22 11:29:18');
+INSERT INTO `admin_operation_log` VALUES (2138, 1, 'admin/categories/2', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:29:18', '2022-07-22 11:29:18');
+INSERT INTO `admin_operation_log` VALUES (2139, 1, 'admin/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_sort\":{\"column\":\"type\",\"type\":\"desc\"}}', '2022-07-22 11:29:21', '2022-07-22 11:29:21');
+INSERT INTO `admin_operation_log` VALUES (2140, 1, 'admin/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"_sort\":{\"column\":\"type\",\"type\":\"asc\"}}', '2022-07-22 11:29:22', '2022-07-22 11:29:22');
+INSERT INTO `admin_operation_log` VALUES (2141, 1, 'admin/categories', 'GET', '127.0.0.1', '{\"_sort\":{\"column\":\"type\",\"type\":\"asc\"}}', '2022-07-22 11:30:09', '2022-07-22 11:30:09');
+INSERT INTO `admin_operation_log` VALUES (2142, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:30:09', '2022-07-22 11:30:09');
+INSERT INTO `admin_operation_log` VALUES (2143, 1, 'admin/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:30:10', '2022-07-22 11:30:10');
+INSERT INTO `admin_operation_log` VALUES (2144, 1, 'admin/promotions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:30:10', '2022-07-22 11:30:10');
+INSERT INTO `admin_operation_log` VALUES (2145, 1, 'admin/promotions/3/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:30:15', '2022-07-22 11:30:15');
+INSERT INTO `admin_operation_log` VALUES (2146, 1, 'admin/promotions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:30:20', '2022-07-22 11:30:20');
+INSERT INTO `admin_operation_log` VALUES (2147, 1, 'admin/promotions/3', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:30:23', '2022-07-22 11:30:23');
+INSERT INTO `admin_operation_log` VALUES (2148, 1, 'admin/promotions/5', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:30:23', '2022-07-22 11:30:23');
+INSERT INTO `admin_operation_log` VALUES (2149, 1, 'admin/promotions/6', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:30:24', '2022-07-22 11:30:24');
+INSERT INTO `admin_operation_log` VALUES (2150, 1, 'admin/promotions/3', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:31:09', '2022-07-22 11:31:09');
+INSERT INTO `admin_operation_log` VALUES (2151, 1, 'admin/promotions/3', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:31:10', '2022-07-22 11:31:10');
+INSERT INTO `admin_operation_log` VALUES (2152, 1, 'admin/promotions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:31:13', '2022-07-22 11:31:13');
+INSERT INTO `admin_operation_log` VALUES (2153, 1, 'admin/promotions/3/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:31:14', '2022-07-22 11:31:14');
+INSERT INTO `admin_operation_log` VALUES (2154, 1, 'admin/promotions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:31:17', '2022-07-22 11:31:17');
+INSERT INTO `admin_operation_log` VALUES (2155, 1, 'admin/promotions', 'GET', '127.0.0.1', '[]', '2022-07-22 11:31:17', '2022-07-22 11:31:17');
+INSERT INTO `admin_operation_log` VALUES (2156, 1, 'admin/promotions/3', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:31:20', '2022-07-22 11:31:20');
+INSERT INTO `admin_operation_log` VALUES (2157, 1, 'admin/promotions/5', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:31:25', '2022-07-22 11:31:25');
+INSERT INTO `admin_operation_log` VALUES (2158, 1, 'admin/promotions/6', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:31:25', '2022-07-22 11:31:25');
+INSERT INTO `admin_operation_log` VALUES (2159, 1, 'admin/promotions/3', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:31:27', '2022-07-22 11:31:27');
+INSERT INTO `admin_operation_log` VALUES (2160, 1, 'admin/services', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:31:45', '2022-07-22 11:31:45');
+INSERT INTO `admin_operation_log` VALUES (2161, 1, 'admin/services', 'GET', '127.0.0.1', '[]', '2022-07-22 11:32:14', '2022-07-22 11:32:14');
+INSERT INTO `admin_operation_log` VALUES (2162, 1, 'admin/services/1', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:32:24', '2022-07-22 11:32:24');
+INSERT INTO `admin_operation_log` VALUES (2163, 1, 'admin/services/1', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:32:24', '2022-07-22 11:32:24');
+INSERT INTO `admin_operation_log` VALUES (2164, 1, 'admin/services/1', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:32:25', '2022-07-22 11:32:25');
+INSERT INTO `admin_operation_log` VALUES (2165, 1, 'admin/services/1', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:32:28', '2022-07-22 11:32:28');
+INSERT INTO `admin_operation_log` VALUES (2166, 1, 'admin/services/1', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:32:29', '2022-07-22 11:32:29');
+INSERT INTO `admin_operation_log` VALUES (2167, 1, 'admin/services/1', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:32:30', '2022-07-22 11:32:30');
+INSERT INTO `admin_operation_log` VALUES (2168, 1, 'admin/services/1', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:32:30', '2022-07-22 11:32:30');
+INSERT INTO `admin_operation_log` VALUES (2169, 1, 'admin/services/1', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:32:34', '2022-07-22 11:32:34');
+INSERT INTO `admin_operation_log` VALUES (2170, 1, 'admin/services/1', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:32:35', '2022-07-22 11:32:35');
+INSERT INTO `admin_operation_log` VALUES (2171, 1, 'admin/services/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:32:37', '2022-07-22 11:32:37');
+INSERT INTO `admin_operation_log` VALUES (2172, 1, 'admin/services', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:32:41', '2022-07-22 11:32:41');
+INSERT INTO `admin_operation_log` VALUES (2173, 1, 'admin/services', 'GET', '127.0.0.1', '[]', '2022-07-22 11:32:41', '2022-07-22 11:32:41');
+INSERT INTO `admin_operation_log` VALUES (2174, 1, 'admin/services/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:32:43', '2022-07-22 11:32:43');
+INSERT INTO `admin_operation_log` VALUES (2175, 1, 'admin/services/1', 'PUT', '127.0.0.1', '{\"title\":\"\\u0412\\u044b\\u0435\\u0437\\u0434\\u043d\\u043e\\u0439 \\u043a\\u043e\\u043c\\u043f\\u044c\\u044e\\u0442\\u0435\\u0440\\u043d\\u044b\\u0439 \\u0441\\u0435\\u0440\\u0432\\u0438\\u0441\",\"body\":\"<p>\\u041c\\u044b \\u0437\\u0430\\u043d\\u0438\\u043c\\u0430\\u0435\\u043c\\u0441\\u044f \\u0440\\u0435\\u043c\\u043e\\u043d\\u0442\\u043e\\u043c \\u041f\\u041a \\u0438 \\u043d\\u043e\\u0443\\u0442\\u0431\\u0443\\u043a\\u043e\\u0432 \\u0443\\u0436\\u0435 \\u0431\\u043e\\u043b\\u0435\\u0435 7-\\u0438 \\u043b\\u0435\\u0442 \\u0438 \\u043f\\u043e \\u043f\\u0440\\u0430\\u0432\\u0443 \\u043c\\u043e\\u0436\\u0435\\u043c \\u0441\\u0447\\u0438\\u0442\\u0430\\u0442\\u044c\\u0441\\u044f \\u043e\\u0434\\u043d\\u043e\\u0439 \\u0438\\u0437 \\u043a\\u0440\\u0443\\u043f\\u043d\\u0435\\u0439\\u0448\\u0438\\u0445 \\u043a\\u043e\\u043c\\u043f\\u0430\\u043d\\u0438\\u0439 \\u043d\\u0430 \\u0440\\u044b\\u043d\\u043a\\u0435 IT-\\u0443\\u0441\\u043b\\u0443\\u0433.<\\/p>\\r\\n\\r\\n<p>\\u041d\\u0430\\u0448\\u0438 \\u0441\\u043f\\u0435\\u0446\\u0438\\u0430\\u043b\\u0438\\u0441\\u0442\\u044b \\u0431\\u044b\\u0441\\u0442\\u0440\\u043e \\u0438 \\u043a\\u0430\\u0447\\u0435\\u0441\\u0442\\u0432\\u0435\\u043d\\u043d\\u043e \\u043e\\u0441\\u0443\\u0449\\u0435\\u0441\\u0442\\u0432\\u044f\\u0442 \\u043d\\u0430\\u0441\\u0442\\u0440\\u043e\\u0439\\u043a\\u0443 \\u043f\\u0435\\u0440\\u0441\\u043e\\u043d\\u0430\\u043b\\u044c\\u043d\\u044b\\u0445 \\u043a\\u043e\\u043c\\u043f\\u044c\\u044e\\u0442\\u0435\\u0440\\u043e\\u0432, \\u043d\\u043e\\u0443\\u0442\\u0431\\u0443\\u043a\\u043e\\u0432 \\u0438 \\u043b\\u044e\\u0431\\u043e\\u0439 \\u043e\\u0444\\u0438\\u0441\\u043d\\u043e\\u0439 \\u0442\\u0435\\u0445\\u043d\\u0438\\u043a\\u0438, \\u043f\\u0440\\u0438 \\u043d\\u0435\\u043e\\u0431\\u0445\\u043e\\u0434\\u0438\\u043c\\u043e\\u0441\\u0442\\u0438 \\u043f\\u0440\\u043e\\u0438\\u0437\\u0432\\u0435\\u0434\\u0443\\u0442 \\u0440\\u0435\\u043c\\u043e\\u043d\\u0442, \\u0443\\u0441\\u0442\\u0430\\u043d\\u043e\\u0432\\u044f\\u0442 \\u0437\\u0430\\u0449\\u0438\\u0442\\u0443 \\u043e\\u0442 \\u0432\\u0438\\u0440\\u0443\\u0441\\u043e\\u0432 \\u0438 \\u0434\\u0440\\u0443\\u0433\\u043e\\u0433\\u043e \\u0432\\u0440\\u0435\\u0434\\u043e\\u043d\\u043e\\u0441\\u043d\\u043e\\u0433\\u043e \\u041f\\u041e.<\\/p>\\r\\n\\r\\n<h2>\\u041c\\u044b \\u043f\\u0440\\u0435\\u0434\\u043b\\u0430\\u0433\\u0430\\u0435\\u043c \\u0412\\u0430\\u043c:<\\/h2>\\r\\n\\r\\n<ul>\\r\\n\\t<li>\\r\\n\\t<p>\\u041f\\u0430\\u043a\\u0435\\u0442&nbsp;<strong>&quot;\\u0421\\u0418\\u0422\\u0418 \\u0421\\u0442\\u0430\\u0440\\u0442&quot;<\\/strong>&nbsp;\\u0434\\u043b\\u044f \\u043a\\u043e\\u043c\\u043f\\u044c\\u044e\\u0442\\u0435\\u0440\\u043e\\u0432 \\u0438 \\u043d\\u043e\\u0443\\u0442\\u0431\\u0443\\u043a\\u043e\\u0432&nbsp;\\u043f\\u043e\\u0434\\u0440\\u043e\\u0431\\u043d\\u0435\\u0435<\\/p>\\r\\n\\t<\\/li>\\r\\n\\t<li>\\r\\n\\t<p>\\u041f\\u0430\\u043a\\u0435\\u0442&nbsp;<strong>&quot;\\u0421\\u0418\\u0422\\u0418 \\u041e\\u043f\\u0442\\u0438\\u043c\\u0430&quot;<\\/strong>&nbsp;\\u0434\\u043b\\u044f \\u043a\\u043e\\u043c\\u043f\\u044c\\u044e\\u0442\\u0435\\u0440\\u043e\\u0432 \\u0438 \\u043d\\u043e\\u0443\\u0442\\u0431\\u0443\\u043a\\u043e\\u0432&nbsp;\\u043f\\u043e\\u0434\\u0440\\u043e\\u0431\\u043d\\u0435\\u0435<\\/p>\\r\\n\\t<\\/li>\\r\\n\\t<li>\\r\\n\\t<p>\\u041f\\u0430\\u043a\\u0435\\u0442&nbsp;<strong>&quot;\\u0421\\u0418\\u0422\\u0418 \\u041c\\u0430\\u043a\\u0441&quot;<\\/strong>&nbsp;\\u0434\\u043b\\u044f \\u043a\\u043e\\u043c\\u043f\\u044c\\u044e\\u0442\\u0435\\u0440\\u043e\\u0432 \\u0438 \\u043d\\u043e\\u0443\\u0442\\u0431\\u0443\\u043a\\u043e\\u0432&nbsp;\\u043f\\u043e\\u0434\\u0440\\u043e\\u0431\\u043d\\u0435\\u0435<\\/p>\\r\\n\\t<\\/li>\\r\\n<\\/ul>\",\"deadline\":\"123\",\"price\":\"100000\",\"is_discount\":\"1\",\"discount_from\":\"2022-06-30 07:04:32\",\"discount_to\":\"2022-07-01 07:04:32\",\"discount_price\":\"85000.00\",\"status\":\"off\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/ecommerce.loc\\/admin\\/services\"}', '2022-07-22 11:32:46', '2022-07-22 11:32:46');
+INSERT INTO `admin_operation_log` VALUES (2176, 1, 'admin/services', 'GET', '127.0.0.1', '[]', '2022-07-22 11:32:46', '2022-07-22 11:32:46');
+INSERT INTO `admin_operation_log` VALUES (2177, 1, 'admin/services/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:33:13', '2022-07-22 11:33:13');
+INSERT INTO `admin_operation_log` VALUES (2178, 1, 'admin/services', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:33:33', '2022-07-22 11:33:33');
+INSERT INTO `admin_operation_log` VALUES (2179, 1, 'admin/banners', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:33:35', '2022-07-22 11:33:35');
+INSERT INTO `admin_operation_log` VALUES (2180, 1, 'admin/banners', 'GET', '127.0.0.1', '[]', '2022-07-22 11:34:00', '2022-07-22 11:34:00');
+INSERT INTO `admin_operation_log` VALUES (2181, 1, 'admin/banners/1', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:34:02', '2022-07-22 11:34:02');
+INSERT INTO `admin_operation_log` VALUES (2182, 1, 'admin/banners/2', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:34:03', '2022-07-22 11:34:03');
+INSERT INTO `admin_operation_log` VALUES (2183, 1, 'admin/banners/3', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:34:05', '2022-07-22 11:34:05');
+INSERT INTO `admin_operation_log` VALUES (2184, 1, 'admin/banners/3/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:34:07', '2022-07-22 11:34:07');
+INSERT INTO `admin_operation_log` VALUES (2185, 1, 'admin/banners', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:34:19', '2022-07-22 11:34:19');
+INSERT INTO `admin_operation_log` VALUES (2186, 1, 'admin/banners', 'GET', '127.0.0.1', '[]', '2022-07-22 11:34:19', '2022-07-22 11:34:19');
+INSERT INTO `admin_operation_log` VALUES (2187, 1, 'admin/banners', 'GET', '127.0.0.1', '[]', '2022-07-22 11:34:49', '2022-07-22 11:34:49');
+INSERT INTO `admin_operation_log` VALUES (2188, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 11:34:50', '2022-07-22 11:34:50');
+INSERT INTO `admin_operation_log` VALUES (2189, 1, 'admin/posts/1', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:34:52', '2022-07-22 11:34:52');
+INSERT INTO `admin_operation_log` VALUES (2190, 1, 'admin/posts/2', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:34:53', '2022-07-22 11:34:53');
+INSERT INTO `admin_operation_log` VALUES (2191, 1, 'admin/posts/3', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:34:54', '2022-07-22 11:34:54');
+INSERT INTO `admin_operation_log` VALUES (2192, 1, 'admin/posts/5', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:35:00', '2022-07-22 11:35:00');
+INSERT INTO `admin_operation_log` VALUES (2193, 1, 'admin/posts/4', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:35:00', '2022-07-22 11:35:00');
+INSERT INTO `admin_operation_log` VALUES (2194, 1, 'admin/posts/4', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:35:01', '2022-07-22 11:35:01');
+INSERT INTO `admin_operation_log` VALUES (2195, 1, 'admin/posts/5', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 11:35:01', '2022-07-22 11:35:01');
+INSERT INTO `admin_operation_log` VALUES (2196, 1, 'admin/brands', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:11:14', '2022-07-22 12:11:14');
+INSERT INTO `admin_operation_log` VALUES (2197, 1, 'admin/banners', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:11:16', '2022-07-22 12:11:16');
+INSERT INTO `admin_operation_log` VALUES (2198, 1, 'admin/banners/1', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 12:11:17', '2022-07-22 12:11:17');
+INSERT INTO `admin_operation_log` VALUES (2199, 1, 'admin/banners/2', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 12:11:17', '2022-07-22 12:11:17');
+INSERT INTO `admin_operation_log` VALUES (2200, 1, 'admin/banners/2', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 12:11:21', '2022-07-22 12:11:21');
+INSERT INTO `admin_operation_log` VALUES (2201, 1, 'admin/services', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:12:53', '2022-07-22 12:12:53');
+INSERT INTO `admin_operation_log` VALUES (2202, 1, 'admin/promotions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:12:56', '2022-07-22 12:12:56');
+INSERT INTO `admin_operation_log` VALUES (2203, 1, 'admin/promotions/3', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 12:12:56', '2022-07-22 12:12:56');
+INSERT INTO `admin_operation_log` VALUES (2204, 1, 'admin/promotions/5', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 12:12:57', '2022-07-22 12:12:57');
+INSERT INTO `admin_operation_log` VALUES (2205, 1, 'admin/services', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:13:39', '2022-07-22 12:13:39');
+INSERT INTO `admin_operation_log` VALUES (2206, 1, 'admin/services/1', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 12:13:42', '2022-07-22 12:13:42');
+INSERT INTO `admin_operation_log` VALUES (2207, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:14:07', '2022-07-22 12:14:07');
+INSERT INTO `admin_operation_log` VALUES (2208, 1, 'admin/posts/3', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 12:14:09', '2022-07-22 12:14:09');
+INSERT INTO `admin_operation_log` VALUES (2209, 1, 'admin/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:15:31', '2022-07-22 12:15:31');
+INSERT INTO `admin_operation_log` VALUES (2210, 1, 'admin/categories/4', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 12:15:32', '2022-07-22 12:15:32');
+INSERT INTO `admin_operation_log` VALUES (2211, 1, 'admin/categories/5', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 12:15:33', '2022-07-22 12:15:33');
+INSERT INTO `admin_operation_log` VALUES (2212, 1, 'admin/categories/5', 'PUT', '127.0.0.1', '{\"status\":\"1\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 12:15:33', '2022-07-22 12:15:33');
+INSERT INTO `admin_operation_log` VALUES (2213, 1, 'admin/categories/5', 'PUT', '127.0.0.1', '{\"status\":\"0\",\"_token\":\"YhH3RvO4UG3iCMb7935U2CXJOFjsfO3ceH1xjJLp\",\"_method\":\"PUT\",\"_edit_inline\":\"true\"}', '2022-07-22 12:15:40', '2022-07-22 12:15:40');
+INSERT INTO `admin_operation_log` VALUES (2214, 1, 'admin/products', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:45:58', '2022-07-22 12:45:58');
+INSERT INTO `admin_operation_log` VALUES (2215, 1, 'admin/banners', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:46:02', '2022-07-22 12:46:02');
+INSERT INTO `admin_operation_log` VALUES (2216, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:46:02', '2022-07-22 12:46:02');
+INSERT INTO `admin_operation_log` VALUES (2217, 1, 'admin/settings', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:46:03', '2022-07-22 12:46:03');
+INSERT INTO `admin_operation_log` VALUES (2218, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:46:04', '2022-07-22 12:46:04');
+INSERT INTO `admin_operation_log` VALUES (2219, 1, 'admin/settings', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:46:04', '2022-07-22 12:46:04');
+INSERT INTO `admin_operation_log` VALUES (2220, 1, 'admin', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:46:05', '2022-07-22 12:46:05');
+INSERT INTO `admin_operation_log` VALUES (2221, 1, 'admin/categories', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:46:05', '2022-07-22 12:46:05');
+INSERT INTO `admin_operation_log` VALUES (2222, 1, 'admin/services', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:46:06', '2022-07-22 12:46:06');
+INSERT INTO `admin_operation_log` VALUES (2223, 1, 'admin/posts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:46:06', '2022-07-22 12:46:06');
+INSERT INTO `admin_operation_log` VALUES (2224, 1, 'admin/orders', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2022-07-22 12:46:07', '2022-07-22 12:46:07');
 
 -- ----------------------------
 -- Table structure for admin_permissions
@@ -1429,7 +2314,7 @@ CREATE TABLE `admin_permissions`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `admin_permissions_name_unique`(`name`) USING BTREE,
   UNIQUE INDEX `admin_permissions_slug_unique`(`slug`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_permissions
@@ -1450,7 +2335,7 @@ CREATE TABLE `admin_role_menu`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   INDEX `admin_role_menu_role_id_menu_id_index`(`role_id`, `menu_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_role_menu
@@ -1467,7 +2352,7 @@ CREATE TABLE `admin_role_permissions`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   INDEX `admin_role_permissions_role_id_permission_id_index`(`role_id`, `permission_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_role_permissions
@@ -1484,7 +2369,7 @@ CREATE TABLE `admin_role_users`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   INDEX `admin_role_users_role_id_user_id_index`(`role_id`, `user_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_role_users
@@ -1504,7 +2389,7 @@ CREATE TABLE `admin_roles`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `admin_roles_name_unique`(`name`) USING BTREE,
   UNIQUE INDEX `admin_roles_slug_unique`(`slug`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_roles
@@ -1521,7 +2406,7 @@ CREATE TABLE `admin_user_permissions`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   INDEX `admin_user_permissions_user_id_permission_id_index`(`user_id`, `permission_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_user_permissions
@@ -1542,7 +2427,7 @@ CREATE TABLE `admin_users`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `admin_users_username_unique`(`username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_users
@@ -1562,7 +2447,7 @@ CREATE TABLE `attachments`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `attachments_product_id_foreign`(`product_id`) USING BTREE,
   CONSTRAINT `attachments_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of attachments
@@ -1584,15 +2469,16 @@ CREATE TABLE `banners`  (
   `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `status` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of banners
 -- ----------------------------
-INSERT INTO `banners` VALUES (1, 'images/fe280845a60a04b2fee6fafd44c53f15.jpg', '/categories', '2022-07-04 09:48:56', '2022-07-04 10:15:17');
-INSERT INTO `banners` VALUES (2, 'images/a0cad42213b0209e723aa4e974a2b5a3.jpg', '/products', '2022-07-04 09:59:31', '2022-07-04 09:59:31');
-INSERT INTO `banners` VALUES (3, 'images/5a1ca5407d44f64f9960a04a26f154f0.jpg', '/categories', '2022-07-06 11:07:35', '2022-07-06 11:07:35');
+INSERT INTO `banners` VALUES (1, 'images/fe280845a60a04b2fee6fafd44c53f15.jpg', '/categories', '2022-07-04 09:48:56', '2022-07-22 12:11:17', 0);
+INSERT INTO `banners` VALUES (2, 'images/a0cad42213b0209e723aa4e974a2b5a3.jpg', '/products', '2022-07-04 09:59:31', '2022-07-22 12:11:21', 1);
+INSERT INTO `banners` VALUES (3, 'images/5a1ca5407d44f64f9960a04a26f154f0.jpg', '/categories', '2022-07-06 11:07:35', '2022-07-22 11:34:05', 1);
 
 -- ----------------------------
 -- Table structure for brands
@@ -1604,19 +2490,21 @@ CREATE TABLE `brands`  (
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default.png',
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `status` int(10) NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of brands
 -- ----------------------------
-INSERT INTO `brands` VALUES (2, 'Intel', 'images/intel-logo-56a6fa195f9b58b7d0e5ce3a.png', '2022-06-07 08:59:42', '2022-06-07 08:59:42');
-INSERT INTO `brands` VALUES (3, 'Lenovo', 'images/Best-Computer-Brands-in-the-World-1.jpg', '2022-06-30 07:58:52', '2022-06-30 07:58:52');
-INSERT INTO `brands` VALUES (4, 'Dell', 'images/Dell-Company-Logo.jpg', '2022-06-30 07:59:03', '2022-06-30 07:59:03');
-INSERT INTO `brands` VALUES (5, 'Samsung', 'images/Samsung_logo_PNG12-e1616084447141.png', '2022-06-30 07:59:10', '2022-06-30 07:59:10');
-INSERT INTO `brands` VALUES (6, 'nvidia', 'images/List-of-Famous-Computer-Software-Company-Logos.jpg', '2022-06-30 07:59:24', '2022-06-30 07:59:24');
-INSERT INTO `brands` VALUES (7, 'MSI', 'images/msi-logo.jpg', '2022-06-30 07:59:31', '2022-06-30 07:59:31');
-INSERT INTO `brands` VALUES (8, 'Acer', 'images/logo-4-acer.png', '2022-06-30 07:59:37', '2022-06-30 07:59:37');
+INSERT INTO `brands` VALUES (2, 'Intel', 'images/intel-logo-56a6fa195f9b58b7d0e5ce3a.png', '2022-06-07 08:59:42', '2022-07-22 11:26:45', 0);
+INSERT INTO `brands` VALUES (3, 'Lenovo', 'images/Best-Computer-Brands-in-the-World-1.jpg', '2022-06-30 07:58:52', '2022-07-22 11:26:42', 0);
+INSERT INTO `brands` VALUES (4, 'Dell', 'images/Dell-Company-Logo.jpg', '2022-06-30 07:59:03', '2022-07-22 11:26:47', 0);
+INSERT INTO `brands` VALUES (5, 'Samsung', 'images/Samsung_logo_PNG12-e1616084447141.png', '2022-06-30 07:59:10', '2022-06-30 07:59:10', 1);
+INSERT INTO `brands` VALUES (6, 'nvidia', 'images/List-of-Famous-Computer-Software-Company-Logos.jpg', '2022-06-30 07:59:24', '2022-06-30 07:59:24', 1);
+INSERT INTO `brands` VALUES (7, 'MSI', 'images/msi-logo.jpg', '2022-06-30 07:59:31', '2022-06-30 07:59:31', 1);
+INSERT INTO `brands` VALUES (8, 'Acer', 'images/logo-4-acer.png', '2022-06-30 07:59:37', '2022-07-22 11:26:39', 0);
+INSERT INTO `brands` VALUES (9, '123', 'images/70ab64875218af2a3e4c1ed100e2eaa9.jpg', '2022-07-22 11:26:23', '2022-07-22 11:26:36', 1);
 
 -- ----------------------------
 -- Table structure for categories
@@ -1631,310 +2519,311 @@ CREATE TABLE `categories`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `type` int(11) NULL DEFAULT NULL,
   `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `status` int(20) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `categories_parent_id_foreign`(`parent_id`) USING BTREE,
   CONSTRAINT `categories_parent_id_foreign` FOREIGN KEY (`parent_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 297 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 297 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of categories
 -- ----------------------------
-INSERT INTO `categories` VALUES (1, 'Мониторы', 'images/7e7b8adb05022e254c38aa6f5c498b32.jpeg', NULL, '2022-06-07 08:49:16', '2022-06-28 10:31:59', 1, 'monitory');
-INSERT INTO `categories` VALUES (2, 'Видеокарты', 'images/graphic-card.jpg', NULL, '2022-06-07 08:58:51', '2022-06-28 10:32:02', 1, 'videokarty');
-INSERT INTO `categories` VALUES (3, 'Компьютерные комплектующие', 'images/93b34e221c5e3e63628f4617d449ceec.jpg', NULL, '2022-06-07 10:08:35', '2022-06-28 10:32:06', 1, 'kompiuternye-komplektuiushhie');
-INSERT INTO `categories` VALUES (4, 'cat1', 'default.png', 2, '2022-06-08 03:46:37', '2022-06-28 10:32:09', 2, 'cat1');
-INSERT INTO `categories` VALUES (5, 'cat2', 'images/MSIRTX20606GBVentusGPOC2-500x500.webp', 2, '2022-06-08 03:49:23', '2022-06-28 10:32:11', 2, 'cat2');
-INSERT INTO `categories` VALUES (6, 'Protsessor', 'images/c28ecaa9a24d601a289346ab9d1c5436.jpg', NULL, '2022-06-28 10:29:00', '2022-06-28 10:29:00', 1, 'protsessor');
-INSERT INTO `categories` VALUES (7, 'Naomie Heaney', '0', NULL, '2022-06-30 10:15:16', '2022-06-30 10:30:42', 1, 'naomie-heaney');
-INSERT INTO `categories` VALUES (8, 'Mr. Arne Renner MD', '0', NULL, '2022-06-30 10:15:16', '2022-06-30 10:30:42', 1, 'mr-arne-renner-md');
-INSERT INTO `categories` VALUES (9, 'Molly Spencer', '0', NULL, '2022-06-30 10:15:16', '2022-06-30 10:30:42', 1, 'molly-spencer');
-INSERT INTO `categories` VALUES (10, 'Cleveland Schulist', '0', NULL, '2022-06-30 10:15:16', '2022-06-30 10:30:42', 1, 'cleveland-schulist');
-INSERT INTO `categories` VALUES (11, 'Marlen Ritchie', '0', NULL, '2022-06-30 10:15:16', '2022-06-30 10:30:42', 1, 'marlen-ritchie');
-INSERT INTO `categories` VALUES (12, 'Libby Harvey', '0', NULL, '2022-06-30 10:16:23', '2022-06-30 10:30:42', 1, 'libby-harvey');
-INSERT INTO `categories` VALUES (13, 'Jovany Lubowitz', '0', NULL, '2022-06-30 10:16:23', '2022-06-30 10:30:42', 1, 'jovany-lubowitz');
-INSERT INTO `categories` VALUES (14, 'Crystel Considine MD', '0', NULL, '2022-06-30 10:16:23', '2022-06-30 10:30:42', 1, 'crystel-considine-md');
-INSERT INTO `categories` VALUES (15, 'Samanta Runolfsson', '0', NULL, '2022-06-30 10:16:23', '2022-06-30 10:30:42', 1, 'samanta-runolfsson');
-INSERT INTO `categories` VALUES (16, 'Freeda Jaskolski', '0', NULL, '2022-06-30 10:16:23', '2022-06-30 10:30:42', 1, 'freeda-jaskolski');
-INSERT INTO `categories` VALUES (17, 'Mr. Jaiden Simonis', '0', NULL, '2022-06-30 10:17:10', '2022-06-30 10:30:42', 1, 'mr-jaiden-simonis');
-INSERT INTO `categories` VALUES (18, 'Nikita Crist DDS', '0', NULL, '2022-06-30 10:17:10', '2022-06-30 10:30:42', 1, 'nikita-crist-dds');
-INSERT INTO `categories` VALUES (19, 'Dr. Lina Stiedemann Jr.', '0', NULL, '2022-06-30 10:17:10', '2022-06-30 10:30:42', 1, 'dr-lina-stiedemann-jr');
-INSERT INTO `categories` VALUES (20, 'Odessa Ritchie', '0', NULL, '2022-06-30 10:17:10', '2022-06-30 10:30:42', 1, 'odessa-ritchie');
-INSERT INTO `categories` VALUES (21, 'Alejandrin Rempel MD', '0', NULL, '2022-06-30 10:17:10', '2022-06-30 10:30:42', 1, 'alejandrin-rempel-md');
-INSERT INTO `categories` VALUES (22, 'Jermain Cruickshank DVM', '0', NULL, '2022-06-30 10:17:26', '2022-06-30 10:30:42', 1, 'jermain-cruickshank-dvm');
-INSERT INTO `categories` VALUES (23, 'Evan Gislason', '0', NULL, '2022-06-30 10:17:27', '2022-06-30 10:30:42', 1, 'evan-gislason');
-INSERT INTO `categories` VALUES (24, 'Ms. Vena Hagenes', '0', NULL, '2022-06-30 10:17:27', '2022-06-30 10:30:42', 1, 'ms-vena-hagenes');
-INSERT INTO `categories` VALUES (25, 'Eleanore Bednar', '0', NULL, '2022-06-30 10:17:27', '2022-06-30 10:30:42', 1, 'eleanore-bednar');
-INSERT INTO `categories` VALUES (26, 'Cristal Dach', '0', NULL, '2022-06-30 10:17:27', '2022-06-30 10:30:42', 1, 'cristal-dach');
-INSERT INTO `categories` VALUES (27, 'Alana Wilderman', '0', NULL, '2022-06-30 10:18:29', '2022-06-30 10:30:42', 1, 'alana-wilderman');
-INSERT INTO `categories` VALUES (28, 'Dr. Janessa Wolf', '0', NULL, '2022-06-30 10:18:29', '2022-06-30 10:30:42', 1, 'dr-janessa-wolf');
-INSERT INTO `categories` VALUES (29, 'Mr. Lorenzo O\'Keefe', '0', NULL, '2022-06-30 10:18:29', '2022-06-30 10:30:42', 1, 'mr-lorenzo-okeefe');
-INSERT INTO `categories` VALUES (30, 'Paolo Kling', '0', NULL, '2022-06-30 10:18:29', '2022-06-30 10:30:42', 1, 'paolo-kling');
-INSERT INTO `categories` VALUES (31, 'Reese Upton', '0', NULL, '2022-06-30 10:18:29', '2022-06-30 10:30:42', 1, 'reese-upton');
-INSERT INTO `categories` VALUES (32, 'Ollie Wisozk', 'default.png', 13, '2022-06-30 10:20:14', '2022-06-30 10:30:42', 2, 'ollie-wisozk');
-INSERT INTO `categories` VALUES (33, 'Laurel Gislason', 'default.png', 12, '2022-06-30 10:20:14', '2022-06-30 10:30:42', 2, 'laurel-gislason');
-INSERT INTO `categories` VALUES (34, 'Retha Larson', 'default.png', 13, '2022-06-30 10:20:15', '2022-06-30 10:30:42', 2, 'retha-larson');
-INSERT INTO `categories` VALUES (35, 'Kelvin Christiansen', 'default.png', 19, '2022-06-30 10:20:15', '2022-06-30 10:30:42', 2, 'kelvin-christiansen');
-INSERT INTO `categories` VALUES (36, 'Luz Schamberger', 'default.png', 26, '2022-06-30 10:20:15', '2022-06-30 10:30:43', 2, 'luz-schamberger');
-INSERT INTO `categories` VALUES (37, 'Katherine Hettinger', 'default.png', 25, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'katherine-hettinger');
-INSERT INTO `categories` VALUES (38, 'Simone Hickle', 'default.png', 26, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'simone-hickle');
-INSERT INTO `categories` VALUES (39, 'Marisa Pacocha', 'default.png', 18, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'marisa-pacocha');
-INSERT INTO `categories` VALUES (40, 'Jedediah Franecki', 'default.png', 26, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'jedediah-franecki');
-INSERT INTO `categories` VALUES (41, 'Renee Herman', 'default.png', 16, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'renee-herman');
-INSERT INTO `categories` VALUES (42, 'Walton Wehner', 'default.png', 31, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'walton-wehner');
-INSERT INTO `categories` VALUES (43, 'Sincere Hintz', 'default.png', 29, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'sincere-hintz');
-INSERT INTO `categories` VALUES (44, 'Estevan Lockman', 'default.png', 16, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'estevan-lockman');
-INSERT INTO `categories` VALUES (45, 'Mr. Amir Bednar', 'default.png', 24, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'mr-amir-bednar');
-INSERT INTO `categories` VALUES (46, 'Mara Dach', 'default.png', 22, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'mara-dach');
-INSERT INTO `categories` VALUES (47, 'Brian Botsford', 'default.png', 18, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'brian-botsford');
-INSERT INTO `categories` VALUES (48, 'Delores Carroll Sr.', 'default.png', 17, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'delores-carroll-sr');
-INSERT INTO `categories` VALUES (49, 'Monserrat Hintz', 'default.png', 18, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'monserrat-hintz');
-INSERT INTO `categories` VALUES (50, 'Virginie Rosenbaum DVM', 'default.png', 26, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'virginie-rosenbaum-dvm');
-INSERT INTO `categories` VALUES (51, 'Prof. Kayleigh Gorczany', 'default.png', 25, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'prof-kayleigh-gorczany');
-INSERT INTO `categories` VALUES (52, 'Ena Prohaska', 'default.png', 29, '2022-06-30 10:20:27', '2022-06-30 10:30:43', 2, 'ena-prohaska');
-INSERT INTO `categories` VALUES (53, 'Dr. Gabe Schneider', 'default.png', 14, '2022-06-30 10:20:27', '2022-06-30 10:30:43', 2, 'dr-gabe-schneider');
-INSERT INTO `categories` VALUES (54, 'Dr. Mohamed Jakubowski', 'default.png', 25, '2022-06-30 10:20:27', '2022-06-30 10:30:43', 2, 'dr-mohamed-jakubowski');
-INSERT INTO `categories` VALUES (55, 'Jammie Stracke I', 'default.png', 16, '2022-06-30 10:20:27', '2022-06-30 10:30:43', 2, 'jammie-stracke-i');
-INSERT INTO `categories` VALUES (56, 'Phyllis Morissette', 'default.png', 14, '2022-06-30 10:20:27', '2022-06-30 10:30:43', 2, 'phyllis-morissette');
-INSERT INTO `categories` VALUES (57, 'Dr. Anderson Turcotte II', 'default.png', 26, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'dr-anderson-turcotte-ii');
-INSERT INTO `categories` VALUES (58, 'Ezra Rutherford', 'default.png', 23, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'ezra-rutherford');
-INSERT INTO `categories` VALUES (59, 'Mrs. Kenyatta Stark I', 'default.png', 13, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'mrs-kenyatta-stark-i');
-INSERT INTO `categories` VALUES (60, 'Quentin Mayert', 'default.png', 21, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'quentin-mayert');
-INSERT INTO `categories` VALUES (61, 'Lorena Christiansen', 'default.png', 20, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'lorena-christiansen');
-INSERT INTO `categories` VALUES (62, 'Macey Hahn', 'default.png', 17, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'macey-hahn');
-INSERT INTO `categories` VALUES (63, 'Prof. Dessie Jones', 'default.png', 12, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'prof-dessie-jones');
-INSERT INTO `categories` VALUES (64, 'Kara Goldner', 'default.png', 12, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'kara-goldner');
-INSERT INTO `categories` VALUES (65, 'Maddison Heaney', 'default.png', 21, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'maddison-heaney');
-INSERT INTO `categories` VALUES (66, 'Khalil Nolan', 'default.png', 21, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'khalil-nolan');
-INSERT INTO `categories` VALUES (67, 'Malika Kuhic III', 'default.png', 21, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'malika-kuhic-iii');
-INSERT INTO `categories` VALUES (68, 'Ada Boehm', 'default.png', 16, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'ada-boehm');
-INSERT INTO `categories` VALUES (69, 'Ms. Yvonne Barton', 'default.png', 19, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'ms-yvonne-barton');
-INSERT INTO `categories` VALUES (70, 'Orie Orn', 'default.png', 19, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'orie-orn');
-INSERT INTO `categories` VALUES (71, 'Euna Hintz DVM', 'default.png', 26, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'euna-hintz-dvm');
-INSERT INTO `categories` VALUES (72, 'Ally Schaden', 'default.png', 11, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'ally-schaden');
-INSERT INTO `categories` VALUES (73, 'Dr. Fermin Hoppe', 'default.png', 20, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'dr-fermin-hoppe');
-INSERT INTO `categories` VALUES (74, 'Hillard Volkman', 'default.png', 10, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'hillard-volkman');
-INSERT INTO `categories` VALUES (75, 'Mr. Reagan Mosciski', 'default.png', 11, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'mr-reagan-mosciski');
-INSERT INTO `categories` VALUES (76, 'Dr. Eden Beier Sr.', 'default.png', 29, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'dr-eden-beier-sr');
-INSERT INTO `categories` VALUES (77, 'Joannie Schamberger IV', 'default.png', 30, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'joannie-schamberger-iv');
-INSERT INTO `categories` VALUES (78, 'Tianna Reinger', 'default.png', 27, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'tianna-reinger');
-INSERT INTO `categories` VALUES (79, 'Rosie Ankunding', 'default.png', 19, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'rosie-ankunding');
-INSERT INTO `categories` VALUES (80, 'Sydni Denesik', 'default.png', 25, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'sydni-denesik');
-INSERT INTO `categories` VALUES (81, 'Ms. Annabel Monahan II', 'default.png', 30, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'ms-annabel-monahan-ii');
-INSERT INTO `categories` VALUES (82, 'Chelsea Morar III', 'default.png', 30, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'chelsea-morar-iii');
-INSERT INTO `categories` VALUES (83, 'Monty Abernathy', 'default.png', 23, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'monty-abernathy');
-INSERT INTO `categories` VALUES (84, 'Sienna Homenick', 'default.png', 21, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'sienna-homenick');
-INSERT INTO `categories` VALUES (85, 'Prof. Bernhard Muller Sr.', 'default.png', 19, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'prof-bernhard-muller-sr');
-INSERT INTO `categories` VALUES (86, 'Janiya Morissette', 'default.png', 26, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'janiya-morissette');
-INSERT INTO `categories` VALUES (87, 'Josiane Torp', 'default.png', 23, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'josiane-torp');
-INSERT INTO `categories` VALUES (88, 'Jaiden Jones', 'default.png', 17, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'jaiden-jones');
-INSERT INTO `categories` VALUES (89, 'Flavio Bernier', 'default.png', 11, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'flavio-bernier');
-INSERT INTO `categories` VALUES (90, 'Eleonore Dickinson', 'default.png', 31, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'eleonore-dickinson');
-INSERT INTO `categories` VALUES (91, 'Mara Cummerata', 'default.png', 19, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'mara-cummerata');
-INSERT INTO `categories` VALUES (92, 'Caesar Wiza', 'default.png', 18, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'caesar-wiza');
-INSERT INTO `categories` VALUES (93, 'Miss Annabel Stanton I', 'default.png', 26, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'miss-annabel-stanton-i');
-INSERT INTO `categories` VALUES (94, 'Dr. Tod Langworth III', 'default.png', 30, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'dr-tod-langworth-iii');
-INSERT INTO `categories` VALUES (95, 'Dr. Tara Hirthe', 'default.png', 15, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'dr-tara-hirthe');
-INSERT INTO `categories` VALUES (96, 'Maureen Marvin', 'default.png', 11, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'maureen-marvin');
-INSERT INTO `categories` VALUES (97, 'Miss Lilian Satterfield', 'default.png', 20, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'miss-lilian-satterfield');
-INSERT INTO `categories` VALUES (98, 'Mr. Erwin Kunze', 'default.png', 21, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'mr-erwin-kunze');
-INSERT INTO `categories` VALUES (99, 'Fritz Koss', 'default.png', 15, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'fritz-koss');
-INSERT INTO `categories` VALUES (100, 'Prof. Ellen Watsica', 'default.png', 17, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'prof-ellen-watsica');
-INSERT INTO `categories` VALUES (101, 'Sam Orn III', 'default.png', 29, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'sam-orn-iii');
-INSERT INTO `categories` VALUES (102, 'Dewayne Doyle', 'default.png', 16, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'dewayne-doyle');
-INSERT INTO `categories` VALUES (103, 'Cindy O\'Kon', 'default.png', 25, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'cindy-okon');
-INSERT INTO `categories` VALUES (104, 'Alexane Abshire', 'default.png', 26, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'alexane-abshire');
-INSERT INTO `categories` VALUES (105, 'Brendon Lemke', 'default.png', 17, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'brendon-lemke');
-INSERT INTO `categories` VALUES (106, 'Carissa Hodkiewicz DVM', 'default.png', 28, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'carissa-hodkiewicz-dvm');
-INSERT INTO `categories` VALUES (107, 'Sadie Brown', 'default.png', 14, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'sadie-brown');
-INSERT INTO `categories` VALUES (108, 'Elissa Yost', 'default.png', 20, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'elissa-yost');
-INSERT INTO `categories` VALUES (109, 'Lane Metz', 'default.png', 20, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'lane-metz');
-INSERT INTO `categories` VALUES (110, 'Ms. Carolyn Huels', 'default.png', 10, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'ms-carolyn-huels');
-INSERT INTO `categories` VALUES (111, 'Prof. Desmond Jacobs DVM', 'default.png', 13, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'prof-desmond-jacobs-dvm');
-INSERT INTO `categories` VALUES (112, 'Casandra Bosco', 'default.png', 11, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'casandra-bosco');
-INSERT INTO `categories` VALUES (113, 'Mr. Colten O\'Connell DDS', 'default.png', 12, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'mr-colten-oconnell-dds');
-INSERT INTO `categories` VALUES (114, 'Ricky Huels DVM', 'default.png', 24, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'ricky-huels-dvm');
-INSERT INTO `categories` VALUES (115, 'Cielo Lind', 'default.png', 10, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'cielo-lind');
-INSERT INTO `categories` VALUES (116, 'Deondre Mohr V', 'default.png', 19, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'deondre-mohr-v');
-INSERT INTO `categories` VALUES (117, 'Eliane Bins', 'default.png', 26, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'eliane-bins');
-INSERT INTO `categories` VALUES (118, 'Johanna Casper', 'default.png', 26, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'johanna-casper');
-INSERT INTO `categories` VALUES (119, 'Mrs. Earnestine Conn', 'default.png', 23, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'mrs-earnestine-conn');
-INSERT INTO `categories` VALUES (120, 'Jairo Ferry V', 'default.png', 18, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'jairo-ferry-v');
-INSERT INTO `categories` VALUES (121, 'Greyson Wunsch II', 'default.png', 12, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'greyson-wunsch-ii');
-INSERT INTO `categories` VALUES (122, 'Gene Konopelski', 'default.png', 15, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'gene-konopelski');
-INSERT INTO `categories` VALUES (123, 'Mr. Eliezer Schowalter', 'default.png', 25, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'mr-eliezer-schowalter');
-INSERT INTO `categories` VALUES (124, 'Aimee Torp', 'default.png', 11, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'aimee-torp');
-INSERT INTO `categories` VALUES (125, 'Johnpaul Williamson', 'default.png', 28, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'johnpaul-williamson');
-INSERT INTO `categories` VALUES (126, 'Dr. Everardo Monahan PhD', 'default.png', 19, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'dr-everardo-monahan-phd');
-INSERT INTO `categories` VALUES (127, 'Stacy Kiehn', 'default.png', 12, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'stacy-kiehn');
-INSERT INTO `categories` VALUES (128, 'Raquel Rowe', 'default.png', 19, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'raquel-rowe');
-INSERT INTO `categories` VALUES (129, 'Robin Sipes Sr.', 'default.png', 28, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'robin-sipes-sr');
-INSERT INTO `categories` VALUES (130, 'Kasandra Heaney', 'default.png', 18, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'kasandra-heaney');
-INSERT INTO `categories` VALUES (131, 'Prof. Arlo Wolff V', 'default.png', 24, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'prof-arlo-wolff-v');
-INSERT INTO `categories` VALUES (132, 'Ceasar Miller', 'default.png', 21, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'ceasar-miller');
-INSERT INTO `categories` VALUES (133, 'Hilario Sanford II', 'default.png', 27, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'hilario-sanford-ii');
-INSERT INTO `categories` VALUES (134, 'Arvilla Purdy', 'default.png', 24, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'arvilla-purdy');
-INSERT INTO `categories` VALUES (135, 'Kimberly Wisoky MD', 'default.png', 31, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'kimberly-wisoky-md');
-INSERT INTO `categories` VALUES (136, 'Julius Crona', 'default.png', 16, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'julius-crona');
-INSERT INTO `categories` VALUES (137, 'Philip Anderson', 'default.png', 12, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'philip-anderson');
-INSERT INTO `categories` VALUES (138, 'Ilene Hessel MD', 'default.png', 27, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'ilene-hessel-md');
-INSERT INTO `categories` VALUES (139, 'Ms. Felicia Gutkowski', 'default.png', 19, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'ms-felicia-gutkowski');
-INSERT INTO `categories` VALUES (140, 'Jermain Rohan', 'default.png', 13, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'jermain-rohan');
-INSERT INTO `categories` VALUES (141, 'Orval Kirlin', 'default.png', 10, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'orval-kirlin');
-INSERT INTO `categories` VALUES (142, 'Jerad Mosciski', 'default.png', 29, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'jerad-mosciski');
-INSERT INTO `categories` VALUES (143, 'Prof. Marlee Weimann I', 'default.png', 31, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'prof-marlee-weimann-i');
-INSERT INTO `categories` VALUES (144, 'Bernadette Howe', 'default.png', 16, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'bernadette-howe');
-INSERT INTO `categories` VALUES (145, 'Alexandrea Baumbach', 'default.png', 15, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'alexandrea-baumbach');
-INSERT INTO `categories` VALUES (146, 'Mrs. Aliyah Mann', 'default.png', 12, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'mrs-aliyah-mann');
-INSERT INTO `categories` VALUES (147, 'Brooke Roob', 'default.png', 14, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'brooke-roob');
-INSERT INTO `categories` VALUES (148, 'Breanna O\'Keefe', 'default.png', 20, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'breanna-okeefe');
-INSERT INTO `categories` VALUES (149, 'Malinda Lakin', 'default.png', 25, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'malinda-lakin');
-INSERT INTO `categories` VALUES (150, 'Luigi Abernathy', 'default.png', 11, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'luigi-abernathy');
-INSERT INTO `categories` VALUES (151, 'Vaughn Ernser', 'default.png', 23, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'vaughn-ernser');
-INSERT INTO `categories` VALUES (152, 'Prof. Isom Brakus', 'default.png', 27, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'prof-isom-brakus');
-INSERT INTO `categories` VALUES (153, 'Dr. Hanna Huel', 'default.png', 14, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'dr-hanna-huel');
-INSERT INTO `categories` VALUES (154, 'Vernie Cummings III', 'default.png', 18, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'vernie-cummings-iii');
-INSERT INTO `categories` VALUES (155, 'Jack Upton', 'default.png', 10, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'jack-upton');
-INSERT INTO `categories` VALUES (156, 'Roel Bednar', 'default.png', 18, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'roel-bednar');
-INSERT INTO `categories` VALUES (157, 'Dr. Vidal Treutel', 'default.png', 18, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'dr-vidal-treutel');
-INSERT INTO `categories` VALUES (158, 'Gilberto Hansen', 'default.png', 16, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'gilberto-hansen');
-INSERT INTO `categories` VALUES (159, 'Dr. Arnoldo Dickens DDS', 'default.png', 31, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'dr-arnoldo-dickens-dds');
-INSERT INTO `categories` VALUES (160, 'Mrs. Cara Hilpert', 'default.png', 28, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'mrs-cara-hilpert');
-INSERT INTO `categories` VALUES (161, 'Ernest Wilderman', 'default.png', 17, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'ernest-wilderman');
-INSERT INTO `categories` VALUES (162, 'Prof. Terence Green', 'default.png', 23, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'prof-terence-green');
-INSERT INTO `categories` VALUES (163, 'Jackie Kilback', 'default.png', 22, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'jackie-kilback');
-INSERT INTO `categories` VALUES (164, 'Lambert Okuneva', 'default.png', 24, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'lambert-okuneva');
-INSERT INTO `categories` VALUES (165, 'Jonatan Kuhn', 'default.png', 28, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'jonatan-kuhn');
-INSERT INTO `categories` VALUES (166, 'Melisa Larson', 'default.png', 12, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'melisa-larson');
-INSERT INTO `categories` VALUES (167, 'Annette Hammes', 'default.png', 10, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'annette-hammes');
-INSERT INTO `categories` VALUES (168, 'Arne Wisozk III', 'default.png', 21, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'arne-wisozk-iii');
-INSERT INTO `categories` VALUES (169, 'Michale Douglas', 'default.png', 20, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'michale-douglas');
-INSERT INTO `categories` VALUES (170, 'Maya West', 'default.png', 25, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'maya-west');
-INSERT INTO `categories` VALUES (171, 'Alvah Grimes Jr.', 'default.png', 28, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'alvah-grimes-jr');
-INSERT INTO `categories` VALUES (172, 'Prof. Dock Heaney', 'default.png', 15, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'prof-dock-heaney');
-INSERT INTO `categories` VALUES (173, 'Prof. Unique Lockman Jr.', 'default.png', 22, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'prof-unique-lockman-jr');
-INSERT INTO `categories` VALUES (174, 'Wilford Schamberger DDS', 'default.png', 15, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'wilford-schamberger-dds');
-INSERT INTO `categories` VALUES (175, 'Mrs. Malvina Wehner', 'default.png', 18, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'mrs-malvina-wehner');
-INSERT INTO `categories` VALUES (176, 'Adolphus Schoen DVM', 'default.png', 31, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'adolphus-schoen-dvm');
-INSERT INTO `categories` VALUES (177, 'Columbus Tromp', 'default.png', 29, '2022-06-30 10:25:40', '2022-06-30 10:30:44', 2, 'columbus-tromp');
-INSERT INTO `categories` VALUES (178, 'Ms. Yasmine Koss DVM', 'default.png', 10, '2022-06-30 10:25:40', '2022-06-30 10:30:44', 2, 'ms-yasmine-koss-dvm');
-INSERT INTO `categories` VALUES (179, 'Sharon Howell', 'default.png', 18, '2022-06-30 10:25:40', '2022-06-30 10:30:44', 2, 'sharon-howell');
-INSERT INTO `categories` VALUES (180, 'Mrs. Emmanuelle Klein', 'default.png', 21, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'mrs-emmanuelle-klein');
-INSERT INTO `categories` VALUES (181, 'Cloyd Schmidt PhD', 'default.png', 22, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'cloyd-schmidt-phd');
-INSERT INTO `categories` VALUES (182, 'Tressie Becker', 'default.png', 25, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'tressie-becker');
-INSERT INTO `categories` VALUES (183, 'Elbert Reynolds', 'default.png', 29, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'elbert-reynolds');
-INSERT INTO `categories` VALUES (184, 'Garrick Zieme Sr.', 'default.png', 29, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'garrick-zieme-sr');
-INSERT INTO `categories` VALUES (185, 'Marcelo O\'Reilly', 'default.png', 10, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'marcelo-oreilly');
-INSERT INTO `categories` VALUES (186, 'Johnathon Grady', 'default.png', 18, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'johnathon-grady');
-INSERT INTO `categories` VALUES (187, 'Miles Jacobi MD', 'default.png', 28, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'miles-jacobi-md');
-INSERT INTO `categories` VALUES (188, 'Tavares Klein', 'default.png', 26, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'tavares-klein');
-INSERT INTO `categories` VALUES (189, 'Travon Robel DVM', 'default.png', 30, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'travon-robel-dvm');
-INSERT INTO `categories` VALUES (190, 'Idell Huels I', 'default.png', 29, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'idell-huels-i');
-INSERT INTO `categories` VALUES (191, 'Rachelle Schultz', 'default.png', 18, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'rachelle-schultz');
-INSERT INTO `categories` VALUES (192, 'Terence Klocko', 'default.png', 19, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'terence-klocko');
-INSERT INTO `categories` VALUES (193, 'Dr. Ephraim Herman DVM', 'default.png', 12, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'dr-ephraim-herman-dvm');
-INSERT INTO `categories` VALUES (194, 'Esperanza Stiedemann', 'default.png', 24, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'esperanza-stiedemann');
-INSERT INTO `categories` VALUES (195, 'Kathlyn Jast', 'default.png', 29, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'kathlyn-jast');
-INSERT INTO `categories` VALUES (196, 'Mr. Herman Weimann DVM', 'default.png', 24, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'mr-herman-weimann-dvm');
-INSERT INTO `categories` VALUES (197, 'Nayeli Gusikowski', 'default.png', 29, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'nayeli-gusikowski');
-INSERT INTO `categories` VALUES (198, 'Ms. Aurelie Kihn Sr.', 'default.png', 28, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'ms-aurelie-kihn-sr');
-INSERT INTO `categories` VALUES (199, 'Dr. Maxine Kiehn II', 'default.png', 16, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'dr-maxine-kiehn-ii');
-INSERT INTO `categories` VALUES (200, 'Mr. Gardner Rosenbaum', 'default.png', 10, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'mr-gardner-rosenbaum');
-INSERT INTO `categories` VALUES (201, 'Kelli Schroeder', 'default.png', 13, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'kelli-schroeder');
-INSERT INTO `categories` VALUES (202, 'Jamal Streich', 'default.png', 13, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'jamal-streich');
-INSERT INTO `categories` VALUES (203, 'Lisa Crist', 'default.png', 30, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'lisa-crist');
-INSERT INTO `categories` VALUES (204, 'Dr. Gunner Langosh PhD', 'default.png', 25, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'dr-gunner-langosh-phd');
-INSERT INTO `categories` VALUES (205, 'Dr. Kamryn Rippin MD', 'default.png', 20, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'dr-kamryn-rippin-md');
-INSERT INTO `categories` VALUES (206, 'Prof. Joannie Shanahan DDS', 'default.png', 11, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'prof-joannie-shanahan-dds');
-INSERT INTO `categories` VALUES (207, 'Miss Marcia Koepp', 'default.png', 22, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'miss-marcia-koepp');
-INSERT INTO `categories` VALUES (208, 'Dr. Keon Mayert II', 'default.png', 15, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'dr-keon-mayert-ii');
-INSERT INTO `categories` VALUES (209, 'Ms. Ashtyn Mraz PhD', 'default.png', 18, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'ms-ashtyn-mraz-phd');
-INSERT INTO `categories` VALUES (210, 'Gunner Ebert', 'default.png', 25, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'gunner-ebert');
-INSERT INTO `categories` VALUES (211, 'Prof. Ezekiel McCullough I', 'default.png', 21, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'prof-ezekiel-mccullough-i');
-INSERT INTO `categories` VALUES (212, 'Carley Stehr V', 'default.png', 23, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'carley-stehr-v');
-INSERT INTO `categories` VALUES (213, 'Bianka McLaughlin', 'default.png', 22, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'bianka-mclaughlin');
-INSERT INTO `categories` VALUES (214, 'Viola Schroeder', 'default.png', 12, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'viola-schroeder');
-INSERT INTO `categories` VALUES (215, 'Ms. Jody Beer III', 'default.png', 17, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'ms-jody-beer-iii');
-INSERT INTO `categories` VALUES (216, 'Vern Nicolas', 'default.png', 23, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'vern-nicolas');
-INSERT INTO `categories` VALUES (217, 'Marlen Streich III', 'default.png', 24, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'marlen-streich-iii');
-INSERT INTO `categories` VALUES (218, 'Keara Schmidt III', 'default.png', 24, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'keara-schmidt-iii');
-INSERT INTO `categories` VALUES (219, 'Queenie Will', 'default.png', 12, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'queenie-will');
-INSERT INTO `categories` VALUES (220, 'Sylvester Gutkowski IV', 'default.png', 22, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'sylvester-gutkowski-iv');
-INSERT INTO `categories` VALUES (221, 'Miss Myra Wolf II', 'default.png', 16, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'miss-myra-wolf-ii');
-INSERT INTO `categories` VALUES (222, 'Jermey Hermiston', 'default.png', 28, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'jermey-hermiston');
-INSERT INTO `categories` VALUES (223, 'Mrs. Dovie Prohaska MD', 'default.png', 17, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'mrs-dovie-prohaska-md');
-INSERT INTO `categories` VALUES (224, 'Maritza Blanda', 'default.png', 18, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'maritza-blanda');
-INSERT INTO `categories` VALUES (225, 'Bennett Witting', 'default.png', 22, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'bennett-witting');
-INSERT INTO `categories` VALUES (226, 'Jakob Smitham', 'default.png', 31, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'jakob-smitham');
-INSERT INTO `categories` VALUES (227, 'Cleta Raynor', 'default.png', 30, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'cleta-raynor');
-INSERT INTO `categories` VALUES (228, 'Kitty Welch Jr.', 'default.png', 28, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'kitty-welch-jr');
-INSERT INTO `categories` VALUES (229, 'Cayla Dooley PhD', 'default.png', 28, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'cayla-dooley-phd');
-INSERT INTO `categories` VALUES (230, 'Hunter Walker', 'default.png', 26, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'hunter-walker');
-INSERT INTO `categories` VALUES (231, 'Emmanuelle Heathcote', 'default.png', 25, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'emmanuelle-heathcote');
-INSERT INTO `categories` VALUES (232, 'Ms. Treva Williamson', 'default.png', 19, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'ms-treva-williamson');
-INSERT INTO `categories` VALUES (233, 'Allie Bogisich', 'default.png', 14, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'allie-bogisich');
-INSERT INTO `categories` VALUES (234, 'Eulalia Paucek V', 'default.png', 14, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'eulalia-paucek-v');
-INSERT INTO `categories` VALUES (235, 'Julie Hand', 'default.png', 19, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'julie-hand');
-INSERT INTO `categories` VALUES (236, 'Daphney Howe', 'default.png', 11, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'daphney-howe');
-INSERT INTO `categories` VALUES (237, 'Mr. Presley Willms MD', 'default.png', 23, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'mr-presley-willms-md');
-INSERT INTO `categories` VALUES (238, 'Junior Johnson', 'default.png', 21, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'junior-johnson');
-INSERT INTO `categories` VALUES (239, 'Dr. Arlene Bednar I', 'default.png', 26, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'dr-arlene-bednar-i');
-INSERT INTO `categories` VALUES (240, 'Sandy Schuster', 'default.png', 11, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'sandy-schuster');
-INSERT INTO `categories` VALUES (241, 'Sadie Pagac II', 'default.png', 16, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'sadie-pagac-ii');
-INSERT INTO `categories` VALUES (242, 'Mrs. Abagail Heathcote', 'default.png', 11, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'mrs-abagail-heathcote');
-INSERT INTO `categories` VALUES (243, 'Prof. Keyon Reichel DVM', 'default.png', 18, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'prof-keyon-reichel-dvm');
-INSERT INTO `categories` VALUES (244, 'Bud Nitzsche', 'default.png', 25, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'bud-nitzsche');
-INSERT INTO `categories` VALUES (245, 'Myrl Sawayn', 'default.png', 27, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'myrl-sawayn');
-INSERT INTO `categories` VALUES (246, 'Aubrey Wisoky', 'default.png', 15, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'aubrey-wisoky');
-INSERT INTO `categories` VALUES (247, 'Mrs. Letitia Rowe', 'default.png', 21, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'mrs-letitia-rowe');
-INSERT INTO `categories` VALUES (248, 'Nadia Walsh', 'default.png', 31, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'nadia-walsh');
-INSERT INTO `categories` VALUES (249, 'Marley Bradtke', 'default.png', 24, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'marley-bradtke');
-INSERT INTO `categories` VALUES (250, 'Miss Ona Prohaska V', 'default.png', 11, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'miss-ona-prohaska-v');
-INSERT INTO `categories` VALUES (251, 'Miss Arlie Boehm', 'default.png', 13, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'miss-arlie-boehm');
-INSERT INTO `categories` VALUES (252, 'Timothy Kerluke', 'default.png', 31, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'timothy-kerluke');
-INSERT INTO `categories` VALUES (253, 'Chadd Hills', 'default.png', 12, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'chadd-hills');
-INSERT INTO `categories` VALUES (254, 'Bria Steuber', 'default.png', 20, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'bria-steuber');
-INSERT INTO `categories` VALUES (255, 'Gaetano Leuschke', 'default.png', 10, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'gaetano-leuschke');
-INSERT INTO `categories` VALUES (256, 'Otha Sanford', 'default.png', 13, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'otha-sanford');
-INSERT INTO `categories` VALUES (257, 'Miss Georgette Gutmann IV', 'default.png', 21, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'miss-georgette-gutmann-iv');
-INSERT INTO `categories` VALUES (258, 'Dr. Bell Kunze', 'default.png', 15, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'dr-bell-kunze');
-INSERT INTO `categories` VALUES (259, 'Nathan Weber Jr.', 'default.png', 28, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'nathan-weber-jr');
-INSERT INTO `categories` VALUES (260, 'Prof. Virgie Price', 'default.png', 18, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'prof-virgie-price');
-INSERT INTO `categories` VALUES (261, 'Kaley McCullough', 'default.png', 30, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'kaley-mccullough');
-INSERT INTO `categories` VALUES (262, 'Estefania Hills Sr.', 'default.png', 10, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'estefania-hills-sr');
-INSERT INTO `categories` VALUES (263, 'Hollis Kshlerin', 'default.png', 22, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'hollis-kshlerin');
-INSERT INTO `categories` VALUES (264, 'Miss Marjolaine Bradtke III', 'default.png', 20, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'miss-marjolaine-bradtke-iii');
-INSERT INTO `categories` VALUES (265, 'Arlene Koepp', 'default.png', 29, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'arlene-koepp');
-INSERT INTO `categories` VALUES (266, 'Jaclyn Rau', 'default.png', 13, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'jaclyn-rau');
-INSERT INTO `categories` VALUES (267, 'Miss Maye Lebsack', 'default.png', 31, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'miss-maye-lebsack');
-INSERT INTO `categories` VALUES (268, 'Stuart Becker', 'default.png', 19, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'stuart-becker');
-INSERT INTO `categories` VALUES (269, 'Horace Bernhard', 'default.png', 31, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'horace-bernhard');
-INSERT INTO `categories` VALUES (270, 'Creola Adams II', 'default.png', 14, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'creola-adams-ii');
-INSERT INTO `categories` VALUES (271, 'Mrs. Catalina Steuber DVM', 'default.png', 13, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'mrs-catalina-steuber-dvm');
-INSERT INTO `categories` VALUES (272, 'Mr. Ryann Pfannerstill PhD', 'default.png', 20, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'mr-ryann-pfannerstill-phd');
-INSERT INTO `categories` VALUES (273, 'Pauline Hessel', 'default.png', 20, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'pauline-hessel');
-INSERT INTO `categories` VALUES (274, 'Ilene Luettgen', 'default.png', 11, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'ilene-luettgen');
-INSERT INTO `categories` VALUES (275, 'Kendall Pacocha', 'default.png', 30, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'kendall-pacocha');
-INSERT INTO `categories` VALUES (276, 'Prof. Eveline Boyle', 'default.png', 24, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'prof-eveline-boyle');
-INSERT INTO `categories` VALUES (277, 'Lyric Willms', 'default.png', 24, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'lyric-willms');
-INSERT INTO `categories` VALUES (278, 'Dr. Steve Durgan I', 'default.png', 12, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'dr-steve-durgan-i');
-INSERT INTO `categories` VALUES (279, 'Xavier Monahan', 'default.png', 25, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'xavier-monahan');
-INSERT INTO `categories` VALUES (280, 'Lavon Osinski', 'default.png', 11, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'lavon-osinski');
-INSERT INTO `categories` VALUES (281, 'Prof. Idell Abernathy Jr.', 'default.png', 28, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'prof-idell-abernathy-jr');
-INSERT INTO `categories` VALUES (282, 'Miss Mya Upton Sr.', 'default.png', 27, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'miss-mya-upton-sr');
-INSERT INTO `categories` VALUES (283, 'Mr. Kim Towne', 'default.png', 18, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'mr-kim-towne');
-INSERT INTO `categories` VALUES (284, 'Leonardo Legros', 'default.png', 17, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'leonardo-legros');
-INSERT INTO `categories` VALUES (285, 'Antonietta Huel MD', 'default.png', 16, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'antonietta-huel-md');
-INSERT INTO `categories` VALUES (286, 'Cayla Fadel PhD', 'default.png', 27, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'cayla-fadel-phd');
-INSERT INTO `categories` VALUES (287, 'Trevion Raynor', 'default.png', 23, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'trevion-raynor');
-INSERT INTO `categories` VALUES (288, 'Jarrod Runolfsson', 'default.png', 29, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'jarrod-runolfsson');
-INSERT INTO `categories` VALUES (289, 'Linda Herzog', 'default.png', 24, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'linda-herzog');
-INSERT INTO `categories` VALUES (290, 'Mathilde Brekke III', 'default.png', 17, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'mathilde-brekke-iii');
-INSERT INTO `categories` VALUES (291, 'Birdie Ruecker II', 'default.png', 18, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'birdie-ruecker-ii');
-INSERT INTO `categories` VALUES (292, 'Mr. Barton Mante II', 'default.png', 11, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'mr-barton-mante-ii');
-INSERT INTO `categories` VALUES (293, 'Weston Leannon', 'default.png', 28, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'weston-leannon');
-INSERT INTO `categories` VALUES (294, 'Jasmin Schiller', 'default.png', 26, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'jasmin-schiller');
-INSERT INTO `categories` VALUES (295, 'Waino Marvin', 'default.png', 21, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'waino-marvin');
-INSERT INTO `categories` VALUES (296, 'Gwendolyn Little Sr.', 'default.png', 23, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'gwendolyn-little-sr');
+INSERT INTO `categories` VALUES (1, 'Мониторы', 'images/7e7b8adb05022e254c38aa6f5c498b32.jpeg', NULL, '2022-06-07 08:49:16', '2022-07-22 11:29:17', 1, '', 1);
+INSERT INTO `categories` VALUES (2, 'Видеокарты', 'images/graphic-card.jpg', NULL, '2022-06-07 08:58:51', '2022-07-22 11:29:18', 1, '', 1);
+INSERT INTO `categories` VALUES (3, 'Компьютерные комплектующие', 'images/93b34e221c5e3e63628f4617d449ceec.jpg', NULL, '2022-06-07 10:08:35', '2022-07-22 11:28:42', 1, '', 1);
+INSERT INTO `categories` VALUES (4, 'cat1', 'default.png', 2, '2022-06-08 03:46:37', '2022-07-22 12:15:32', 2, '', 0);
+INSERT INTO `categories` VALUES (5, 'cat2', 'images/MSIRTX20606GBVentusGPOC2-500x500.webp', 2, '2022-06-08 03:49:23', '2022-07-22 12:15:40', 2, '', 0);
+INSERT INTO `categories` VALUES (6, 'Protsessor', 'images/c28ecaa9a24d601a289346ab9d1c5436.jpg', NULL, '2022-06-28 10:29:00', '2022-06-28 10:29:00', 1, 'protsessor', 1);
+INSERT INTO `categories` VALUES (7, 'Naomie Heaney', '0', NULL, '2022-06-30 10:15:16', '2022-06-30 10:30:42', 1, 'naomie-heaney', 1);
+INSERT INTO `categories` VALUES (8, 'Mr. Arne Renner MD', '0', NULL, '2022-06-30 10:15:16', '2022-06-30 10:30:42', 1, 'mr-arne-renner-md', 1);
+INSERT INTO `categories` VALUES (9, 'Molly Spencer', '0', NULL, '2022-06-30 10:15:16', '2022-06-30 10:30:42', 1, 'molly-spencer', 1);
+INSERT INTO `categories` VALUES (10, 'Cleveland Schulist', '0', NULL, '2022-06-30 10:15:16', '2022-06-30 10:30:42', 1, 'cleveland-schulist', 1);
+INSERT INTO `categories` VALUES (11, 'Marlen Ritchie', '0', NULL, '2022-06-30 10:15:16', '2022-06-30 10:30:42', 1, 'marlen-ritchie', 1);
+INSERT INTO `categories` VALUES (12, 'Libby Harvey', '0', NULL, '2022-06-30 10:16:23', '2022-06-30 10:30:42', 1, 'libby-harvey', 1);
+INSERT INTO `categories` VALUES (13, 'Jovany Lubowitz', '0', NULL, '2022-06-30 10:16:23', '2022-06-30 10:30:42', 1, 'jovany-lubowitz', 1);
+INSERT INTO `categories` VALUES (14, 'Crystel Considine MD', '0', NULL, '2022-06-30 10:16:23', '2022-06-30 10:30:42', 1, 'crystel-considine-md', 1);
+INSERT INTO `categories` VALUES (15, 'Samanta Runolfsson', '0', NULL, '2022-06-30 10:16:23', '2022-06-30 10:30:42', 1, 'samanta-runolfsson', 1);
+INSERT INTO `categories` VALUES (16, 'Freeda Jaskolski', '0', NULL, '2022-06-30 10:16:23', '2022-06-30 10:30:42', 1, 'freeda-jaskolski', 1);
+INSERT INTO `categories` VALUES (17, 'Mr. Jaiden Simonis', '0', NULL, '2022-06-30 10:17:10', '2022-06-30 10:30:42', 1, 'mr-jaiden-simonis', 1);
+INSERT INTO `categories` VALUES (18, 'Nikita Crist DDS', '0', NULL, '2022-06-30 10:17:10', '2022-06-30 10:30:42', 1, 'nikita-crist-dds', 1);
+INSERT INTO `categories` VALUES (19, 'Dr. Lina Stiedemann Jr.', '0', NULL, '2022-06-30 10:17:10', '2022-06-30 10:30:42', 1, 'dr-lina-stiedemann-jr', 1);
+INSERT INTO `categories` VALUES (20, 'Odessa Ritchie', '0', NULL, '2022-06-30 10:17:10', '2022-06-30 10:30:42', 1, 'odessa-ritchie', 1);
+INSERT INTO `categories` VALUES (21, 'Alejandrin Rempel MD', '0', NULL, '2022-06-30 10:17:10', '2022-06-30 10:30:42', 1, 'alejandrin-rempel-md', 1);
+INSERT INTO `categories` VALUES (22, 'Jermain Cruickshank DVM', '0', NULL, '2022-06-30 10:17:26', '2022-06-30 10:30:42', 1, 'jermain-cruickshank-dvm', 1);
+INSERT INTO `categories` VALUES (23, 'Evan Gislason', '0', NULL, '2022-06-30 10:17:27', '2022-06-30 10:30:42', 1, 'evan-gislason', 1);
+INSERT INTO `categories` VALUES (24, 'Ms. Vena Hagenes', '0', NULL, '2022-06-30 10:17:27', '2022-06-30 10:30:42', 1, 'ms-vena-hagenes', 1);
+INSERT INTO `categories` VALUES (25, 'Eleanore Bednar', '0', NULL, '2022-06-30 10:17:27', '2022-06-30 10:30:42', 1, 'eleanore-bednar', 1);
+INSERT INTO `categories` VALUES (26, 'Cristal Dach', '0', NULL, '2022-06-30 10:17:27', '2022-06-30 10:30:42', 1, 'cristal-dach', 1);
+INSERT INTO `categories` VALUES (27, 'Alana Wilderman', '0', NULL, '2022-06-30 10:18:29', '2022-06-30 10:30:42', 1, 'alana-wilderman', 1);
+INSERT INTO `categories` VALUES (28, 'Dr. Janessa Wolf', '0', NULL, '2022-06-30 10:18:29', '2022-06-30 10:30:42', 1, 'dr-janessa-wolf', 1);
+INSERT INTO `categories` VALUES (29, 'Mr. Lorenzo O\'Keefe', '0', NULL, '2022-06-30 10:18:29', '2022-06-30 10:30:42', 1, 'mr-lorenzo-okeefe', 1);
+INSERT INTO `categories` VALUES (30, 'Paolo Kling', '0', NULL, '2022-06-30 10:18:29', '2022-06-30 10:30:42', 1, 'paolo-kling', 1);
+INSERT INTO `categories` VALUES (31, 'Reese Upton', '0', NULL, '2022-06-30 10:18:29', '2022-06-30 10:30:42', 1, 'reese-upton', 1);
+INSERT INTO `categories` VALUES (32, 'Ollie Wisozk', 'default.png', 13, '2022-06-30 10:20:14', '2022-06-30 10:30:42', 2, 'ollie-wisozk', 1);
+INSERT INTO `categories` VALUES (33, 'Laurel Gislason', 'default.png', 12, '2022-06-30 10:20:14', '2022-06-30 10:30:42', 2, 'laurel-gislason', 1);
+INSERT INTO `categories` VALUES (34, 'Retha Larson', 'default.png', 13, '2022-06-30 10:20:15', '2022-06-30 10:30:42', 2, 'retha-larson', 1);
+INSERT INTO `categories` VALUES (35, 'Kelvin Christiansen', 'default.png', 19, '2022-06-30 10:20:15', '2022-06-30 10:30:42', 2, 'kelvin-christiansen', 1);
+INSERT INTO `categories` VALUES (36, 'Luz Schamberger', 'default.png', 26, '2022-06-30 10:20:15', '2022-06-30 10:30:43', 2, 'luz-schamberger', 1);
+INSERT INTO `categories` VALUES (37, 'Katherine Hettinger', 'default.png', 25, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'katherine-hettinger', 1);
+INSERT INTO `categories` VALUES (38, 'Simone Hickle', 'default.png', 26, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'simone-hickle', 1);
+INSERT INTO `categories` VALUES (39, 'Marisa Pacocha', 'default.png', 18, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'marisa-pacocha', 1);
+INSERT INTO `categories` VALUES (40, 'Jedediah Franecki', 'default.png', 26, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'jedediah-franecki', 1);
+INSERT INTO `categories` VALUES (41, 'Renee Herman', 'default.png', 16, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'renee-herman', 1);
+INSERT INTO `categories` VALUES (42, 'Walton Wehner', 'default.png', 31, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'walton-wehner', 1);
+INSERT INTO `categories` VALUES (43, 'Sincere Hintz', 'default.png', 29, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'sincere-hintz', 1);
+INSERT INTO `categories` VALUES (44, 'Estevan Lockman', 'default.png', 16, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'estevan-lockman', 1);
+INSERT INTO `categories` VALUES (45, 'Mr. Amir Bednar', 'default.png', 24, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'mr-amir-bednar', 1);
+INSERT INTO `categories` VALUES (46, 'Mara Dach', 'default.png', 22, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'mara-dach', 1);
+INSERT INTO `categories` VALUES (47, 'Brian Botsford', 'default.png', 18, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'brian-botsford', 1);
+INSERT INTO `categories` VALUES (48, 'Delores Carroll Sr.', 'default.png', 17, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'delores-carroll-sr', 1);
+INSERT INTO `categories` VALUES (49, 'Monserrat Hintz', 'default.png', 18, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'monserrat-hintz', 1);
+INSERT INTO `categories` VALUES (50, 'Virginie Rosenbaum DVM', 'default.png', 26, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'virginie-rosenbaum-dvm', 1);
+INSERT INTO `categories` VALUES (51, 'Prof. Kayleigh Gorczany', 'default.png', 25, '2022-06-30 10:20:26', '2022-06-30 10:30:43', 2, 'prof-kayleigh-gorczany', 1);
+INSERT INTO `categories` VALUES (52, 'Ena Prohaska', 'default.png', 29, '2022-06-30 10:20:27', '2022-06-30 10:30:43', 2, 'ena-prohaska', 1);
+INSERT INTO `categories` VALUES (53, 'Dr. Gabe Schneider', 'default.png', 14, '2022-06-30 10:20:27', '2022-06-30 10:30:43', 2, 'dr-gabe-schneider', 1);
+INSERT INTO `categories` VALUES (54, 'Dr. Mohamed Jakubowski', 'default.png', 25, '2022-06-30 10:20:27', '2022-06-30 10:30:43', 2, 'dr-mohamed-jakubowski', 1);
+INSERT INTO `categories` VALUES (55, 'Jammie Stracke I', 'default.png', 16, '2022-06-30 10:20:27', '2022-06-30 10:30:43', 2, 'jammie-stracke-i', 1);
+INSERT INTO `categories` VALUES (56, 'Phyllis Morissette', 'default.png', 14, '2022-06-30 10:20:27', '2022-06-30 10:30:43', 2, 'phyllis-morissette', 1);
+INSERT INTO `categories` VALUES (57, 'Dr. Anderson Turcotte II', 'default.png', 26, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'dr-anderson-turcotte-ii', 1);
+INSERT INTO `categories` VALUES (58, 'Ezra Rutherford', 'default.png', 23, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'ezra-rutherford', 1);
+INSERT INTO `categories` VALUES (59, 'Mrs. Kenyatta Stark I', 'default.png', 13, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'mrs-kenyatta-stark-i', 1);
+INSERT INTO `categories` VALUES (60, 'Quentin Mayert', 'default.png', 21, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'quentin-mayert', 1);
+INSERT INTO `categories` VALUES (61, 'Lorena Christiansen', 'default.png', 20, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'lorena-christiansen', 1);
+INSERT INTO `categories` VALUES (62, 'Macey Hahn', 'default.png', 17, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'macey-hahn', 1);
+INSERT INTO `categories` VALUES (63, 'Prof. Dessie Jones', 'default.png', 12, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'prof-dessie-jones', 1);
+INSERT INTO `categories` VALUES (64, 'Kara Goldner', 'default.png', 12, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'kara-goldner', 1);
+INSERT INTO `categories` VALUES (65, 'Maddison Heaney', 'default.png', 21, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'maddison-heaney', 1);
+INSERT INTO `categories` VALUES (66, 'Khalil Nolan', 'default.png', 21, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'khalil-nolan', 1);
+INSERT INTO `categories` VALUES (67, 'Malika Kuhic III', 'default.png', 21, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'malika-kuhic-iii', 1);
+INSERT INTO `categories` VALUES (68, 'Ada Boehm', 'default.png', 16, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'ada-boehm', 1);
+INSERT INTO `categories` VALUES (69, 'Ms. Yvonne Barton', 'default.png', 19, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'ms-yvonne-barton', 1);
+INSERT INTO `categories` VALUES (70, 'Orie Orn', 'default.png', 19, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'orie-orn', 1);
+INSERT INTO `categories` VALUES (71, 'Euna Hintz DVM', 'default.png', 26, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'euna-hintz-dvm', 1);
+INSERT INTO `categories` VALUES (72, 'Ally Schaden', 'default.png', 11, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'ally-schaden', 1);
+INSERT INTO `categories` VALUES (73, 'Dr. Fermin Hoppe', 'default.png', 20, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'dr-fermin-hoppe', 1);
+INSERT INTO `categories` VALUES (74, 'Hillard Volkman', 'default.png', 10, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'hillard-volkman', 1);
+INSERT INTO `categories` VALUES (75, 'Mr. Reagan Mosciski', 'default.png', 11, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'mr-reagan-mosciski', 1);
+INSERT INTO `categories` VALUES (76, 'Dr. Eden Beier Sr.', 'default.png', 29, '2022-06-30 10:25:14', '2022-06-30 10:30:43', 2, 'dr-eden-beier-sr', 1);
+INSERT INTO `categories` VALUES (77, 'Joannie Schamberger IV', 'default.png', 30, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'joannie-schamberger-iv', 1);
+INSERT INTO `categories` VALUES (78, 'Tianna Reinger', 'default.png', 27, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'tianna-reinger', 1);
+INSERT INTO `categories` VALUES (79, 'Rosie Ankunding', 'default.png', 19, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'rosie-ankunding', 1);
+INSERT INTO `categories` VALUES (80, 'Sydni Denesik', 'default.png', 25, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'sydni-denesik', 1);
+INSERT INTO `categories` VALUES (81, 'Ms. Annabel Monahan II', 'default.png', 30, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'ms-annabel-monahan-ii', 1);
+INSERT INTO `categories` VALUES (82, 'Chelsea Morar III', 'default.png', 30, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'chelsea-morar-iii', 1);
+INSERT INTO `categories` VALUES (83, 'Monty Abernathy', 'default.png', 23, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'monty-abernathy', 1);
+INSERT INTO `categories` VALUES (84, 'Sienna Homenick', 'default.png', 21, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'sienna-homenick', 1);
+INSERT INTO `categories` VALUES (85, 'Prof. Bernhard Muller Sr.', 'default.png', 19, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'prof-bernhard-muller-sr', 1);
+INSERT INTO `categories` VALUES (86, 'Janiya Morissette', 'default.png', 26, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'janiya-morissette', 1);
+INSERT INTO `categories` VALUES (87, 'Josiane Torp', 'default.png', 23, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'josiane-torp', 1);
+INSERT INTO `categories` VALUES (88, 'Jaiden Jones', 'default.png', 17, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'jaiden-jones', 1);
+INSERT INTO `categories` VALUES (89, 'Flavio Bernier', 'default.png', 11, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'flavio-bernier', 1);
+INSERT INTO `categories` VALUES (90, 'Eleonore Dickinson', 'default.png', 31, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'eleonore-dickinson', 1);
+INSERT INTO `categories` VALUES (91, 'Mara Cummerata', 'default.png', 19, '2022-06-30 10:25:36', '2022-06-30 10:30:43', 2, 'mara-cummerata', 1);
+INSERT INTO `categories` VALUES (92, 'Caesar Wiza', 'default.png', 18, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'caesar-wiza', 1);
+INSERT INTO `categories` VALUES (93, 'Miss Annabel Stanton I', 'default.png', 26, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'miss-annabel-stanton-i', 1);
+INSERT INTO `categories` VALUES (94, 'Dr. Tod Langworth III', 'default.png', 30, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'dr-tod-langworth-iii', 1);
+INSERT INTO `categories` VALUES (95, 'Dr. Tara Hirthe', 'default.png', 15, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'dr-tara-hirthe', 1);
+INSERT INTO `categories` VALUES (96, 'Maureen Marvin', 'default.png', 11, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'maureen-marvin', 1);
+INSERT INTO `categories` VALUES (97, 'Miss Lilian Satterfield', 'default.png', 20, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'miss-lilian-satterfield', 1);
+INSERT INTO `categories` VALUES (98, 'Mr. Erwin Kunze', 'default.png', 21, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'mr-erwin-kunze', 1);
+INSERT INTO `categories` VALUES (99, 'Fritz Koss', 'default.png', 15, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'fritz-koss', 1);
+INSERT INTO `categories` VALUES (100, 'Prof. Ellen Watsica', 'default.png', 17, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'prof-ellen-watsica', 1);
+INSERT INTO `categories` VALUES (101, 'Sam Orn III', 'default.png', 29, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'sam-orn-iii', 1);
+INSERT INTO `categories` VALUES (102, 'Dewayne Doyle', 'default.png', 16, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'dewayne-doyle', 1);
+INSERT INTO `categories` VALUES (103, 'Cindy O\'Kon', 'default.png', 25, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'cindy-okon', 1);
+INSERT INTO `categories` VALUES (104, 'Alexane Abshire', 'default.png', 26, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'alexane-abshire', 1);
+INSERT INTO `categories` VALUES (105, 'Brendon Lemke', 'default.png', 17, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'brendon-lemke', 1);
+INSERT INTO `categories` VALUES (106, 'Carissa Hodkiewicz DVM', 'default.png', 28, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'carissa-hodkiewicz-dvm', 1);
+INSERT INTO `categories` VALUES (107, 'Sadie Brown', 'default.png', 14, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'sadie-brown', 1);
+INSERT INTO `categories` VALUES (108, 'Elissa Yost', 'default.png', 20, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'elissa-yost', 1);
+INSERT INTO `categories` VALUES (109, 'Lane Metz', 'default.png', 20, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'lane-metz', 1);
+INSERT INTO `categories` VALUES (110, 'Ms. Carolyn Huels', 'default.png', 10, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'ms-carolyn-huels', 1);
+INSERT INTO `categories` VALUES (111, 'Prof. Desmond Jacobs DVM', 'default.png', 13, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'prof-desmond-jacobs-dvm', 1);
+INSERT INTO `categories` VALUES (112, 'Casandra Bosco', 'default.png', 11, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'casandra-bosco', 1);
+INSERT INTO `categories` VALUES (113, 'Mr. Colten O\'Connell DDS', 'default.png', 12, '2022-06-30 10:25:37', '2022-06-30 10:30:44', 2, 'mr-colten-oconnell-dds', 1);
+INSERT INTO `categories` VALUES (114, 'Ricky Huels DVM', 'default.png', 24, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'ricky-huels-dvm', 1);
+INSERT INTO `categories` VALUES (115, 'Cielo Lind', 'default.png', 10, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'cielo-lind', 1);
+INSERT INTO `categories` VALUES (116, 'Deondre Mohr V', 'default.png', 19, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'deondre-mohr-v', 1);
+INSERT INTO `categories` VALUES (117, 'Eliane Bins', 'default.png', 26, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'eliane-bins', 1);
+INSERT INTO `categories` VALUES (118, 'Johanna Casper', 'default.png', 26, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'johanna-casper', 1);
+INSERT INTO `categories` VALUES (119, 'Mrs. Earnestine Conn', 'default.png', 23, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'mrs-earnestine-conn', 1);
+INSERT INTO `categories` VALUES (120, 'Jairo Ferry V', 'default.png', 18, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'jairo-ferry-v', 1);
+INSERT INTO `categories` VALUES (121, 'Greyson Wunsch II', 'default.png', 12, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'greyson-wunsch-ii', 1);
+INSERT INTO `categories` VALUES (122, 'Gene Konopelski', 'default.png', 15, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'gene-konopelski', 1);
+INSERT INTO `categories` VALUES (123, 'Mr. Eliezer Schowalter', 'default.png', 25, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'mr-eliezer-schowalter', 1);
+INSERT INTO `categories` VALUES (124, 'Aimee Torp', 'default.png', 11, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'aimee-torp', 1);
+INSERT INTO `categories` VALUES (125, 'Johnpaul Williamson', 'default.png', 28, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'johnpaul-williamson', 1);
+INSERT INTO `categories` VALUES (126, 'Dr. Everardo Monahan PhD', 'default.png', 19, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'dr-everardo-monahan-phd', 1);
+INSERT INTO `categories` VALUES (127, 'Stacy Kiehn', 'default.png', 12, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'stacy-kiehn', 1);
+INSERT INTO `categories` VALUES (128, 'Raquel Rowe', 'default.png', 19, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'raquel-rowe', 1);
+INSERT INTO `categories` VALUES (129, 'Robin Sipes Sr.', 'default.png', 28, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'robin-sipes-sr', 1);
+INSERT INTO `categories` VALUES (130, 'Kasandra Heaney', 'default.png', 18, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'kasandra-heaney', 1);
+INSERT INTO `categories` VALUES (131, 'Prof. Arlo Wolff V', 'default.png', 24, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'prof-arlo-wolff-v', 1);
+INSERT INTO `categories` VALUES (132, 'Ceasar Miller', 'default.png', 21, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'ceasar-miller', 1);
+INSERT INTO `categories` VALUES (133, 'Hilario Sanford II', 'default.png', 27, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'hilario-sanford-ii', 1);
+INSERT INTO `categories` VALUES (134, 'Arvilla Purdy', 'default.png', 24, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'arvilla-purdy', 1);
+INSERT INTO `categories` VALUES (135, 'Kimberly Wisoky MD', 'default.png', 31, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'kimberly-wisoky-md', 1);
+INSERT INTO `categories` VALUES (136, 'Julius Crona', 'default.png', 16, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'julius-crona', 1);
+INSERT INTO `categories` VALUES (137, 'Philip Anderson', 'default.png', 12, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'philip-anderson', 1);
+INSERT INTO `categories` VALUES (138, 'Ilene Hessel MD', 'default.png', 27, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'ilene-hessel-md', 1);
+INSERT INTO `categories` VALUES (139, 'Ms. Felicia Gutkowski', 'default.png', 19, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'ms-felicia-gutkowski', 1);
+INSERT INTO `categories` VALUES (140, 'Jermain Rohan', 'default.png', 13, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'jermain-rohan', 1);
+INSERT INTO `categories` VALUES (141, 'Orval Kirlin', 'default.png', 10, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'orval-kirlin', 1);
+INSERT INTO `categories` VALUES (142, 'Jerad Mosciski', 'default.png', 29, '2022-06-30 10:25:38', '2022-06-30 10:30:44', 2, 'jerad-mosciski', 1);
+INSERT INTO `categories` VALUES (143, 'Prof. Marlee Weimann I', 'default.png', 31, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'prof-marlee-weimann-i', 1);
+INSERT INTO `categories` VALUES (144, 'Bernadette Howe', 'default.png', 16, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'bernadette-howe', 1);
+INSERT INTO `categories` VALUES (145, 'Alexandrea Baumbach', 'default.png', 15, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'alexandrea-baumbach', 1);
+INSERT INTO `categories` VALUES (146, 'Mrs. Aliyah Mann', 'default.png', 12, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'mrs-aliyah-mann', 1);
+INSERT INTO `categories` VALUES (147, 'Brooke Roob', 'default.png', 14, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'brooke-roob', 1);
+INSERT INTO `categories` VALUES (148, 'Breanna O\'Keefe', 'default.png', 20, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'breanna-okeefe', 1);
+INSERT INTO `categories` VALUES (149, 'Malinda Lakin', 'default.png', 25, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'malinda-lakin', 1);
+INSERT INTO `categories` VALUES (150, 'Luigi Abernathy', 'default.png', 11, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'luigi-abernathy', 1);
+INSERT INTO `categories` VALUES (151, 'Vaughn Ernser', 'default.png', 23, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'vaughn-ernser', 1);
+INSERT INTO `categories` VALUES (152, 'Prof. Isom Brakus', 'default.png', 27, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'prof-isom-brakus', 1);
+INSERT INTO `categories` VALUES (153, 'Dr. Hanna Huel', 'default.png', 14, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'dr-hanna-huel', 1);
+INSERT INTO `categories` VALUES (154, 'Vernie Cummings III', 'default.png', 18, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'vernie-cummings-iii', 1);
+INSERT INTO `categories` VALUES (155, 'Jack Upton', 'default.png', 10, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'jack-upton', 1);
+INSERT INTO `categories` VALUES (156, 'Roel Bednar', 'default.png', 18, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'roel-bednar', 1);
+INSERT INTO `categories` VALUES (157, 'Dr. Vidal Treutel', 'default.png', 18, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'dr-vidal-treutel', 1);
+INSERT INTO `categories` VALUES (158, 'Gilberto Hansen', 'default.png', 16, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'gilberto-hansen', 1);
+INSERT INTO `categories` VALUES (159, 'Dr. Arnoldo Dickens DDS', 'default.png', 31, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'dr-arnoldo-dickens-dds', 1);
+INSERT INTO `categories` VALUES (160, 'Mrs. Cara Hilpert', 'default.png', 28, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'mrs-cara-hilpert', 1);
+INSERT INTO `categories` VALUES (161, 'Ernest Wilderman', 'default.png', 17, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'ernest-wilderman', 1);
+INSERT INTO `categories` VALUES (162, 'Prof. Terence Green', 'default.png', 23, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'prof-terence-green', 1);
+INSERT INTO `categories` VALUES (163, 'Jackie Kilback', 'default.png', 22, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'jackie-kilback', 1);
+INSERT INTO `categories` VALUES (164, 'Lambert Okuneva', 'default.png', 24, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'lambert-okuneva', 1);
+INSERT INTO `categories` VALUES (165, 'Jonatan Kuhn', 'default.png', 28, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'jonatan-kuhn', 1);
+INSERT INTO `categories` VALUES (166, 'Melisa Larson', 'default.png', 12, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'melisa-larson', 1);
+INSERT INTO `categories` VALUES (167, 'Annette Hammes', 'default.png', 10, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'annette-hammes', 1);
+INSERT INTO `categories` VALUES (168, 'Arne Wisozk III', 'default.png', 21, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'arne-wisozk-iii', 1);
+INSERT INTO `categories` VALUES (169, 'Michale Douglas', 'default.png', 20, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'michale-douglas', 1);
+INSERT INTO `categories` VALUES (170, 'Maya West', 'default.png', 25, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'maya-west', 1);
+INSERT INTO `categories` VALUES (171, 'Alvah Grimes Jr.', 'default.png', 28, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'alvah-grimes-jr', 1);
+INSERT INTO `categories` VALUES (172, 'Prof. Dock Heaney', 'default.png', 15, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'prof-dock-heaney', 1);
+INSERT INTO `categories` VALUES (173, 'Prof. Unique Lockman Jr.', 'default.png', 22, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'prof-unique-lockman-jr', 1);
+INSERT INTO `categories` VALUES (174, 'Wilford Schamberger DDS', 'default.png', 15, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'wilford-schamberger-dds', 1);
+INSERT INTO `categories` VALUES (175, 'Mrs. Malvina Wehner', 'default.png', 18, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'mrs-malvina-wehner', 1);
+INSERT INTO `categories` VALUES (176, 'Adolphus Schoen DVM', 'default.png', 31, '2022-06-30 10:25:39', '2022-06-30 10:30:44', 2, 'adolphus-schoen-dvm', 1);
+INSERT INTO `categories` VALUES (177, 'Columbus Tromp', 'default.png', 29, '2022-06-30 10:25:40', '2022-06-30 10:30:44', 2, 'columbus-tromp', 1);
+INSERT INTO `categories` VALUES (178, 'Ms. Yasmine Koss DVM', 'default.png', 10, '2022-06-30 10:25:40', '2022-06-30 10:30:44', 2, 'ms-yasmine-koss-dvm', 1);
+INSERT INTO `categories` VALUES (179, 'Sharon Howell', 'default.png', 18, '2022-06-30 10:25:40', '2022-06-30 10:30:44', 2, 'sharon-howell', 1);
+INSERT INTO `categories` VALUES (180, 'Mrs. Emmanuelle Klein', 'default.png', 21, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'mrs-emmanuelle-klein', 1);
+INSERT INTO `categories` VALUES (181, 'Cloyd Schmidt PhD', 'default.png', 22, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'cloyd-schmidt-phd', 1);
+INSERT INTO `categories` VALUES (182, 'Tressie Becker', 'default.png', 25, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'tressie-becker', 1);
+INSERT INTO `categories` VALUES (183, 'Elbert Reynolds', 'default.png', 29, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'elbert-reynolds', 1);
+INSERT INTO `categories` VALUES (184, 'Garrick Zieme Sr.', 'default.png', 29, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'garrick-zieme-sr', 1);
+INSERT INTO `categories` VALUES (185, 'Marcelo O\'Reilly', 'default.png', 10, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'marcelo-oreilly', 1);
+INSERT INTO `categories` VALUES (186, 'Johnathon Grady', 'default.png', 18, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'johnathon-grady', 1);
+INSERT INTO `categories` VALUES (187, 'Miles Jacobi MD', 'default.png', 28, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'miles-jacobi-md', 1);
+INSERT INTO `categories` VALUES (188, 'Tavares Klein', 'default.png', 26, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'tavares-klein', 1);
+INSERT INTO `categories` VALUES (189, 'Travon Robel DVM', 'default.png', 30, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'travon-robel-dvm', 1);
+INSERT INTO `categories` VALUES (190, 'Idell Huels I', 'default.png', 29, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'idell-huels-i', 1);
+INSERT INTO `categories` VALUES (191, 'Rachelle Schultz', 'default.png', 18, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'rachelle-schultz', 1);
+INSERT INTO `categories` VALUES (192, 'Terence Klocko', 'default.png', 19, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'terence-klocko', 1);
+INSERT INTO `categories` VALUES (193, 'Dr. Ephraim Herman DVM', 'default.png', 12, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'dr-ephraim-herman-dvm', 1);
+INSERT INTO `categories` VALUES (194, 'Esperanza Stiedemann', 'default.png', 24, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'esperanza-stiedemann', 1);
+INSERT INTO `categories` VALUES (195, 'Kathlyn Jast', 'default.png', 29, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'kathlyn-jast', 1);
+INSERT INTO `categories` VALUES (196, 'Mr. Herman Weimann DVM', 'default.png', 24, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'mr-herman-weimann-dvm', 1);
+INSERT INTO `categories` VALUES (197, 'Nayeli Gusikowski', 'default.png', 29, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'nayeli-gusikowski', 1);
+INSERT INTO `categories` VALUES (198, 'Ms. Aurelie Kihn Sr.', 'default.png', 28, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'ms-aurelie-kihn-sr', 1);
+INSERT INTO `categories` VALUES (199, 'Dr. Maxine Kiehn II', 'default.png', 16, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'dr-maxine-kiehn-ii', 1);
+INSERT INTO `categories` VALUES (200, 'Mr. Gardner Rosenbaum', 'default.png', 10, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'mr-gardner-rosenbaum', 1);
+INSERT INTO `categories` VALUES (201, 'Kelli Schroeder', 'default.png', 13, '2022-06-30 10:25:40', '2022-06-30 10:30:45', 2, 'kelli-schroeder', 1);
+INSERT INTO `categories` VALUES (202, 'Jamal Streich', 'default.png', 13, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'jamal-streich', 1);
+INSERT INTO `categories` VALUES (203, 'Lisa Crist', 'default.png', 30, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'lisa-crist', 1);
+INSERT INTO `categories` VALUES (204, 'Dr. Gunner Langosh PhD', 'default.png', 25, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'dr-gunner-langosh-phd', 1);
+INSERT INTO `categories` VALUES (205, 'Dr. Kamryn Rippin MD', 'default.png', 20, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'dr-kamryn-rippin-md', 1);
+INSERT INTO `categories` VALUES (206, 'Prof. Joannie Shanahan DDS', 'default.png', 11, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'prof-joannie-shanahan-dds', 1);
+INSERT INTO `categories` VALUES (207, 'Miss Marcia Koepp', 'default.png', 22, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'miss-marcia-koepp', 1);
+INSERT INTO `categories` VALUES (208, 'Dr. Keon Mayert II', 'default.png', 15, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'dr-keon-mayert-ii', 1);
+INSERT INTO `categories` VALUES (209, 'Ms. Ashtyn Mraz PhD', 'default.png', 18, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'ms-ashtyn-mraz-phd', 1);
+INSERT INTO `categories` VALUES (210, 'Gunner Ebert', 'default.png', 25, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'gunner-ebert', 1);
+INSERT INTO `categories` VALUES (211, 'Prof. Ezekiel McCullough I', 'default.png', 21, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'prof-ezekiel-mccullough-i', 1);
+INSERT INTO `categories` VALUES (212, 'Carley Stehr V', 'default.png', 23, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'carley-stehr-v', 1);
+INSERT INTO `categories` VALUES (213, 'Bianka McLaughlin', 'default.png', 22, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'bianka-mclaughlin', 1);
+INSERT INTO `categories` VALUES (214, 'Viola Schroeder', 'default.png', 12, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'viola-schroeder', 1);
+INSERT INTO `categories` VALUES (215, 'Ms. Jody Beer III', 'default.png', 17, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'ms-jody-beer-iii', 1);
+INSERT INTO `categories` VALUES (216, 'Vern Nicolas', 'default.png', 23, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'vern-nicolas', 1);
+INSERT INTO `categories` VALUES (217, 'Marlen Streich III', 'default.png', 24, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'marlen-streich-iii', 1);
+INSERT INTO `categories` VALUES (218, 'Keara Schmidt III', 'default.png', 24, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'keara-schmidt-iii', 1);
+INSERT INTO `categories` VALUES (219, 'Queenie Will', 'default.png', 12, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'queenie-will', 1);
+INSERT INTO `categories` VALUES (220, 'Sylvester Gutkowski IV', 'default.png', 22, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'sylvester-gutkowski-iv', 1);
+INSERT INTO `categories` VALUES (221, 'Miss Myra Wolf II', 'default.png', 16, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'miss-myra-wolf-ii', 1);
+INSERT INTO `categories` VALUES (222, 'Jermey Hermiston', 'default.png', 28, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'jermey-hermiston', 1);
+INSERT INTO `categories` VALUES (223, 'Mrs. Dovie Prohaska MD', 'default.png', 17, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'mrs-dovie-prohaska-md', 1);
+INSERT INTO `categories` VALUES (224, 'Maritza Blanda', 'default.png', 18, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'maritza-blanda', 1);
+INSERT INTO `categories` VALUES (225, 'Bennett Witting', 'default.png', 22, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'bennett-witting', 1);
+INSERT INTO `categories` VALUES (226, 'Jakob Smitham', 'default.png', 31, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'jakob-smitham', 1);
+INSERT INTO `categories` VALUES (227, 'Cleta Raynor', 'default.png', 30, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'cleta-raynor', 1);
+INSERT INTO `categories` VALUES (228, 'Kitty Welch Jr.', 'default.png', 28, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'kitty-welch-jr', 1);
+INSERT INTO `categories` VALUES (229, 'Cayla Dooley PhD', 'default.png', 28, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'cayla-dooley-phd', 1);
+INSERT INTO `categories` VALUES (230, 'Hunter Walker', 'default.png', 26, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'hunter-walker', 1);
+INSERT INTO `categories` VALUES (231, 'Emmanuelle Heathcote', 'default.png', 25, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'emmanuelle-heathcote', 1);
+INSERT INTO `categories` VALUES (232, 'Ms. Treva Williamson', 'default.png', 19, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'ms-treva-williamson', 1);
+INSERT INTO `categories` VALUES (233, 'Allie Bogisich', 'default.png', 14, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'allie-bogisich', 1);
+INSERT INTO `categories` VALUES (234, 'Eulalia Paucek V', 'default.png', 14, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'eulalia-paucek-v', 1);
+INSERT INTO `categories` VALUES (235, 'Julie Hand', 'default.png', 19, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'julie-hand', 1);
+INSERT INTO `categories` VALUES (236, 'Daphney Howe', 'default.png', 11, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'daphney-howe', 1);
+INSERT INTO `categories` VALUES (237, 'Mr. Presley Willms MD', 'default.png', 23, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'mr-presley-willms-md', 1);
+INSERT INTO `categories` VALUES (238, 'Junior Johnson', 'default.png', 21, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'junior-johnson', 1);
+INSERT INTO `categories` VALUES (239, 'Dr. Arlene Bednar I', 'default.png', 26, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'dr-arlene-bednar-i', 1);
+INSERT INTO `categories` VALUES (240, 'Sandy Schuster', 'default.png', 11, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'sandy-schuster', 1);
+INSERT INTO `categories` VALUES (241, 'Sadie Pagac II', 'default.png', 16, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'sadie-pagac-ii', 1);
+INSERT INTO `categories` VALUES (242, 'Mrs. Abagail Heathcote', 'default.png', 11, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'mrs-abagail-heathcote', 1);
+INSERT INTO `categories` VALUES (243, 'Prof. Keyon Reichel DVM', 'default.png', 18, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'prof-keyon-reichel-dvm', 1);
+INSERT INTO `categories` VALUES (244, 'Bud Nitzsche', 'default.png', 25, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'bud-nitzsche', 1);
+INSERT INTO `categories` VALUES (245, 'Myrl Sawayn', 'default.png', 27, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'myrl-sawayn', 1);
+INSERT INTO `categories` VALUES (246, 'Aubrey Wisoky', 'default.png', 15, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'aubrey-wisoky', 1);
+INSERT INTO `categories` VALUES (247, 'Mrs. Letitia Rowe', 'default.png', 21, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'mrs-letitia-rowe', 1);
+INSERT INTO `categories` VALUES (248, 'Nadia Walsh', 'default.png', 31, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'nadia-walsh', 1);
+INSERT INTO `categories` VALUES (249, 'Marley Bradtke', 'default.png', 24, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'marley-bradtke', 1);
+INSERT INTO `categories` VALUES (250, 'Miss Ona Prohaska V', 'default.png', 11, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'miss-ona-prohaska-v', 1);
+INSERT INTO `categories` VALUES (251, 'Miss Arlie Boehm', 'default.png', 13, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'miss-arlie-boehm', 1);
+INSERT INTO `categories` VALUES (252, 'Timothy Kerluke', 'default.png', 31, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'timothy-kerluke', 1);
+INSERT INTO `categories` VALUES (253, 'Chadd Hills', 'default.png', 12, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'chadd-hills', 1);
+INSERT INTO `categories` VALUES (254, 'Bria Steuber', 'default.png', 20, '2022-06-30 10:25:41', '2022-06-30 10:30:45', 2, 'bria-steuber', 1);
+INSERT INTO `categories` VALUES (255, 'Gaetano Leuschke', 'default.png', 10, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'gaetano-leuschke', 1);
+INSERT INTO `categories` VALUES (256, 'Otha Sanford', 'default.png', 13, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'otha-sanford', 1);
+INSERT INTO `categories` VALUES (257, 'Miss Georgette Gutmann IV', 'default.png', 21, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'miss-georgette-gutmann-iv', 1);
+INSERT INTO `categories` VALUES (258, 'Dr. Bell Kunze', 'default.png', 15, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'dr-bell-kunze', 1);
+INSERT INTO `categories` VALUES (259, 'Nathan Weber Jr.', 'default.png', 28, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'nathan-weber-jr', 1);
+INSERT INTO `categories` VALUES (260, 'Prof. Virgie Price', 'default.png', 18, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'prof-virgie-price', 1);
+INSERT INTO `categories` VALUES (261, 'Kaley McCullough', 'default.png', 30, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'kaley-mccullough', 1);
+INSERT INTO `categories` VALUES (262, 'Estefania Hills Sr.', 'default.png', 10, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'estefania-hills-sr', 1);
+INSERT INTO `categories` VALUES (263, 'Hollis Kshlerin', 'default.png', 22, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'hollis-kshlerin', 1);
+INSERT INTO `categories` VALUES (264, 'Miss Marjolaine Bradtke III', 'default.png', 20, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'miss-marjolaine-bradtke-iii', 1);
+INSERT INTO `categories` VALUES (265, 'Arlene Koepp', 'default.png', 29, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'arlene-koepp', 1);
+INSERT INTO `categories` VALUES (266, 'Jaclyn Rau', 'default.png', 13, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'jaclyn-rau', 1);
+INSERT INTO `categories` VALUES (267, 'Miss Maye Lebsack', 'default.png', 31, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'miss-maye-lebsack', 1);
+INSERT INTO `categories` VALUES (268, 'Stuart Becker', 'default.png', 19, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'stuart-becker', 1);
+INSERT INTO `categories` VALUES (269, 'Horace Bernhard', 'default.png', 31, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'horace-bernhard', 1);
+INSERT INTO `categories` VALUES (270, 'Creola Adams II', 'default.png', 14, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'creola-adams-ii', 1);
+INSERT INTO `categories` VALUES (271, 'Mrs. Catalina Steuber DVM', 'default.png', 13, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'mrs-catalina-steuber-dvm', 1);
+INSERT INTO `categories` VALUES (272, 'Mr. Ryann Pfannerstill PhD', 'default.png', 20, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'mr-ryann-pfannerstill-phd', 1);
+INSERT INTO `categories` VALUES (273, 'Pauline Hessel', 'default.png', 20, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'pauline-hessel', 1);
+INSERT INTO `categories` VALUES (274, 'Ilene Luettgen', 'default.png', 11, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'ilene-luettgen', 1);
+INSERT INTO `categories` VALUES (275, 'Kendall Pacocha', 'default.png', 30, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'kendall-pacocha', 1);
+INSERT INTO `categories` VALUES (276, 'Prof. Eveline Boyle', 'default.png', 24, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'prof-eveline-boyle', 1);
+INSERT INTO `categories` VALUES (277, 'Lyric Willms', 'default.png', 24, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'lyric-willms', 1);
+INSERT INTO `categories` VALUES (278, 'Dr. Steve Durgan I', 'default.png', 12, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'dr-steve-durgan-i', 1);
+INSERT INTO `categories` VALUES (279, 'Xavier Monahan', 'default.png', 25, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'xavier-monahan', 1);
+INSERT INTO `categories` VALUES (280, 'Lavon Osinski', 'default.png', 11, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'lavon-osinski', 1);
+INSERT INTO `categories` VALUES (281, 'Prof. Idell Abernathy Jr.', 'default.png', 28, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'prof-idell-abernathy-jr', 1);
+INSERT INTO `categories` VALUES (282, 'Miss Mya Upton Sr.', 'default.png', 27, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'miss-mya-upton-sr', 1);
+INSERT INTO `categories` VALUES (283, 'Mr. Kim Towne', 'default.png', 18, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'mr-kim-towne', 1);
+INSERT INTO `categories` VALUES (284, 'Leonardo Legros', 'default.png', 17, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'leonardo-legros', 1);
+INSERT INTO `categories` VALUES (285, 'Antonietta Huel MD', 'default.png', 16, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'antonietta-huel-md', 1);
+INSERT INTO `categories` VALUES (286, 'Cayla Fadel PhD', 'default.png', 27, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'cayla-fadel-phd', 1);
+INSERT INTO `categories` VALUES (287, 'Trevion Raynor', 'default.png', 23, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'trevion-raynor', 1);
+INSERT INTO `categories` VALUES (288, 'Jarrod Runolfsson', 'default.png', 29, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'jarrod-runolfsson', 1);
+INSERT INTO `categories` VALUES (289, 'Linda Herzog', 'default.png', 24, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'linda-herzog', 1);
+INSERT INTO `categories` VALUES (290, 'Mathilde Brekke III', 'default.png', 17, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'mathilde-brekke-iii', 1);
+INSERT INTO `categories` VALUES (291, 'Birdie Ruecker II', 'default.png', 18, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'birdie-ruecker-ii', 1);
+INSERT INTO `categories` VALUES (292, 'Mr. Barton Mante II', 'default.png', 11, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'mr-barton-mante-ii', 1);
+INSERT INTO `categories` VALUES (293, 'Weston Leannon', 'default.png', 28, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'weston-leannon', 1);
+INSERT INTO `categories` VALUES (294, 'Jasmin Schiller', 'default.png', 26, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'jasmin-schiller', 1);
+INSERT INTO `categories` VALUES (295, 'Waino Marvin', 'default.png', 21, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'waino-marvin', 1);
+INSERT INTO `categories` VALUES (296, 'Gwendolyn Little Sr.', 'default.png', 23, '2022-06-30 10:25:42', '2022-06-30 10:30:45', 2, 'gwendolyn-little-sr', 1);
 
 -- ----------------------------
 -- Table structure for failed_jobs
@@ -1950,7 +2839,7 @@ CREATE TABLE `failed_jobs`  (
   `failed_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `failed_jobs_uuid_unique`(`uuid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of failed_jobs
@@ -1965,7 +2854,7 @@ CREATE TABLE `migrations`  (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of migrations
@@ -1998,6 +2887,7 @@ INSERT INTO `migrations` VALUES (25, '2022_07_04_112750_create_banners_table', 1
 INSERT INTO `migrations` VALUES (26, '2022_07_04_124432_create_posts_table', 14);
 INSERT INTO `migrations` VALUES (27, '2022_07_07_043120_create_orders_table', 15);
 INSERT INTO `migrations` VALUES (28, '2022_07_07_043705_order_products_table', 15);
+INSERT INTO `migrations` VALUES (29, '2022_07_21_103710_create_settings_table', 16);
 
 -- ----------------------------
 -- Table structure for options
@@ -2009,7 +2899,7 @@ CREATE TABLE `options`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of options
@@ -2034,7 +2924,7 @@ CREATE TABLE `order_products`  (
   `product_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_price` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `total` double(8, 2) NOT NULL,
+  `total` double(20, 2) NOT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
@@ -2042,14 +2932,24 @@ CREATE TABLE `order_products`  (
   INDEX `order_products_product_id_foreign`(`product_id`) USING BTREE,
   CONSTRAINT `order_products_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `order_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of order_products
 -- ----------------------------
 INSERT INTO `order_products` VALUES (2, 1, 3, 'default.png', 213, 1, 1.00, NULL, NULL);
-INSERT INTO `order_products` VALUES (3, 1, 4, 'default.png', 123, 123, 123.00, NULL, NULL);
+INSERT INTO `order_products` VALUES (3, 1, 4, 'default.png', 123, 4, 123.00, NULL, NULL);
 INSERT INTO `order_products` VALUES (4, 3, 68, 'default.png', 765, 1, 765.00, NULL, NULL);
+INSERT INTO `order_products` VALUES (5, 4, 98, 'default.png', 282, 1, 282.00, NULL, NULL);
+INSERT INTO `order_products` VALUES (6, 4, 53, 'default.png', 484, 2, 968.00, NULL, NULL);
+INSERT INTO `order_products` VALUES (7, 4, 19, 'default.png', 383, 1, 767.00, NULL, NULL);
+INSERT INTO `order_products` VALUES (8, 5, 97, 'default.png', 443, 1, 443.00, NULL, NULL);
+INSERT INTO `order_products` VALUES (9, 6, 13, 'default.png', 247, 2, 990.00, NULL, NULL);
+INSERT INTO `order_products` VALUES (10, 7, 19, 'default.png', 383, 1, 767.00, NULL, NULL);
+INSERT INTO `order_products` VALUES (11, 9, 4, 'images/MSIRTX20606GBVentusGPOC-500x500.webp', 485000, 2, 1940000.00, NULL, NULL);
+INSERT INTO `order_products` VALUES (12, 9, 11, 'images/97b20f89ba96382edee2e5abd1e7b980.jpg', 56, 1, 112.00, NULL, NULL);
+INSERT INTO `order_products` VALUES (13, 10, 4, 'images/MSIRTX20606GBVentusGPOC-500x500.webp', 485000, 2, 970000.00, NULL, NULL);
+INSERT INTO `order_products` VALUES (14, 10, 11, 'images/97b20f89ba96382edee2e5abd1e7b980.jpg', 56, 1, 56.00, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for orders
@@ -2065,17 +2965,25 @@ CREATE TABLE `orders`  (
   `delivery_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `delivery_cost` float(10, 2) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `orders_customer_id_foreign`(`customer_id`) USING BTREE,
   CONSTRAINT `orders_customer_id_foreign` FOREIGN KEY (`customer_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES (1, 0, 1, 1, 1, 'ads', 'pickup', '2022-07-07 10:21:20', '2022-07-07 10:21:20');
-INSERT INTO `orders` VALUES (2, 500, 765, 1, 1, 'payme', 'regular_delivery', '2022-06-07 10:21:20', '2022-07-07 10:21:20');
-INSERT INTO `orders` VALUES (3, 750, 711, 1, 1, 'payme', 'fast_delivery', '2022-07-07 10:22:13', '2022-07-07 10:22:13');
+INSERT INTO `orders` VALUES (1, 0, 1, 1, 2, 'cash', 'pickup', '2022-01-07 10:21:20', '2022-07-21 09:50:17', NULL);
+INSERT INTO `orders` VALUES (2, 423, 1, 1, 2, 'payme', 'regular_delivery', '2022-06-07 10:21:20', '2022-07-07 10:21:20', NULL);
+INSERT INTO `orders` VALUES (3, 123, 1, 1, 3, 'payme', 'fast_delivery', '2022-02-07 10:22:13', '2022-07-07 10:22:13', NULL);
+INSERT INTO `orders` VALUES (4, 234, 1633, 1, 1, 'click', 'regular_delivery', '2022-03-21 10:31:08', '2022-07-21 10:31:08', NULL);
+INSERT INTO `orders` VALUES (5, 333, 443, 1, 1, 'click', 'regular_delivery', '2022-04-21 10:33:32', '2022-07-21 10:33:32', NULL);
+INSERT INTO `orders` VALUES (6, 555, 494, 1, 1, 'payme', 'fast_delivery', '2022-05-21 10:35:20', '2022-07-21 10:35:20', 50000.00);
+INSERT INTO `orders` VALUES (7, 666, 383, 1, 1, 'click', 'fast_delivery', '2022-07-21 10:43:59', '2022-07-21 10:43:59', 50000.00);
+INSERT INTO `orders` VALUES (8, 970056, 970056, 1, 1, 'cash', 'pickup', '2022-07-22 11:00:15', '2022-07-22 11:00:15', 0.00);
+INSERT INTO `orders` VALUES (9, 970056, 970056, 1, 1, 'cash', 'pickup', '2022-07-22 11:00:55', '2022-07-22 11:00:55', 0.00);
+INSERT INTO `orders` VALUES (10, 995056, 970056, 1, 1, 'click', 'regular_delivery', '2022-07-22 11:03:24', '2022-07-22 11:03:24', 25000.00);
 
 -- ----------------------------
 -- Table structure for password_resets
@@ -2086,7 +2994,7 @@ CREATE TABLE `password_resets`  (
   `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   INDEX `password_resets_email_index`(`email`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of password_resets
@@ -2109,7 +3017,7 @@ CREATE TABLE `personal_access_tokens`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `personal_access_tokens_token_unique`(`token`) USING BTREE,
   INDEX `personal_access_tokens_tokenable_type_tokenable_id_index`(`tokenable_type`, `tokenable_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of personal_access_tokens
@@ -2128,19 +3036,20 @@ CREATE TABLE `posts`  (
   `category_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `status` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `posts_category_id_foreign`(`category_id`) USING BTREE,
   CONSTRAINT `posts_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of posts
 -- ----------------------------
-INSERT INTO `posts` VALUES (1, 'asdasdasd', '<p>asddsasad</p>', 'images/861eb960defd5957af6745ea97373f16.jpg', '\"\"', 8, '2022-07-04 10:57:03', '2022-07-04 10:57:03');
-INSERT INTO `posts` VALUES (2, 'asdasdasd', '<p>HyperX, подразделение компании по производству игровых устройств, уже занимает прочные позиции на мировом рынке самого необходимого игрового оборудования. Корпорация была основана в 1987 году Джоном Ту и имеет штаб-квартиру в Калифорнии. По состоянию на 2015 год количество сотрудников составляло 3000 человек.</p>\r\n\r\n<p>Продукция компании, в том числе устройства HyperX, не чужды узбекскому рынку. В интернет-магазине Olcha вы можете найти набор клавиатур, мышей и наушников для игр. Например, HyperX Sloud Alpha S, Blue (4P5L3AA) завоевали признание геймеров за удобство игровых наушников. Смело улучшайте звук во время игры и создавайте комфортную звуковую атмосферу для игроков. Можно настроить частоту средней и высокой громкости и отрегулировать разницу. Настройте уровни звука в игре и чате по своему вкусу и играйте с полной отдачей. Особенно, если эта мышь &mdash; уникальная мышь HyperX! HyperX Pulsefire FPS Pro (HX-MS003B) подключается к клавиатуре через USB и предназначен для игр на настольном компьютере. Клавиша прокрутки &mdash; одна из самых удобных доступных кнопок мыши. Почувствуйте себя настоящим мастером игр с удобной гарнитурой, мышью и уникальной клавиатурой. Уникальные клавиатуры тоже поколения HyperX! Благодаря яркой световой панели и плавным динамическим световым эффектам RGB HyperX Alloy Sore RGB &trade;, похоже, разработан для геймеров, стремящихся поднять свою производительность на новый уровень. На этой клавиатуре вы найдете идеальный баланс 6 различных световых эффектов и 3 уровней яркости. Благодаря прочному пластиковому корпусу и стабильности Alloy Sore RGB, высокой надежности, эта клавиатура является лучшим помощником для геймеров, которые любят продолжительные игры. Клавиатура HyperX также оснащена сенсорными кнопками, специальными элементами управления мультимедиа для освещения и игрового режима, а также волшебными элементами управления клавиатуры, которые ускоряют работу ваших пальцев. Блокировка клавиатуры позволяет заблокировать клавиатуру, не переводя всю систему в режим ожидания. Мы рады сообщить о начале сезона скидок на продукцию HyperX с 1 по 30 июня. Объявлены скидки на вышеуказанные 29% на наушники, 28% на мышки и 19% на клавиатуры. Это еще не все. Много отличных предложений на черешню!</p>', 'images/22da80de15aea0c6393575c4b8f5cb9c.jpg', '\"tagq,tag2\"', 24, '2022-07-04 11:01:08', '2022-07-04 11:01:08');
-INSERT INTO `posts` VALUES (3, 'news 23', '<p>HyperX, подразделение компании по производству игровых устройств, уже занимает прочные позиции на мировом рынке самого необходимого игрового оборудования. Корпорация была основана в 1987 году Джоном Ту и имеет штаб-квартиру в Калифорнии. По состоянию на 2015 год количество сотрудников составляло 3000 человек.</p>\r\n\r\n<p>Продукция компании, в том числе устройства HyperX, не чужды узбекскому рынку. В интернет-магазине Olcha вы можете найти набор клавиатур, мышей и наушников для игр. Например, HyperX Sloud Alpha S, Blue (4P5L3AA) завоевали признание геймеров за удобство игровых наушников. Смело улучшайте звук во время игры и создавайте комфортную звуковую атмосферу для игроков. Можно настроить частоту средней и высокой громкости и отрегулировать разницу. Настройте уровни звука в игре и чате по своему вкусу и играйте с полной отдачей. Особенно, если эта мышь &mdash; уникальная мышь HyperX! HyperX Pulsefire FPS Pro (HX-MS003B) подключается к клавиатуре через USB и предназначен для игр на настольном компьютере. Клавиша прокрутки &mdash; одна из самых удобных доступных кнопок мыши. Почувствуйте себя настоящим мастером игр с удобной гарнитурой, мышью и уникальной клавиатурой. Уникальные клавиатуры тоже поколения HyperX! Благодаря яркой световой панели и плавным динамическим световым эффектам RGB HyperX Alloy Sore RGB &trade;, похоже, разработан для геймеров, стремящихся поднять свою производительность на новый уровень. На этой клавиатуре вы найдете идеальный баланс 6 различных световых эффектов и 3 уровней яркости. Благодаря прочному пластиковому корпусу и стабильности Alloy Sore RGB, высокой надежности, эта клавиатура является лучшим помощником для геймеров, которые любят продолжительные игры. Клавиатура HyperX также оснащена сенсорными кнопками, специальными элементами управления мультимедиа для освещения и игрового режима, а также волшебными элементами управления клавиатуры, которые ускоряют работу ваших пальцев. Блокировка клавиатуры позволяет заблокировать клавиатуру, не переводя всю систему в режим ожидания. Мы рады сообщить о начале сезона скидок на продукцию HyperX с 1 по 30 июня. Объявлены скидки на вышеуказанные 29% на наушники, 28% на мышки и 19% на клавиатуры. Это еще не все. Много отличных предложений на черешню!</p>', 'images/d965a333001e3f362dc832b6cf64c77b.webp', '\"tag5,tag6\"', 6, '2022-07-04 11:01:30', '2022-07-04 11:01:48');
-INSERT INTO `posts` VALUES (4, 'adsasd', '<p>asdsda</p>', 'images/7274f5b2fa948898ddf6a9f5ffeeba1c.jpeg', '\"tag1,tag2\"', 8, '2022-07-05 03:52:15', '2022-07-05 03:52:15');
-INSERT INTO `posts` VALUES (5, '123231', '<p>23132231</p>', 'images/593f745e7bca2e00ac934a9d4b8944e0.webp', '\"312312\"', 7, '2022-07-05 03:52:27', '2022-07-05 03:52:27');
+INSERT INTO `posts` VALUES (1, 'asdasdasd', '<p>asddsasad</p>', 'images/861eb960defd5957af6745ea97373f16.jpg', '\"\"', 8, '2022-07-04 10:57:03', '2022-07-22 11:34:52', 1);
+INSERT INTO `posts` VALUES (2, 'asdasdasd', '<p>HyperX, подразделение компании по производству игровых устройств, уже занимает прочные позиции на мировом рынке самого необходимого игрового оборудования. Корпорация была основана в 1987 году Джоном Ту и имеет штаб-квартиру в Калифорнии. По состоянию на 2015 год количество сотрудников составляло 3000 человек.</p>\r\n\r\n<p>Продукция компании, в том числе устройства HyperX, не чужды узбекскому рынку. В интернет-магазине Olcha вы можете найти набор клавиатур, мышей и наушников для игр. Например, HyperX Sloud Alpha S, Blue (4P5L3AA) завоевали признание геймеров за удобство игровых наушников. Смело улучшайте звук во время игры и создавайте комфортную звуковую атмосферу для игроков. Можно настроить частоту средней и высокой громкости и отрегулировать разницу. Настройте уровни звука в игре и чате по своему вкусу и играйте с полной отдачей. Особенно, если эта мышь &mdash; уникальная мышь HyperX! HyperX Pulsefire FPS Pro (HX-MS003B) подключается к клавиатуре через USB и предназначен для игр на настольном компьютере. Клавиша прокрутки &mdash; одна из самых удобных доступных кнопок мыши. Почувствуйте себя настоящим мастером игр с удобной гарнитурой, мышью и уникальной клавиатурой. Уникальные клавиатуры тоже поколения HyperX! Благодаря яркой световой панели и плавным динамическим световым эффектам RGB HyperX Alloy Sore RGB &trade;, похоже, разработан для геймеров, стремящихся поднять свою производительность на новый уровень. На этой клавиатуре вы найдете идеальный баланс 6 различных световых эффектов и 3 уровней яркости. Благодаря прочному пластиковому корпусу и стабильности Alloy Sore RGB, высокой надежности, эта клавиатура является лучшим помощником для геймеров, которые любят продолжительные игры. Клавиатура HyperX также оснащена сенсорными кнопками, специальными элементами управления мультимедиа для освещения и игрового режима, а также волшебными элементами управления клавиатуры, которые ускоряют работу ваших пальцев. Блокировка клавиатуры позволяет заблокировать клавиатуру, не переводя всю систему в режим ожидания. Мы рады сообщить о начале сезона скидок на продукцию HyperX с 1 по 30 июня. Объявлены скидки на вышеуказанные 29% на наушники, 28% на мышки и 19% на клавиатуры. Это еще не все. Много отличных предложений на черешню!</p>', 'images/22da80de15aea0c6393575c4b8f5cb9c.jpg', '\"tagq,tag2\"', 24, '2022-07-04 11:01:08', '2022-07-22 11:34:53', 1);
+INSERT INTO `posts` VALUES (3, 'news 23', '<p>HyperX, подразделение компании по производству игровых устройств, уже занимает прочные позиции на мировом рынке самого необходимого игрового оборудования. Корпорация была основана в 1987 году Джоном Ту и имеет штаб-квартиру в Калифорнии. По состоянию на 2015 год количество сотрудников составляло 3000 человек.</p>\r\n\r\n<p>Продукция компании, в том числе устройства HyperX, не чужды узбекскому рынку. В интернет-магазине Olcha вы можете найти набор клавиатур, мышей и наушников для игр. Например, HyperX Sloud Alpha S, Blue (4P5L3AA) завоевали признание геймеров за удобство игровых наушников. Смело улучшайте звук во время игры и создавайте комфортную звуковую атмосферу для игроков. Можно настроить частоту средней и высокой громкости и отрегулировать разницу. Настройте уровни звука в игре и чате по своему вкусу и играйте с полной отдачей. Особенно, если эта мышь &mdash; уникальная мышь HyperX! HyperX Pulsefire FPS Pro (HX-MS003B) подключается к клавиатуре через USB и предназначен для игр на настольном компьютере. Клавиша прокрутки &mdash; одна из самых удобных доступных кнопок мыши. Почувствуйте себя настоящим мастером игр с удобной гарнитурой, мышью и уникальной клавиатурой. Уникальные клавиатуры тоже поколения HyperX! Благодаря яркой световой панели и плавным динамическим световым эффектам RGB HyperX Alloy Sore RGB &trade;, похоже, разработан для геймеров, стремящихся поднять свою производительность на новый уровень. На этой клавиатуре вы найдете идеальный баланс 6 различных световых эффектов и 3 уровней яркости. Благодаря прочному пластиковому корпусу и стабильности Alloy Sore RGB, высокой надежности, эта клавиатура является лучшим помощником для геймеров, которые любят продолжительные игры. Клавиатура HyperX также оснащена сенсорными кнопками, специальными элементами управления мультимедиа для освещения и игрового режима, а также волшебными элементами управления клавиатуры, которые ускоряют работу ваших пальцев. Блокировка клавиатуры позволяет заблокировать клавиатуру, не переводя всю систему в режим ожидания. Мы рады сообщить о начале сезона скидок на продукцию HyperX с 1 по 30 июня. Объявлены скидки на вышеуказанные 29% на наушники, 28% на мышки и 19% на клавиатуры. Это еще не все. Много отличных предложений на черешню!</p>', 'images/d965a333001e3f362dc832b6cf64c77b.webp', '\"tag5,tag6\"', 6, '2022-07-04 11:01:30', '2022-07-22 12:14:09', 0);
+INSERT INTO `posts` VALUES (4, 'adsasd', '<p>asdsda</p>', 'images/7274f5b2fa948898ddf6a9f5ffeeba1c.jpeg', '\"tag1,tag2\"', 8, '2022-07-05 03:52:15', '2022-07-22 11:35:01', 0);
+INSERT INTO `posts` VALUES (5, '123231', '<p>23132231</p>', 'images/593f745e7bca2e00ac934a9d4b8944e0.webp', '\"312312\"', 7, '2022-07-05 03:52:27', '2022-07-22 11:35:01', 0);
 
 -- ----------------------------
 -- Table structure for product_option
@@ -2158,7 +3067,7 @@ CREATE TABLE `product_option`  (
   INDEX `product_option_option_id_foreign`(`option_id`) USING BTREE,
   CONSTRAINT `product_option_option_id_foreign` FOREIGN KEY (`option_id`) REFERENCES `options` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `product_option_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of product_option
@@ -2184,7 +3093,7 @@ CREATE TABLE `product_promotion`  (
   INDEX `promotion_products_product_id_foreign`(`product_id`) USING BTREE,
   CONSTRAINT `promotion_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `promotion_products_promotion_id_foreign` FOREIGN KEY (`promotion_id`) REFERENCES `promotions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of product_promotion
@@ -2240,14 +3149,14 @@ CREATE TABLE `products`  (
   CONSTRAINT `products_brand_id_foreign` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `products_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `products_subcategory_id_foreign` FOREIGN KEY (`subcategory_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 113 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 113 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of products
 -- ----------------------------
-INSERT INTO `products` VALUES (3, 2, 4, 2, 'aasd asdasdsdasdddd asddddddddddddddd asddddddddddddddddddddd asdddddddd', 0, '\"intel,videocards\"', 0.00, 1, 'нет гарантии', 1, '2022-07-01 11:03:56', '2022-07-01 11:03:56', 0.00, '2022-06-07 09:04:35', '2022-07-01 11:04:29', NULL);
+INSERT INTO `products` VALUES (3, 2, 4, 2, 'aasd asdasdsdasdddd asddddddddddddddd asddddddddddddddddddddd asdddddddd', 0, '\"intel,videocards\"', 0.00, 1, 'нет гарантии', 1, '2022-07-01 11:03:56', '2022-07-01 11:03:56', 0.00, '2022-06-07 09:04:35', '2022-07-21 06:56:05', NULL);
 INSERT INTO `products` VALUES (4, 2, 4, 2, 'videocard', 1, '\"tag1,tag2,tag3\"', 970000.00, 4, 'нет гарантии', 1, '2022-07-01 11:03:56', '2022-07-01 11:03:56', 485000.00, '2022-06-09 06:12:07', '2022-07-01 11:04:29', NULL);
-INSERT INTO `products` VALUES (11, 2, 4, 3, 'asddsa', 1, '\"\"', 112.00, 123, 'нет гарантии', 1, '2022-07-01 11:03:56', '2022-07-01 11:03:56', 56.00, '2022-06-30 08:11:57', '2022-07-01 11:04:29', '<p>123</p>');
+INSERT INTO `products` VALUES (11, 2, 4, 3, 'Motherboard 5 TI0', 1, '\"\"', 112.00, 123, 'нет гарантии', 1, '2022-07-01 11:03:56', '2022-07-01 11:03:56', 56.00, '2022-06-30 08:11:57', '2022-07-22 11:03:11', '<p>123</p>');
 INSERT INTO `products` VALUES (12, 97, 98, 5, 'Dr. Miles Raynor IV', 1, NULL, 685.00, 5, 'нет гарантии', 1, '2022-07-01 11:03:56', '2022-07-01 11:03:56', 342.00, '2022-06-30 10:25:42', '2022-07-01 11:04:29', NULL);
 INSERT INTO `products` VALUES (13, 99, 100, 3, 'Dr. Jamir McKenzie', 1, NULL, 495.00, 1, 'нет гарантии', 1, '2022-07-01 11:03:56', '2022-07-01 11:03:56', 247.00, '2022-06-30 10:25:42', '2022-07-01 11:04:29', NULL);
 INSERT INTO `products` VALUES (14, 101, 102, 8, 'Ursula Haag', 1, NULL, 72.00, 13, 'нет гарантии', 1, '2022-07-01 11:03:56', '2022-07-01 11:03:56', 36.00, '2022-06-30 10:25:42', '2022-07-01 11:04:29', NULL);
@@ -2365,7 +3274,7 @@ CREATE TABLE `promotion_service`  (
   INDEX `promotion_service_service_id_foreign`(`service_id`) USING BTREE,
   CONSTRAINT `promotion_service_promotion_id_foreign` FOREIGN KEY (`promotion_id`) REFERENCES `promotions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `promotion_service_service_id_foreign` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of promotion_service
@@ -2387,15 +3296,16 @@ CREATE TABLE `promotions`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `promotion_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `promotion_value` float NULL DEFAULT NULL,
+  `status` int(20) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of promotions
 -- ----------------------------
-INSERT INTO `promotions` VALUES (3, 'images/42574b9c2f1d9e81d6dbabb226ad88f6.jpg', 'Aksiya 2022', '<p>Aksiya 2022. hamma tovarlaga aksiya ketti</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px\">\r\n	<tbody>\r\n		<tr>\r\n			<td>123123</td>\r\n			<td>213231123</td>\r\n		</tr>\r\n		<tr>\r\n			<td>123123</td>\r\n			<td>231321</td>\r\n		</tr>\r\n		<tr>\r\n			<td>231231</td>\r\n			<td>123123</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>', '2022-06-29 08:45:57', '2022-06-30 08:45:57', '2022-06-29 08:46:17', '2022-06-30 07:29:15', 'others', 0);
-INSERT INTO `promotions` VALUES (5, 'images/a2659446485af466fe002537b9f86fe6.jpg', 'service aksiya', '<p>service aksiya</p>', '2022-06-30 07:04:32', '2022-07-01 07:04:32', '2022-06-30 07:08:02', '2022-06-30 07:08:02', 'to_service', 15);
-INSERT INTO `promotions` VALUES (6, 'images/96ff9816daf207cb50f8bcd8c919528d.png', 'asddsa', '<p>asddssadasd</p>', '2022-07-01 11:03:56', '2022-07-01 11:03:56', '2022-07-01 11:04:29', '2022-07-01 11:04:29', 'to_product', 50);
+INSERT INTO `promotions` VALUES (3, 'images/42574b9c2f1d9e81d6dbabb226ad88f6.jpg', 'Aksiya 2022', '<p>Aksiya 2022. hamma tovarlaga aksiya ketti</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px\">\r\n	<tbody>\r\n		<tr>\r\n			<td>123123</td>\r\n			<td>213231123</td>\r\n		</tr>\r\n		<tr>\r\n			<td>123123</td>\r\n			<td>231321</td>\r\n		</tr>\r\n		<tr>\r\n			<td>231231</td>\r\n			<td>123123</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>', '2022-06-29 08:45:57', '2022-06-30 08:45:57', '2022-06-29 08:46:17', '2022-07-22 12:12:56', 'others', 0, 1);
+INSERT INTO `promotions` VALUES (5, 'images/a2659446485af466fe002537b9f86fe6.jpg', 'service aksiya', '<p>service aksiya</p>', '2022-06-30 07:04:32', '2022-07-01 07:04:32', '2022-06-30 07:08:02', '2022-07-22 12:12:57', 'to_service', 0, 1);
+INSERT INTO `promotions` VALUES (6, 'images/96ff9816daf207cb50f8bcd8c919528d.png', 'asddsa', '<p>asddssadasd</p>', '2022-07-01 11:03:56', '2022-07-01 11:03:56', '2022-07-01 11:04:29', '2022-07-22 11:31:25', 'to_product', 0, 0);
 
 -- ----------------------------
 -- Table structure for ratings
@@ -2411,7 +3321,7 @@ CREATE TABLE `ratings`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of ratings
@@ -2443,13 +3353,36 @@ CREATE TABLE `services`  (
   `discount_from` timestamp(0) NULL DEFAULT NULL,
   `discount_to` timestamp(0) NULL DEFAULT NULL,
   `is_discount` tinyint(4) NULL DEFAULT 0,
+  `status` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of services
 -- ----------------------------
-INSERT INTO `services` VALUES (1, 'Выездной компьютерный сервис', '<p>Мы занимаемся ремонтом ПК и ноутбуков уже более 7-и лет и по праву можем считаться одной из крупнейших компаний на рынке IT-услуг.</p>\r\n\r\n<p>Наши специалисты быстро и качественно осуществят настройку персональных компьютеров, ноутбуков и любой офисной техники, при необходимости произведут ремонт, установят защиту от вирусов и другого вредоносного ПО.</p>\r\n\r\n<h2>Мы предлагаем Вам:</h2>\r\n\r\n<ul>\r\n	<li>\r\n	<p>Пакет&nbsp;<strong>&quot;СИТИ Старт&quot;</strong>&nbsp;для компьютеров и ноутбуков&nbsp;подробнее</p>\r\n	</li>\r\n	<li>\r\n	<p>Пакет&nbsp;<strong>&quot;СИТИ Оптима&quot;</strong>&nbsp;для компьютеров и ноутбуков&nbsp;подробнее</p>\r\n	</li>\r\n	<li>\r\n	<p>Пакет&nbsp;<strong>&quot;СИТИ Макс&quot;</strong>&nbsp;для компьютеров и ноутбуков&nbsp;подробнее</p>\r\n	</li>\r\n</ul>', 'images/124_msk_cl_all_1484555504.jpg', '123', 100000.00, '2022-06-30 04:40:58', '2022-06-30 07:08:02', 85000.00, '2022-06-30 07:04:32', '2022-07-01 07:04:32', 1);
+INSERT INTO `services` VALUES (1, 'Выездной компьютерный сервис', '<p>Мы занимаемся ремонтом ПК и ноутбуков уже более 7-и лет и по праву можем считаться одной из крупнейших компаний на рынке IT-услуг.</p>\r\n\r\n<p>Наши специалисты быстро и качественно осуществят настройку персональных компьютеров, ноутбуков и любой офисной техники, при необходимости произведут ремонт, установят защиту от вирусов и другого вредоносного ПО.</p>\r\n\r\n<h2>Мы предлагаем Вам:</h2>\r\n\r\n<ul>\r\n	<li>\r\n	<p>Пакет&nbsp;<strong>&quot;СИТИ Старт&quot;</strong>&nbsp;для компьютеров и ноутбуков&nbsp;подробнее</p>\r\n	</li>\r\n	<li>\r\n	<p>Пакет&nbsp;<strong>&quot;СИТИ Оптима&quot;</strong>&nbsp;для компьютеров и ноутбуков&nbsp;подробнее</p>\r\n	</li>\r\n	<li>\r\n	<p>Пакет&nbsp;<strong>&quot;СИТИ Макс&quot;</strong>&nbsp;для компьютеров и ноутбуков&nbsp;подробнее</p>\r\n	</li>\r\n</ul>', 'images/124_msk_cl_all_1484555504.jpg', '123', 100000.00, '2022-06-30 04:40:58', '2022-07-22 12:13:42', 85000.00, '2022-06-30 07:04:32', '2022-07-01 07:04:32', 1, 1);
+
+-- ----------------------------
+-- Table structure for settings
+-- ----------------------------
+DROP TABLE IF EXISTS `settings`;
+CREATE TABLE `settings`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `phone_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `website_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `regular_delivery_cost` double(8, 2) NOT NULL,
+  `fast_delivery_cost` double(8, 2) NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `logo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `slogan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of settings
+-- ----------------------------
+INSERT INTO `settings` VALUES (1, '998330000000', 'itechno.uz', 25000.00, 50000.00, '2022-07-21 10:42:18', '2022-07-21 11:17:34', 'images/laptop-silhouette-with-a-cup-of-tea.png', 'Современный интернет магазин компьютерной техники');
 
 -- ----------------------------
 -- Table structure for users
@@ -2467,16 +3400,18 @@ CREATE TABLE `users`  (
   `phone_number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `surname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
-  `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT 'avatars/default.png',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'dsadsa', NULL, NULL, NULL, NULL, '2022-06-17 09:50:23', '2022-07-18 13:30:56', '998330000000', 'asddsa', 'California', 'avatars/IFkBoxIC6DXUdudfpEDfZ5Fhu8oB9MgUHyQE5Bed.png');
-INSERT INTO `users` VALUES (2, NULL, NULL, NULL, NULL, NULL, '2022-06-24 09:57:17', '2022-06-24 09:57:17', '+998909000000', NULL, NULL, NULL);
+INSERT INTO `users` VALUES (1, 'dsadsads updated 22', NULL, NULL, NULL, NULL, '2022-06-17 09:50:23', '2022-07-20 06:43:41', '998330000000', 'dasadsd updated', 'Adress', 'avatars/default.png');
+INSERT INTO `users` VALUES (2, NULL, NULL, NULL, NULL, NULL, '2022-06-24 09:57:17', '2022-06-24 09:57:17', '+998909000000', NULL, NULL, 'avatars/default.png');
+INSERT INTO `users` VALUES (3, 'sad', NULL, NULL, NULL, NULL, NULL, NULL, 'asd', NULL, NULL, 'avatars/default.png');
+INSERT INTO `users` VALUES (4, '312321', NULL, NULL, NULL, NULL, NULL, NULL, '12321', NULL, NULL, 'avatars/default.png');
 
 -- ----------------------------
 -- Table structure for views
@@ -2491,7 +3426,7 @@ CREATE TABLE `views`  (
   `viewed_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `views_viewable_type_viewable_id_index`(`viewable_type`, `viewable_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 346 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 377 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of views
@@ -2818,5 +3753,36 @@ INSERT INTO `views` VALUES (342, 'App\\Models\\Product', 3, 'U3A64B58ePiklz283Rx
 INSERT INTO `views` VALUES (343, 'App\\Models\\Product', 3, 'U3A64B58ePiklz283RxCjONPBc0oGFyaaM3N7FgnaaxHot5zPsnyAC79oSz7wjhDCQ5z2YTYb0ToBYyA', NULL, '2022-07-18 11:20:29');
 INSERT INTO `views` VALUES (344, 'App\\Models\\Product', 3, 'U3A64B58ePiklz283RxCjONPBc0oGFyaaM3N7FgnaaxHot5zPsnyAC79oSz7wjhDCQ5z2YTYb0ToBYyA', NULL, '2022-07-18 11:20:33');
 INSERT INTO `views` VALUES (345, 'App\\Models\\Product', 3, 'U3A64B58ePiklz283RxCjONPBc0oGFyaaM3N7FgnaaxHot5zPsnyAC79oSz7wjhDCQ5z2YTYb0ToBYyA', NULL, '2022-07-18 11:48:13');
+INSERT INTO `views` VALUES (346, 'App\\Models\\Product', 50, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-20 09:37:03');
+INSERT INTO `views` VALUES (347, 'App\\Models\\Product', 50, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-20 09:37:07');
+INSERT INTO `views` VALUES (348, 'App\\Models\\Product', 53, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 09:57:49');
+INSERT INTO `views` VALUES (349, 'App\\Models\\Product', 53, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 09:57:50');
+INSERT INTO `views` VALUES (350, 'App\\Models\\Product', 44, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 09:59:58');
+INSERT INTO `views` VALUES (351, 'App\\Models\\Product', 53, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 10:00:20');
+INSERT INTO `views` VALUES (352, 'App\\Models\\Product', 53, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 10:00:22');
+INSERT INTO `views` VALUES (353, 'App\\Models\\Product', 19, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 10:02:08');
+INSERT INTO `views` VALUES (354, 'App\\Models\\Product', 19, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 10:03:00');
+INSERT INTO `views` VALUES (355, 'App\\Models\\Product', 19, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 10:03:31');
+INSERT INTO `views` VALUES (356, 'App\\Models\\Product', 19, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 10:03:36');
+INSERT INTO `views` VALUES (357, 'App\\Models\\Product', 19, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 10:03:47');
+INSERT INTO `views` VALUES (358, 'App\\Models\\Product', 19, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 10:05:30');
+INSERT INTO `views` VALUES (359, 'App\\Models\\Product', 19, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 10:05:38');
+INSERT INTO `views` VALUES (360, 'App\\Models\\Product', 13, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 10:35:00');
+INSERT INTO `views` VALUES (361, 'App\\Models\\Product', 13, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 10:35:02');
+INSERT INTO `views` VALUES (362, 'App\\Models\\Product', 19, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 10:43:52');
+INSERT INTO `views` VALUES (363, 'App\\Models\\Product', 19, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 10:43:53');
+INSERT INTO `views` VALUES (364, 'App\\Models\\Product', 92, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 10:49:12');
+INSERT INTO `views` VALUES (365, 'App\\Models\\Product', 92, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-21 10:49:14');
+INSERT INTO `views` VALUES (366, 'App\\Models\\Product', 4, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-22 10:59:56');
+INSERT INTO `views` VALUES (367, 'App\\Models\\Product', 4, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-22 10:59:57');
+INSERT INTO `views` VALUES (368, 'App\\Models\\Product', 4, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-22 10:59:59');
+INSERT INTO `views` VALUES (369, 'App\\Models\\Product', 11, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-22 11:00:06');
+INSERT INTO `views` VALUES (370, 'App\\Models\\Product', 11, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-22 11:00:08');
+INSERT INTO `views` VALUES (371, 'App\\Models\\Product', 11, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-22 11:01:48');
+INSERT INTO `views` VALUES (372, 'App\\Models\\Product', 4, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-22 11:01:51');
+INSERT INTO `views` VALUES (373, 'App\\Models\\Product', 4, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-22 11:02:50');
+INSERT INTO `views` VALUES (374, 'App\\Models\\Product', 4, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-22 11:02:52');
+INSERT INTO `views` VALUES (375, 'App\\Models\\Product', 11, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-22 11:03:13');
+INSERT INTO `views` VALUES (376, 'App\\Models\\Product', 11, 'T9GcY7ICgUPAftaeOkjemvjW8ye6HRdb7eOjEY5pOf6lqTgeXsLfYwsl0aRV2xHS0Z8SYSWtxBeXkd6L', NULL, '2022-07-22 11:03:16');
 
 SET FOREIGN_KEY_CHECKS = 1;
