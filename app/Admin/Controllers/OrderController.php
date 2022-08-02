@@ -51,6 +51,7 @@ class OrderController extends AdminController
 //                ->groupBy('status')->get()->pluck('sum', 'status')->toArray();
 
             $gender = $query->selectRaw('monthname(created_at) month, created_at, SUM(total) sum')
+                ->where('status', Status::COMPLETED)
                 ->groupBy('month', 'created_at')
                 ->orderBy('created_at')
                 ->get()->pluck('sum','month')->toArray();

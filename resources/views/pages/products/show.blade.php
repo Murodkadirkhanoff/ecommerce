@@ -124,8 +124,7 @@
                                     </div>
 
                                     <div class="d-flex align-items-center mb-4">
-                                        <span class="icon-md text-dark mb-0 bg-light rounded-3"><i
-                                                class="bi bi-apple"></i></span>
+                                        <img src="{{ env('MEDIA_URL') . $product->brand->image }}" width="50" alt="">
                                         <div class="ms-3">
                                             <p class="mb-0 small">Бренд</p>
                                             <h6 class="mb-0">{{$product->brand->name}}</h6>

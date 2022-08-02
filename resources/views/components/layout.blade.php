@@ -84,7 +84,7 @@
             <!-- Navbar top Right-->
             <div class="d-flex align-items-center justify-content-center">
                 <!-- Language -->
-                <div class="dropdown me-3">
+                <!-- <div class="dropdown me-3">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownLanguage" data-bs-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe me-2"></i>Language</a>
                     <div class="dropdown-menu mt-2 min-w-auto shadow" aria-labelledby="dropdownLanguage">
@@ -97,7 +97,7 @@
                         <a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/gr.svg"
                                                                     alt="">Deutsch</a>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Top social -->
                 <ul class="list-unstyled d-flex mb-0">
@@ -483,7 +483,7 @@ Footer START -->
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item">
                                 <!-- Language selector -->
-                                <div class="dropup mt-0 text-center text-sm-end">
+                                <!-- <div class="dropup mt-0 text-center text-sm-end">
                                     <a class="dropdown-toggle nav-link" href="#" role="button" id="languageSwitcher"
                                        data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fas fa-globe me-2"></i>Language
@@ -499,7 +499,7 @@ Footer START -->
                                                                                         src="assets/images/flags/sp.svg"
                                                                                         alt="">French</a></li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </li>
                             <li class="list-inline-item"><a class="nav-link" href="#">Оферта</a></li>
                             <li class="list-inline-item"><a class="nav-link pe-0" href="#">Политика

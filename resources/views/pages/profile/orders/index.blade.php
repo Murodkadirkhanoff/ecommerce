@@ -88,11 +88,11 @@
                                             {{$order->id}}
                                         </td>
                                         <td>
-                                            {{$order->total}} UZS
+                                            @convert($order->total) UZS
                                         </td>
                                         <!-- Enrolled item -->
                                         <td class="text-center text-sm-start">
-                                            {{ $order->payment_type}}
+                                            {{ getPaymentTypeText( $order->payment_type) }}
                                         </td>
                                         <td class="text-center text-sm-start">
                                             {{getDeliveryText($order->delivery_type)}}

@@ -90,7 +90,7 @@
                                     <div class="card shadow p-2">
                                         <div class="row g-0">
                                             <div class="col-md-3">
-                                                <img src="{{env('MEDIA_URL') . $promotion->image}}" class="rounded-2"
+                                                <img src="{{env('MEDIA_URL') . $promotion->image}}" style="height: 300px; width:100%; object-fit:cover" class="rounded-2"
                                                      alt="Card image">
                                             </div>
                                             <div class="col-md-9">
@@ -205,16 +205,15 @@
                             <div class="row align-items-center">
                                 <!-- Title -->
                                 <div class="col-lg-6">
-                                    <h3 class="text-white mb-3 mb-lg-0">Are you ready for a more great
-                                        Conversation?</h3>
+                                    <h3 class="text-white mb-3 mb-lg-0">Здесь будет ваша реклама</h3>
                                 </div>
                                 <!-- Input item -->
                                 <div class="col-lg-6 text-lg-end">
                                     <form class="bg-body rounded p-2">
                                         <div class="input-group">
                                             <input class="form-control border-0 me-1" type="email"
-                                                   placeholder="Type your email here">
-                                            <button type="button" class="btn btn-dark mb-0 rounded">Subscribe</button>
+                                                   placeholder="Введите свой номер телефона здесь">
+                                            <button type="button" class="btn btn-dark mb-0 rounded">Отправить запрос</button>
                                         </div>
                                     </form>
                                 </div>

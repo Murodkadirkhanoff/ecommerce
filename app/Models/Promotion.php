@@ -26,4 +26,5 @@ class Promotion extends Model  implements Viewable
         $query->where('status', 1);
     }
 
+
 }

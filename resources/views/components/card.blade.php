@@ -35,7 +35,7 @@
     <div class="card-footer pt-0">
         <hr>
         <!-- Avatar and Price -->
-        <div class="d-flex justify-content-between align-items-center" style="height: 40px;">
+        <div class="d-flex justify-content-between align-items-center" style="height: 50px;">
             <!-- Avatar -->
             <div class="d-flex align-items-center">
                 <div class="avatar avatar-sm">

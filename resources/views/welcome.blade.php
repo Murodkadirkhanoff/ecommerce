@@ -71,7 +71,7 @@
                 <h3 class="mb-3">Последные товары</h3>
                 <div class="row">
 
-                    @foreach(\App\Models\Product::active()->take(8)->inRandomOrder()->get() as $product)
+                    @foreach(\App\Models\Product::active()->take(8)->orderByDesc('id')->get() as $product)
                         <div class="col-md-3 mb-4">
                             <x-card :product="$product">
 
@@ -142,7 +142,7 @@
                 <h3 class="mb-3">Хиты продаж</h3>
                 <div class="row">
 
-                    @foreach(\App\Models\Product::active()->take(8)->get() as $product)
+                    @foreach(\App\Models\Product::active()->take(8)->inRandomOrder()->get() as $product)
                         <div class="col-md-3 mb-4">
                             <x-card :product="$product">
 
