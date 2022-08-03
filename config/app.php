@@ -196,7 +196,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         Darryldecode\Cart\CartServiceProvider::class,
-        \App\Providers\WishListProvider::class
+        \App\Providers\WishListProvider::class,
+        Intervention\Image\ImageServiceProvider::class
+
     ],
 
     /*
@@ -212,7 +214,9 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
-        'Cart' => Darryldecode\Cart\Facades\CartFacade::class
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class
+
     ])->toArray(),
 
 ];
