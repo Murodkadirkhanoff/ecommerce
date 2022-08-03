@@ -58,7 +58,7 @@ return [
         'admin' => [
             'driver' => 'local',
             'root' => public_path('admin_uploads'),
-            'url' => env('MEDIA_URL').'/admin_uploads',
+            'url' => env('MEDIA_URL'),
         ]
 
     ],
