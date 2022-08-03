@@ -1,5 +1,7 @@
 <?php
 
+use Encore\Admin\Admin;
+
 /**
  * Laravel-admin - admin builder based on Laravel.
  * @author z-song <https://github.com/z-song>
@@ -19,4 +21,4 @@
  */
 
 Encore\Admin\Form::forget(['map', 'editor']);
-\Encore\Admin\Facades\Admin::js('https://cdn.jsdelivr.net/npm/chart.js');
+Admin::js('https://cdn.jsdelivr.net/npm/chart.js');
