@@ -16,6 +16,11 @@ class Banner extends Model implements Sortable
         $query->where('status', 1);
     }
 
+    public function scopeOrdered($query)
+    {
+        $query->orderBy('order_number');
+    }
+
     public $sortable = [
         'order_column_name' => 'order_number',
         'sort_when_creating' => true,

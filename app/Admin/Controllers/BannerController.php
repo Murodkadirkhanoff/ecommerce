@@ -25,7 +25,7 @@ class BannerController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Banner());
-
+        $grid->sortable();
         $grid->column('id', __('Id'));
         $grid->column('banner', __('Banner'))->image(env('MEDIA_URL'), 100, 100);
         $grid->column('link', __('Link'));

@@ -9,7 +9,7 @@
             <div class="tiny-slider arrow-round arrow-blur arrow-hover">
                 <div class="tiny-slider-inner" data-autoplay="true" data-arrow="true" data-edge="2" data-dots="true"
                      data-items="1">
-                    @foreach(\App\Models\Banner::active()->get() as $banner)
+                    @foreach(\App\Models\Banner::active()->ordered()->get() as $banner)
                         <div class="position-relative">
                             <a href="{{$banner->link}}">
                                 <img class="rounded-4" src="{{env('MEDIA_URL'). $banner->banner}}" alt=""
