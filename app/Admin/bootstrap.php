@@ -21,4 +21,5 @@ use Encore\Admin\Admin;
  */
 
 Encore\Admin\Form::forget(['map', 'editor']);
-Admin::js('https://cdn.jsdelivr.net/npm/chart.js');
+//Admin::js('https://cdn.jsdelivr.net/npm/chart.js');
+Admin::script('https://cdn.jsdelivr.net/npm/chart.js');
