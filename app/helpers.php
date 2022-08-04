@@ -128,10 +128,9 @@ function sendTelegramMessage($product)
     $photo = env('REMOTE_MEDIA_URL') . getPhoto($product);
     $tags = '';
 
-    if ($tags != "") {
-        foreach (getTagsAsArray($product->tags) as $tag) {
-            $tags .= "#$tag ";
-        }
+
+    foreach (getTagsAsArray($product->tags) as $tag) {
+        $tags .= "#$tag ";
     }
 
 
