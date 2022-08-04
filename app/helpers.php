@@ -129,10 +129,15 @@ function sendTelegramMessage($product)
     $tags = '';
 
 
-    foreach (getTagsAsArray($product->tags) as $tag) {
-        $tags .= "#$tag ";
+    if (!empty($product->tags)) {
+        foreach (getTagsAsArray($product->tags) as $tag) {
+            $tags .= "#$tag ";
+        }
     }
 
+    if (!empty($tags)) {
+        $tags .= "\n";
+    }
 
     if ($product->is_discount == 1) {
         $price = "\n\n\xE2\x9C\x85 В Скидке\n\xF0\x9F\x92\xB5	<s>Цена: <b>" . currencyFormat($product->price) . " UZS</b></s>\n\xF0\x9F\x92\xB0 Цена со скидкой: <b>" . currencyFormat($product->discount_price) . " UZS</b>";
