@@ -169,6 +169,14 @@ class ProductController extends AdminController
                 });
 
 
+            $states = [
+                'on'  => ['value' => 1, 'text' => 'Да', 'color' => 'success'],
+                'off' => ['value' => 0, 'text' => 'Нет', 'color' => 'danger'],
+            ];
+
+            $form->switch('telegram', 'Опубликовать в Telegram')->states($states)->default(1);
+
+
         })->tab('Дополнительное', function ($form) {
 
             $form->divider('Опции');
@@ -204,6 +212,14 @@ class ProductController extends AdminController
 
         });
 
+
+        $form->saving(function (Form $form) {
+
+            if ($form->telegram == "on")
+             {
+                sendTelegramMessage(Product::find($form->model()->id));
+             }
+        });
 
         return $form;
     }

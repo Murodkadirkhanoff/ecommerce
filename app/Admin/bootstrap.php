@@ -22,4 +22,3 @@ use Encore\Admin\Admin;
 
 Encore\Admin\Form::forget(['map', 'editor']);
 Admin::js('/assets/js/chart.js');
-//Admin::script('console.log("hello world");');

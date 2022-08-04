@@ -107,7 +107,46 @@ function getSlogan()
 }
 
 
+function getColor($num)
+{
 
-function getColor($num) {
+}
+
+
+function currencyFormat($money)
+{
+    return number_format($money, 0);
+}
+
+function getTagsAsArray($tags)
+{
+    return explode(',', $tags);
+}
+
+function sendTelegramMessage($product)
+{
+    $photo = env('REMOTE_MEDIA_URL') . getPhoto($product);
+    $tags = '';
+
+    if ($tags != "") {
+        foreach (getTagsAsArray($product->tags) as $tag) {
+            $tags .= "#$tag ";
+        }
+    }
+
+
+    if ($product->is_discount == 1) {
+        $price = "\n\n\xE2\x9C\x85 В Скидке\n\xF0\x9F\x92\xB5	<s>Цена: <b>" . currencyFormat($product->price) . " UZS</b></s>\n\xF0\x9F\x92\xB0 Цена со скидкой: <b>" . currencyFormat($product->discount_price) . " UZS</b>";
+    } else {
+        $price = "\n\n\xF0\x9F\x92\xB5 Цена: <b>" . currencyFormat($product->price) . " UZS</b>";
+    }
+
+    $response = \Telegram\Bot\Laravel\Facades\Telegram::sendPhoto([
+        'chat_id' => '-1001571577155',
+        'photo' => new \Telegram\Bot\FileUpload\InputFile($photo),
+        'caption' => "$tags\xF0\x9F\x92\xBB Наименование: <b>$product->name</b> $price\n\n\xE2\x9C\x85 В наличии: <b>$product->in_stock</b>\n\n\xF0\x9F\x8C\x90Просмотр на сайте: <a href=\"https://itechno.uz/products/$product->id\">Перейти</a>",
+        'parse_mode' => 'html'
+
+    ]);
 
 }
