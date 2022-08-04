@@ -1,6 +1,7 @@
 <?php
 
 use Encore\Admin\Admin;
+use Encore\Admin\Grid\Column;
 
 /**
  * Laravel-admin - admin builder based on Laravel.
@@ -19,6 +20,6 @@ use Encore\Admin\Admin;
  * Admin::js('/packages/prettydocs/js/main.js');
  *
  */
-
+Column::extend('floatBar', \App\Admin\Extensions\Column\FloatBar::class);
 Encore\Admin\Form::forget(['map', 'editor']);
 Admin::js('/assets/js/chart.js');

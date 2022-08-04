@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Extensions\Tools\ReleasePost;
 use App\Models\Attributes;
 use App\Models\Brand;
 use App\Models\Category;
@@ -31,6 +32,7 @@ class ProductController extends AdminController
     {
         $grid = new Grid(new Product());
 
+
         $grid->id('id', __('Id'))->sortable();
 
         $grid->column('attachments', 'Фото')->display(function ($file) {
@@ -59,6 +61,9 @@ class ProductController extends AdminController
             'on' => ['value' => 0, 'text' => 'OFF', 'color' => 'danger'],
             'off' => ['value' => 1, 'text' => 'ON', 'color' => 'success'],
         ];
+        $grid->column('Опубликовать')->floatBar();
+
+
         $grid->column('status', 'Статус')->switch($status)->filter([
             0 => 'OFF',
             1 => 'ON'

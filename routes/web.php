@@ -43,3 +43,9 @@ Route::prefix('profile')->middleware(['auth'])->group(function () {
     Route::any('remove-avatar', [\App\Http\Controllers\ProfileController::class, 'removeAvatar'])->name('remove.avatar');
     Route::any('delete-profile', [\App\Http\Controllers\ProfileController::class, 'deleteProfile'])->name('delete.profile');
 });
+
+
+Route::get('post_to_telegram/{id}', function ($id) {
+    sendTelegramMessage(\App\Models\Product::find($id));
+    return redirect()->back();
+})->name('post_to_telegram');

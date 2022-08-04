@@ -34,8 +34,7 @@ Route::get('test', function () {
     $product = \App\Models\Product::find(116);
     $photo = env('REMOTE_MEDIA_URL') . $product->attachments()->first()->file;
     $tags = '';
-    foreach (getTagsAsArray($product->tags) as $tag)
-    {
+    foreach (getTagsAsArray($product->tags) as $tag) {
         $tags .= "#$tag ";
     }
 
@@ -62,4 +61,9 @@ Route::get('test', function () {
 
     $messageId = $response->getMessageId();
     dd($messageId);
+});
+
+
+Route::get('post_to_telegram', function ($id) {
+    sendTelegramMessage(\App\Models\Product::find($id));
 });
