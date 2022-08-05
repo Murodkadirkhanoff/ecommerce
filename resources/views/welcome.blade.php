@@ -40,19 +40,19 @@
                                  data-items-xl="6" data-items-lg="5" data-items-md="4" data-items-sm="3"
                                  data-items-xs="2" data-autoplay="2000">
                                 <!-- Slide item START -->
-                                <div class="item"><img class="grayscale" src="assets/images/client/coca-cola.svg"
+                                <div class="item"><img class="grayscale" src="{{env('APP_URL') . '/public/assets/images/client/coca-cola.svg'}}"
                                                        alt="client-logo"></div>
-                                <div class="item"><img class="grayscale" src="assets/images/client/android.svg"
+                                <div class="item"><img class="grayscale" src="{{env('APP_URL') . '/public/assets/images/client/android.svg'}}"
                                                        alt="client-logo"></div>
-                                <div class="item"><img class="grayscale" src="assets/images/client/envato.svg"
+                                <div class="item"><img class="grayscale" src="{{env('APP_URL') . '/public/assets/images/client/envato.svg'}}"
                                                        alt="client-logo"></div>
-                                <div class="item"><img class="grayscale" src="assets/images/client/microsoft.svg"
+                                <div class="item"><img class="grayscale" src="{{env('APP_URL') . '/public/assets/images/client/microsoft.svg'}}"
                                                        alt="client-logo"></div>
-                                <div class="item"><img class="grayscale" src="assets/images/client/netflix.svg"
+                                <div class="item"><img class="grayscale" src="{{env('APP_URL') . '/public/assets/images/client/netflix.svg'}}"
                                                        alt="client-logo"></div>
-                                <div class="item"><img class="grayscale" src="assets/images/client/google.svg"
+                                <div class="item"><img class="grayscale" src="{{env('APP_URL') . '/public/assets/images/client/google.svg'}}"
                                                        alt="client-logo"></div>
-                                <div class="item"><img class="grayscale" src="assets/images/client/linkedin.svg"
+                                <div class="item"><img class="grayscale" src="{{env('APP_URL') . '/public/assets/images/client/linkedin.svg'}}"
                                                        alt="client-logo"></div>
                                 <!-- Slide item END -->
                             </div>
