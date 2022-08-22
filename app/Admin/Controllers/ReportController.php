@@ -96,15 +96,15 @@ class ReportController extends AdminController
             return $this->owner->name ?? '';
         })->width(200);
         $grid->column('product_id', 'Продукт')->display(function () {
-            return $this->product->name  ?? '';
+            return $this->product->name ?? '';
         })->width(400);
 
         $grid->column('customer_id', 'Заказчик')->display(function () {
-            return $this->customer->name  ?? '';
+            return $this->customer->name ?? '';
         })->width(200)->hide();
 
         $grid->column('vendor_id', 'Постащик')->display(function () {
-            return $this->vendor->name  ?? '';
+            return $this->vendor->name ?? '';
         })->width(200)->hide();
 
 
@@ -123,9 +123,11 @@ class ReportController extends AdminController
             return number_format($data, 0) . " UZS";
 
         })->width(200)->totalRow(function ($amount) {
-
-            return "<span class='text-danger text-bold'>" . currencyFormat($amount) . " UZS</span>";
-
+            if ($amount > 0) {
+                return "<span class='text-success text-bold'>" . currencyFormat($amount) . " UZS</span>";
+            } else {
+                return "<span class='text-danger text-bold'>" . currencyFormat($amount) . " UZS</span>";
+            }
         });
 
         $grid->column('other_costs', __('Прочие расходы'))->display(function ($data) {
@@ -140,9 +142,11 @@ class ReportController extends AdminController
             return number_format($data, 0) . " UZS";
 
         })->width(200)->totalRow(function ($amount) {
-
-            return "<span class='text-danger text-bold'>" . currencyFormat($amount) . " UZS</span>";
-
+            if ($amount > 0) {
+                return "<span class='text-success text-bold'>" . currencyFormat($amount) . " UZS</span>";
+            } else {
+                return "<span class='text-danger text-bold'>" . currencyFormat($amount) . " UZS</span>";
+            }
         });
 
         $grid->column('is_completed', __('Завершенный'))->bool();
