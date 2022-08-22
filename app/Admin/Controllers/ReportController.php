@@ -66,7 +66,7 @@ class ReportController extends AdminController
                     0 => 'Незавершённые',
                     1 => 'Завершённые',
                 ]);
-                $filter->between('created_at', 'Дата')->datetime();
+                $filter->between('created_at', 'Дата')->date();
 
                 $filter->between('sale_cost', __('Стоимость реализации'));
 
