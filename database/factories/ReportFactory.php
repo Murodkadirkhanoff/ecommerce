@@ -31,7 +31,7 @@ class ReportFactory extends Factory
         ];
         $quantity = $this->faker->randomFloat(0, 1, 20);
         $prime_cost = $this->faker->randomFloat(0, 1000000, 20000000);
-        $sale_cost = $prime_cost + 10000;
+        $sale_cost = $prime_cost + 500000;
         $other_costs = $this->faker->randomFloat(0, 10000, 300000);
         return [
             'created_by' => $this->faker->numberBetween(1, 2),
