@@ -21,13 +21,13 @@ class ReportFactory extends Factory
     public function definition()
     {
         $order_sources = [
-            'olx' => 'OLX',
-            'instagram' => 'Instagram',
-            'telegram' => 'Telegram',
-            'facebook' => 'Facebook',
-            'youtube' => 'Youtube',
-            'recommendation' => 'Рекомендация',
-            'web_site' => 'Вебсайт',
+            'olx',
+            'instagram',
+            'telegram',
+            'facebook',
+            'youtube',
+            'recommendation',
+            'web_site'
         ];
         $quantity = $this->faker->randomFloat(0, 1, 20);
         $prime_cost = $this->faker->randomFloat(0, 1000000, 20000000);
