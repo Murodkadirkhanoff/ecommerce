@@ -53,7 +53,7 @@ class ReportController extends AdminController
             $actions->disableView();
             if (!Admin::user()->isRole('administrator')) {
                 $actions->disableDelete();
-            }   
+            }
         });
 
         $grid->filter(function ($filter) use ($order_sources) {
