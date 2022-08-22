@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Product;
+use App\Models\Report;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,7 +23,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        \App\Models\Category::factory(20)->create();
-        Product::factory(100)->create();
+//        \App\Models\Category::factory(20)->create();
+//        Product::factory(100)->create();
+        Report::factory(100000)->create();
     }
 }

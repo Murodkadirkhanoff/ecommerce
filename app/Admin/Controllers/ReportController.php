@@ -96,15 +96,15 @@ class ReportController extends AdminController
             return $this->owner->name ?? '';
         })->width(200);
         $grid->column('product_id', 'Продукт')->display(function () {
-            return $this->product->name;
+            return $this->product->name  ?? '';
         })->width(400);
 
         $grid->column('customer_id', 'Заказчик')->display(function () {
-            return $this->customer->name;
+            return $this->customer->name  ?? '';
         })->width(200)->hide();
 
         $grid->column('vendor_id', 'Постащик')->display(function () {
-            return $this->vendor->name;
+            return $this->vendor->name  ?? '';
         })->width(200)->hide();
 
 
