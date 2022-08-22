@@ -154,3 +154,9 @@ function sendTelegramMessage($product)
     ]);
 
 }
+
+
+function calculateBenefit($form): float|int
+{
+    return (($form->model()->sale_cost * $form->model()->quantity) - ($form->model()->prime_cost * $form->model()->quantity)) - $form->model()->other_costs;
+}

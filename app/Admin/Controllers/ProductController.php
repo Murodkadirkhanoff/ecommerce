@@ -219,7 +219,6 @@ class ProductController extends AdminController
 
 
         $form->saving(function (Form $form) {
-
             if ($form->telegram == "on") {
                 sendTelegramMessage(Product::find($form->model()->id));
             }

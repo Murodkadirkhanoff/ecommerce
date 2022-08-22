@@ -21,4 +21,8 @@ Route::group([
     $router->resource('posts', \App\Admin\Controllers\PostController::class);
     $router->resource('orders', \App\Admin\Controllers\OrderController::class);
     $router->resource('settings', \App\Admin\Controllers\SettingController::class);
+    $router->resource('vendors', \App\Admin\Controllers\VendorController::class);
+    $router->resource('reports', \App\Admin\Controllers\ReportController::class);
+
+    //$router->get('/reports/create', [\App\Admin\Controllers\CustomController::class, 'create'])->name('reports.create');
 });

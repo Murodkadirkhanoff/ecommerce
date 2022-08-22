@@ -12,6 +12,8 @@ class HomeController extends Controller
 {
     public function index(Content $content)
     {
+       // $data =
+        //return  $content->view('admin.custom.test');
         return $content
             ->title('Dashboard')
             ->description('Description...')
