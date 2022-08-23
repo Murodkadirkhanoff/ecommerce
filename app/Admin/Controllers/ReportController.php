@@ -115,7 +115,7 @@ class ReportController extends AdminController
         })->width(200)->hide();
 
 
-        $grid->column('quantity', __('Количество'))->width(150)->sortable();
+        $grid->column('quantity', __('Количество'))->sortable();
         $grid->column('unit', __('Ед. изм'));
 
 
