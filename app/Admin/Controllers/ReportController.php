@@ -115,7 +115,7 @@ class ReportController extends AdminController
         })->width(200)->hide();
 
 
-        $grid->column('quantity', __('Количество'))->width(100);
+        $grid->column('quantity', __('Количество'))->width(100)->sortable();
         $grid->column('unit', __('Ед. изм'));
 
 
@@ -123,7 +123,7 @@ class ReportController extends AdminController
 
             return number_format($data, 0) . " UZS";
 
-        })->width(200);
+        })->width(200)->sortable();
 
         $grid->column('sale_cost', __('Стоимость реализации'))->display(function ($data) {
 
@@ -135,13 +135,13 @@ class ReportController extends AdminController
             } else {
                 return "<span class='text-danger text-bold'>Итого : " . currencyFormat($amount) . " UZS</span>";
             }
-        });
+        })->sortable();
 
         $grid->column('other_costs', __('Прочие расходы'))->display(function ($data) {
 
             return number_format($data, 0) . " UZS";
 
-        })->width(200);
+        })->width(200)->sortable();
 
 
         $grid->column('benefit', __('Выгода'))->display(function ($data) {
@@ -154,14 +154,14 @@ class ReportController extends AdminController
             } else {
                 return "<span class='text-danger text-bold'>Итого : " . currencyFormat($amount) . " UZS</span>";
             }
-        });
+        })->sortable();
 
         $grid->column('is_completed', __('Завершенный'))->bool();
 
-        $grid->column('delivered_at', __('Дата доставки'))->hide();
+        $grid->column('delivered_at', __('Дата доставки'))->hide()->sortable();
         $grid->column('comment', __('Комментария'))->hide();
         $grid->column('order_source', __('Источник заказа'))->using($order_sources);
-        $grid->column('created_at', __('Дата создание'));
+        $grid->column('created_at', __('Дата создание'))->sortable();
 
 
         // $grid->column('benefit')->totalRow();
