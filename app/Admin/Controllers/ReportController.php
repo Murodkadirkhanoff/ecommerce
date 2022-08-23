@@ -98,7 +98,7 @@ class ReportController extends AdminController
         }
 
 
-        $grid->column('id', __('ID'))->width(50);
+        $grid->column('id', __('ID'))->width(50)->sortable();
         $grid->column('created_by', 'Продавец')->display(function () {
             return $this->owner->name ?? '';
         })->width(200);
@@ -115,7 +115,7 @@ class ReportController extends AdminController
         })->width(200)->hide();
 
 
-        $grid->column('quantity', __('Количество'))->width(100)->sortable();
+        $grid->column('quantity', __('Количество'))->width(150)->sortable();
         $grid->column('unit', __('Ед. изм'));
 
 
