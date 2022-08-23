@@ -48,6 +48,7 @@ class ReportFactory extends Factory
             'order_source' => $this->faker->randomElement($order_sources),
             'is_completed' => $this->faker->numberBetween(0, 1),
             'total_sale_cost' => $sale_cost * $quantity,
+            'created_at' => $this->faker->date(),
         ];
     }
 }
