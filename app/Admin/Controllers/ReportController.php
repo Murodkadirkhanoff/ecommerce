@@ -66,7 +66,14 @@ class ReportController extends AdminController
                     0 => 'Незавершённые',
                     1 => 'Завершённые',
                 ]);
-                $filter->between('created_at', 'Дата')->date();
+
+                $filter->between('created_at', 'Дата')->datetime(['sideBySide' => true]);
+
+
+//                $filter->where(function ($query) {
+//                    $query->whereDate('created_at', '<=', $this->input);
+//                }, 'Label of the field', 'name_for_url_shortcut')->date();
+
 
                 $filter->between('sale_cost', __('Стоимость реализации'));
 
@@ -124,9 +131,9 @@ class ReportController extends AdminController
 
         })->width(200)->totalRow(function ($amount) {
             if ($amount > 0) {
-                return "<span class='text-success text-bold'>" . currencyFormat($amount) . " UZS</span>";
+                return "<span class='text-success text-bold'>Итого : " . currencyFormat($amount ) . " UZS</span>";
             } else {
-                return "<span class='text-danger text-bold'>" . currencyFormat($amount) . " UZS</span>";
+                return "<span class='text-danger text-bold'>Итого : " . currencyFormat($amount) . " UZS</span>";
             }
         });
 
@@ -143,9 +150,9 @@ class ReportController extends AdminController
 
         })->width(200)->totalRow(function ($amount) {
             if ($amount > 0) {
-                return "<span class='text-success text-bold'>" . currencyFormat($amount) . " UZS</span>";
+                return "<span class='text-success text-bold'>Итого : " . currencyFormat($amount) . " UZS</span>";
             } else {
-                return "<span class='text-danger text-bold'>" . currencyFormat($amount) . " UZS</span>";
+                return "<span class='text-danger text-bold'>Итого : " . currencyFormat($amount) . " UZS</span>";
             }
         });
 
@@ -154,7 +161,7 @@ class ReportController extends AdminController
         $grid->column('delivered_at', __('Дата доставки'))->hide();
         $grid->column('comment', __('Комментария'))->hide();
         $grid->column('order_source', __('Источник заказа'))->using($order_sources);
-        $grid->column('created_at', __('Дата создание'))->hide();
+        $grid->column('created_at', __('Дата создание'));
 
 
         // $grid->column('benefit')->totalRow();

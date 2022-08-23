@@ -115,7 +115,7 @@ function getColor($num)
 
 function currencyFormat($money)
 {
-    return number_format($money, 0);
+    return number_format($money, 0, ' ', ' ');
 }
 
 function getTagsAsArray($tags)
