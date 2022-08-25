@@ -160,3 +160,20 @@ function calculateBenefit($form): float|int
 {
     return (($form->model()->sale_cost * $form->model()->quantity) - ($form->model()->prime_cost * $form->model()->quantity)) - $form->model()->other_costs;
 }
+
+function getProductPrice($product)
+{
+    if ($product->is_discount == 1) {
+        return $product->discount_price;
+    } else {
+        return $product->price;
+    }
+}
+
+
+function percent($old, $new)
+{
+    return number_format((1 - $old / $new) * 100, 2);
+}
+
+

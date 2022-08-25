@@ -23,3 +23,5 @@ use Encore\Admin\Grid\Column;
 Column::extend('floatBar', \App\Admin\Extensions\Column\FloatBar::class);
 Encore\Admin\Form::forget(['map', 'editor']);
 Admin::js('/assets/js/chart.js');
+Admin::js('/assets/js/custom-chart.js');
+Admin::js('https://www.chartjs.org/samples/2.9.4/utils.js');
