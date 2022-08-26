@@ -271,13 +271,13 @@
             label: 'My First Dataset',
             data: counts,
             backgroundColor: [
-                '#FF6384',
-                '#ff00d5',
-                '#23e5db',
-                '#4477FD',
-                '#c92121',
-                '#FFFE11',
-                '#72ec35'
+                '#2436e7',
+                '#e535b5',
+                '#3bbbb5',
+                '#ffc108',
+                '#419dff',
+                '#00bd56',
+                '#b63131'
             ],
             hoverOffset: 4
         }]
