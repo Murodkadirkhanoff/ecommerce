@@ -79,8 +79,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="chart-responsive">
-                                <canvas id="myChart" height="160" width="332"
-                                        style="width: 332px; height: 160px;"></canvas>
+                                <canvas id="myChart"></canvas>
 
                             </div>
                             <!-- ./chart-responsive -->
@@ -226,7 +225,7 @@
                                 <div class="product-info">
                                     <a href="javascript:void(0)" class="product-title">{{$product->category->name}}
                                         <span
-                                            class="label label-success pull-right">{{getProductPrice($product)}}</span></a>
+                                            class="label label-success pull-right">{{ currencyFormat(getProductPrice($product)) }} UZS</span></a>
                                     <span class="product-description">
                           {{$product->name}}
                         </span>
