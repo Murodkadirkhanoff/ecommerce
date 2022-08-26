@@ -237,7 +237,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer text-center">
-                    <a href="javascript:void(0)" class="uppercase">View All Products</a>
+                    <a href="/admin/products" class="uppercase">Все товары</a>
                 </div>
                 <!-- /.box-footer -->
             </div>
