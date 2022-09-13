@@ -6,6 +6,7 @@ namespace App\Admin\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Report;
+use App\Models\Scopes\DeletedScope;
 use App\Models\User;
 use Carbon\Carbon;
 use Encore\Admin\Controllers\Dashboard;
@@ -20,7 +21,7 @@ class HomeController extends Controller
     {
 
 
-        $res = Report::select(
+        $res = Report::withoutGlobalScope(DeletedScope::class)->select(
             DB::raw('sum(total_sale_cost) as sale_cost'),
             DB::raw('sum(benefit) as benefit'),
             DB::raw("DATE_FORMAT(created_at,'%M %Y') as months")
@@ -35,7 +36,6 @@ class HomeController extends Controller
         $months = array_column($res, 'months',);
         $sales = array_column($res, 'sale_cost');
         $benefit = array_column($res, 'benefit');
-
 
 
         $percent4 = percent($sales[4], $sales[5]);

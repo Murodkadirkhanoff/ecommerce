@@ -3,6 +3,7 @@
 namespace App\Models;
 
 
+use App\Models\Scopes\DeletedScope;
 use Encore\Admin\Facades\Admin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -35,6 +36,11 @@ class Report extends Model
     public function vendor()
     {
         return $this->belongsTo(Vendor::class);
+    }
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new DeletedScope());
     }
 
 }

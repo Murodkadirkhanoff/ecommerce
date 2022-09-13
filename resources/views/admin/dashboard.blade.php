@@ -128,6 +128,7 @@
                         </button>
                     </div>
                 </div>
+
                 <!-- /.box-header -->
                 <div class="box-body" style="">
                     <div class="row">
@@ -256,12 +257,14 @@
 <script>
 
     var counts = {!! json_encode( \Illuminate\Support\Facades\DB::table('reports')
+                 ->where('is_deleted', 0)
                  ->orderBy('order_source')
                  ->select(\Illuminate\Support\Facades\DB::raw('count(*) as total'))
                  ->groupBy('order_source')
                  ->pluck('total')->toArray()) !!};
 
     var names = {!! json_encode( \Illuminate\Support\Facades\DB::table('reports')
+                 ->where('is_deleted', 0)
                  ->orderBy('order_source')
                  ->groupBy('order_source')
                  ->pluck('order_source')->toArray()) !!};

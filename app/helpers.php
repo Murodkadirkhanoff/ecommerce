@@ -173,7 +173,9 @@ function getProductPrice($product)
 
 function percent($old, $new)
 {
+    if ($old == 0 || $new == 0) {
+        return 0;
+    }
     return number_format((1 - $old / $new) * 100, 2);
 }
-
 
