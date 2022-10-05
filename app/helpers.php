@@ -146,7 +146,8 @@ function sendTelegramMessage($product)
     }
 
     $response = \Telegram\Bot\Laravel\Facades\Telegram::sendPhoto([
-        'chat_id' => '-1001571577155',
+        //'chat_id' => '-1001571577155',
+        'chat_id' => '@itechnouz',
         'photo' => new \Telegram\Bot\FileUpload\InputFile($photo),
         'caption' => "$tags\xF0\x9F\x92\xBB Наименование: <b>$product->name</b> $price\n\n\xE2\x9C\x85 В наличии: <b>$product->in_stock</b>\n\n\xF0\x9F\x8C\x90Просмотр на сайте: <a href=\"https://itechno.uz/products/$product->id\">Перейти</a>",
         'parse_mode' => 'html'
