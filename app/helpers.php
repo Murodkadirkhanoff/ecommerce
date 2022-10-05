@@ -125,7 +125,6 @@ function getTagsAsArray($tags)
 
 function sendTelegramMessage($product)
 {
-    dd($product);
     $photo = env('REMOTE_MEDIA_URL') . getPhoto($product);
     $tags = '';
 
