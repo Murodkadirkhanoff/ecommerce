@@ -17,8 +17,8 @@ function getPhoto($product)
     if ($product->attachments()->first() != null) {
         return $product->attachments()->first()->file;
     }
-    return 'default.png';
 
+    return 'default.png';
 }
 
 
@@ -125,6 +125,7 @@ function getTagsAsArray($tags)
 
 function sendTelegramMessage($product)
 {
+    dd($product);
     $photo = env('REMOTE_MEDIA_URL') . getPhoto($product);
     $tags = '';
 
