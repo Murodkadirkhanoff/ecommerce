@@ -40,12 +40,14 @@
                                  data-items-xs="2" data-autoplay="2000">
                                 <!-- Slide item START -->
                                 @foreach(\App\Models\Brand::all() as $brand)
-
                                     <div class="item">
-                                        <img class="grayscale" src="{{ env('REMOTE_MEDIA_URL') . $brand->image}}"
-                                             alt="client-logo">
+                                        <div style="height: 100px;">
+                                            <img class="grayscale" style="object-fit: contain; height: 100%" src="{{ env('MEDIA_URL') . $brand->image}}"
+                                                 alt="client-logo">
+                                        </div>
+
                                     </div>
-                              @endforeach
+                            @endforeach
                             <!-- Slide item END -->
                             </div>
                         </div>
