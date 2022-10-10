@@ -445,9 +445,9 @@ Footer START -->
 
             <!-- Widget 3 START -->
             <div class="col-lg-3">
-                <h5 class="mb-2 mb-md-4">Contact</h5>
+                <h5 class="mb-2 mb-md-4">Контакты</h5>
                 <!-- Time -->
-                <p class="mb-2">
+                <p class="mb-2"> Телефоны:
                     <span class="h6 fw-light ms-2"> {{ getSystemPhone() }}</span>
                 </p>
 
