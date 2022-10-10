@@ -448,11 +448,10 @@ Footer START -->
                 <h5 class="mb-2 mb-md-4">Contact</h5>
                 <!-- Time -->
                 <p class="mb-2">
-                    Toll free:<span class="h6 fw-light ms-2">+1234 568 963</span>
-                    <span class="d-block small">(9:AM to 8:PM IST)</span>
+                    <span class="h6 fw-light ms-2"> {{ getSystemPhone() }}</span>
                 </p>
 
-                <p class="mb-0">Email:<span class="h6 fw-light ms-2">example@gmail.com</span></p>
+                <p class="mb-0">Email:<span class="h6 fw-light ms-2">itechno.uz@mail.ru</span></p>
 
                 <div class="row g-2 mt-2">
                     <!-- Google play store button -->
