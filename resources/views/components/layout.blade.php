@@ -429,7 +429,7 @@ Footer START -->
                     </div>
 
                     <!-- Link block -->
-                    <div class="col-6 col-md-4">
+                    <div class="col-5 col-md-4">
                         <h5 class="mb-2 mb-md-4">Каталог</h5>
                         <ul class="nav flex-column">
                             <li class="nav-item"><a class="nav-link" href="#">Категории товаров</a></li>
@@ -444,11 +444,10 @@ Footer START -->
             <!-- Widget 2 END -->
 
             <!-- Widget 3 START -->
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <h5 class="mb-2 mb-md-4">Контакты</h5>
                 <!-- Time -->
-                <p class="mb-2"> Телефоны:
-                    <span class="h6 fw-light ms-2"> {{ getSystemPhone() }}</span>
+                <p class="mb-2"> Телефоны: <span class="h6 fw-light ms-2"> {{ getSystemPhone() }}</span>
                 </p>
 
                 <p class="mb-0">Email:<span class="h6 fw-light ms-2">itechno.uz@mail.ru</span></p>
