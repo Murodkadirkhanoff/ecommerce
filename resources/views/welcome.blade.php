@@ -18,7 +18,6 @@
 
 
                         </div>
-
                     @endforeach
                 </div>
             </div>
@@ -40,21 +39,14 @@
                                  data-items-xl="6" data-items-lg="5" data-items-md="4" data-items-sm="3"
                                  data-items-xs="2" data-autoplay="2000">
                                 <!-- Slide item START -->
-                                <div class="item"><img class="grayscale" src="{{env('APP_URL') . '/public/assets/images/client/coca-cola.svg'}}"
-                                                       alt="client-logo"></div>
-                                <div class="item"><img class="grayscale" src="{{env('APP_URL') . '/public/assets/images/client/android.svg'}}"
-                                                       alt="client-logo"></div>
-                                <div class="item"><img class="grayscale" src="{{env('APP_URL') . '/public/assets/images/client/envato.svg'}}"
-                                                       alt="client-logo"></div>
-                                <div class="item"><img class="grayscale" src="{{env('APP_URL') . '/public/assets/images/client/microsoft.svg'}}"
-                                                       alt="client-logo"></div>
-                                <div class="item"><img class="grayscale" src="{{env('APP_URL') . '/public/assets/images/client/netflix.svg'}}"
-                                                       alt="client-logo"></div>
-                                <div class="item"><img class="grayscale" src="{{env('APP_URL') . '/public/assets/images/client/google.svg'}}"
-                                                       alt="client-logo"></div>
-                                <div class="item"><img class="grayscale" src="{{env('APP_URL') . '/public/assets/images/client/linkedin.svg'}}"
-                                                       alt="client-logo"></div>
-                                <!-- Slide item END -->
+                                @foreach(\App\Models\Brand::all() as $brand)
+
+                                    <div class="item">
+                                        <img class="grayscale" src="{{ env('REMOTE_MEDIA_URL') . $brand->image}}"
+                                             alt="client-logo">
+                                    </div>
+                              @endforeach
+                            <!-- Slide item END -->
                             </div>
                         </div>
                         <!-- Slider END -->
@@ -182,7 +174,8 @@
                                             <div class="w-100 mt-auto">
                                                 <!-- Category -->
                                                 <a href="#" class="badge text-success bg-white fs-6 rounded-1"><i
-                                                        class="fas fa-eye text-success me-2"></i>{{views($post)->count()}}</a>
+                                                        class="fas fa-eye text-success me-2"></i>{{views($post)->count()}}
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -190,7 +183,8 @@
                                     <!-- Card body -->
                                     <div class="card-body px-2">
                                         <!-- Title -->
-                                        <h5 class="card-title"><a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a></h5>
+                                        <h5 class="card-title"><a
+                                                href="{{route('posts.show', $post->id)}}">{{$post->title}}</a></h5>
                                         <p class="mb-0 text-truncate-2">{!! \Illuminate\Support\Str::limit($post->body)  !!}</p>
                                     </div>
                                 </div>
